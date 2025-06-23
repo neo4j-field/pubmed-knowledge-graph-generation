@@ -1,0 +1,15 @@
+[project]
+name = "pubmed-knowledge-graph"
+version = "0.1.0"
+description = "Create a knowledge graph of Pubmed articles that may be connected to a patient journey graph"
+authors = [ "Alex Gilmore", "Chris Upkes" ]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "biopython (>=1.85,<2.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
