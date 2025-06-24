@@ -1,0 +1,1202 @@
+1. Diabetol Metab Syndr. 2025 Jun 21;17(1):235. doi: 10.1186/s13098-025-01823-4.
+
+Seagrass Enhalus acoroides extract mitigates obesity and diabetes via GLP-1, 
+PPARγ, SREBP-1c modulation and gut microbiome restoration in diabetic zebrafish.
+
+Kadharusman MM(1), Syahputra RA(2), Kurniawan R(3), Hadinata E(4), Tjandrawinata 
+RR(5), Taslim NA(6), Romano R(7), Santini A(8), Nurkolis F(9)(10)(11).
+
+Author information:
+(1)Faculty of Medicine, Universitas Indonesia, Jakarta, Indonesia.
+(2)Department of Pharmacology, Faculty of Pharmacy, Universitas Sumatera Utara, 
+Medan, 20155, Indonesia.
+(3)Graduate School of Medicine, Faculty of Medicine, Hasanuddin University, 
+Makassar, Indonesia.
+(4)Faculty of Medicine, Ciputra University of Surabaya, Surabaya, 60219, 
+Indonesia.
+(5)Center for Pharmaceutical and Nutraceutical Research and Policy, Faculty of 
+Biotechnology, Atma Jaya Catholic University of Indonesia, Jakarta, 12930, 
+Indonesia.
+(6)Division of Clinical Nutrition, Department of Nutrition, Faculty of Medicine, 
+Hasanuddin University, Makassar, 90245, Indonesia.
+(7)Department of Agricultural Sciences, University of Naples Federico II, Piazza 
+Carlo di Borbone I, Portici, NA, Italy. rafroman@unina.it.
+(8)Department of Pharmacy, University of Napoli Federico II, Via Domenico 
+Montesano, 49, 80131, Napoli, Italy. asantini@unina.it.
+(9)State Islamic University of Sunan Kalijaga (UIN Sunan Kalijaga), Yogyakarta, 
+55281, Indonesia. fahrul.nurkolis.mail@gmail.com.
+(10)Master of Basic Medical Science, Faculty of Medicine, Universitas Airlangga, 
+Surabaya, Indonesia. fahrul.nurkolis.mail@gmail.com.
+(11)Medical Research Center of Indonesia, Surabaya, East Java, Indonesia. 
+fahrul.nurkolis.mail@gmail.com.
+
+BACKGROUND: The global rise in obesity and type 2 diabetes highlights the need 
+for safe and effective therapeutic interventions. Enhalus acoroides is a 
+tropical seagrass rich in carotenoids and other bioactives. Its potential for 
+metabolic regulation has been suggested in vitro, but in vivo efficacy and 
+molecular mechanisms remain unexplored. This study aimed to evaluate the 
+anti-obesity and anti-diabetic effects of Enhalus acoroides extract (SEAE) in a 
+zebrafish model of diet- and glucose-induced metabolic dysfunction.
+METHODS: Adult zebrafish were subjected to overfeeding and glucose immersion, 
+after overfeeding and 14 days of glucose immersion to induce diabetes, adult 
+zebrafish were randomized into three groups: untreated diabetic, SEAE-treated 
+(5 mg/L), and metformin-treated (3.3 mg/L) for 20 days. Body weight, fasting 
+blood glucose, lipid profile, gene expression (GLP-1, PPARγ, SREBP-1c), and gut 
+microbiota profiles via 16 S rRNA sequencing were assessed.
+RESULTS: SEAE significantly reduced body weight and blood glucose in diabetic 
+zebrafish (p < 0.05), with efficacy comparable to or exceeding Metformin. It 
+upregulated GLP-1 and downregulated PPARγ and SREBP-1c. SEAE also reduced total 
+cholesterol, triglycerides, and LDL levels, while increasing HDL levels. 
+Moreover, SEAE restored the Firmicutes/Bacteroidetes ratio, increased alpha 
+diversity, and shifted beta diversity toward healthy controls. SEAE-treated fish 
+showed microbial profiles closer to normal than those treated with Metformin.
+CONCLUSIONS: SEAE exhibits strong anti-obesity and anti-hyperglycemic effects by 
+modulating key metabolic pathways and restoring gut microbial homeostasis. These 
+findings highlight SEAE as a promising marine-derived therapeutic candidate for 
+metabolic syndrome and warrant further investigation as a functional food or 
+nutraceutical.
+CLINICAL TRIAL: Not applicable.
+
+© 2025. The Author(s).
+
+DOI: 10.1186/s13098-025-01823-4
+PMCID: PMC12181897
+PMID: 40542443
+
+Conflict of interest statement: Declarations. Ethics and consent to participate: 
+not applicable. Consent to publish: Not applicable. Informed consent: Not 
+applicable. AI statements: During the revision of this work the author(s) used 
+ChatGPT in order to correct the language and paraphrase the necessary sections. 
+After using this tool/service, the author(s) reviewed and edited the content as 
+necessary and took full responsibility for the content of the published article. 
+Authors are ultimately responsible and accountable for the contents of the work. 
+Institutional review board statement: All procedures adhered strictly to the 
+Guidelines for Reporting In Vivo Experiments (ARRIVE) and have also been 
+reviewed and accepted in the Preclinical Trials Study Register with number 
+PCTE0000604. Competing interests: The authors declare no competing interests.
+
+
+2. Arch Pharm Res. 2025 Jun 20. doi: 10.1007/s12272-025-01552-2. Online ahead of 
+print.
+
+Evaluation of bone health and fracture risk in type 2 diabetes: a network 
+meta-analysis of anti-diabetic treatments versus placebo.
+
+Oh S(1), Park SE(2), Kim E(3)(4)(5)(6).
+
+Author information:
+(1)Data Science, Evidence-Based and Clinical Research Laboratory, Department of 
+Health, Social and Clinical Pharmacy, College of Pharmacy, Chung-Ang University, 
+Seoul, 06974, Republic of Korea.
+(2)Department of Internal Medicine, Division of Endocrinology and Metabolism, 
+Kangbuk Samsung Hospital, Sungkyunkwan University School of Medicine, Seoul, 
+03063, Korea.
+(3)Data Science, Evidence-Based and Clinical Research Laboratory, Department of 
+Health, Social and Clinical Pharmacy, College of Pharmacy, Chung-Ang University, 
+Seoul, 06974, Republic of Korea. eykimjcb777@cau.ac.kr.
+(4)Central Research Centre of Epigenome based platform and its Application for 
+Drug Development, College of Pharmacy, Chung-Ang University, Seoul, Republic of 
+Korea. eykimjcb777@cau.ac.kr.
+(5)The Graduate School of Pharmaceutical Industry Management, Chung-Ang 
+University, Seoul, Republic of Korea. eykimjcb777@cau.ac.kr.
+(6)Department of Pharmaceutical Regulatory Sciences, Chung-Ang University, 
+Seoul, Republic of Korea. eykimjcb777@cau.ac.kr.
+
+While studies have highlighted the negative effects of certain antidiabetic 
+agents, similar evidence for other antidiabetic agents remains limited. In this 
+study, we aimed to analyze bone fractures and bone mineral densities (BMDs) 
+across patients receiving antidiabetic treatments, considering both overall and 
+specific sites. We comprehensively searched PubMed, Embase, and 
+ClinicalTrials.gov up to March 2024 to determine the effect of antidiabetic 
+agent use on bone health in patients with type 2 diabetes mellitus. The primary 
+outcome was to reveal variations in fractures across different anti-diabetic 
+treatment modalities. The secondary outcome was the differences in BMDs based on 
+treatment type. The fractures were grouped based on the division of specific 
+sites. We also performed a subgroup analysis to identify differences between 
+treatment types by dividing the study by treatment duration. The protocol is 
+registered (CRD42024538789). A total of 234,759 individuals were enrolled in the 
+242 studies. We observed a trend wherein all anti-diabetic treatments were 
+associated with decreased risk of fracture compared with placebo; however, this 
+was not significant in direct analysis (OR 0.92, 95% CI 0.84-1.01, I2 = 0, 
+P = 0.07). For indirect analysis, glucagon-like peptide-1 receptor agonists 
+(GLP1RAs) demonstrated a significant effect on preventing fractures in 
+non-vertebral fracture, hip fracture, vertebral and hip fracture, and overall 
+fracture (odds ratio [OR] 0.62, 95% confidence interval [CI] 0.43-0.90; OR 0.67, 
+95% CI 0.49-0.92; OR 0.64, 95% CI 0.47-0.87; OR 0.58, 95% CI 0.48-0.69, 
+respectively). Additionally, dipeptidyl peptidase-4 inhibitors (DPP4i) 
+significantly reduced incidences of non-vertebral fracture, vertebral and hip 
+fracture, and overall fracture risk (OR 0.34, 95% CI 0.25-0.45; OR 0.72, 95% CI 
+0.55-0.95; OR 0.67, 95% CI 0.55-0.82, respectively). Meanwhile, metformin also 
+reduces overall fracture risk (OR 0.60, 95% CI 0.42-0.88). We observed no 
+significant differences between the antidiabetic agents according to the 
+specific fracture site or study time point. Most antidiabetic treatments except 
+thiazolidinediones did not increase the risk of fractures compared with the 
+placebo. Incretin-based therapies (GLP1RA and DPP4i) exerted beneficial effects 
+on fracture prevention compared with other treatments. These findings underscore 
+the need for well-conducted RCTs to provide further evidence.
+
+© 2025. The Author(s).
+
+DOI: 10.1007/s12272-025-01552-2
+PMID: 40542285
+
+Conflict of interest statement: Declarations. Conflict of interest: Kim EY is 
+the Editor of this journal, Archives of Pharmacal Research. However, her 
+position did not influence the editorial decision or the peer review process of 
+this manuscript. Any other authors declared no conflict of interest.
+
+
+3. Psychiatry Res. 2025 Jun 9;351:116592. doi: 10.1016/j.psychres.2025.116592. 
+Online ahead of print.
+
+Efficacy and safety of GLP1-ras compared to SGLT2is and DPP-4is in individuals 
+with schizophrenia and diabetes: A Danish nationwide target-trial emulation 
+study.
+
+Jacobsen SL(1), Köhler-Forsberg O(2), Danielsen AA(2), Rohde C(3).
+
+Author information:
+(1)Psychosis Research Unit, Aarhus University Hospital - Psychiatry, Aarhus, 
+Denmark; Department of Clinical Medicine, Aarhus University, Aarhus, Denmark. 
+Electronic address: SOERJC@rm.dk.
+(2)Psychosis Research Unit, Aarhus University Hospital - Psychiatry, Aarhus, 
+Denmark; Department of Clinical Medicine, Aarhus University, Aarhus, Denmark.
+(3)Department of Clinical Medicine, Aarhus University, Aarhus, Denmark; 
+Department of Affective Disorder, Aarhus University Hospital - Psychiatry, 
+Aarhus, Denmark.
+
+OBJECTIVE: Previous studies have suggested that 
+glucagon-like-peptide-1-receptor-agonists (GLP1-ras) may offer neuroprotective 
+and cardiovascular benefits. However, concerns have been raised about potential 
+adverse effects of GLP1-ras including depression and suicidal ideation. This 
+target-trial-emulation study aims to examine the effects of GLP1-ras treatment 
+on psychiatric hospital admission and all-cause mortality in individuals with 
+schizophrenia.
+METHODS: We used the Danish nationwide registers to identify all individuals 
+diagnosed with schizophrenia and who were treated with metformin (Glucophage). 
+Among these, we identified those who initiated second-line treatment for 
+type-2-diabetes with one of the following glucose-lowering drugs: GLP1-ras, 
+sodium-glucose-cotransporter-2-inhibitors(SGLT2is), or 
+dipeptidyl-peptidase-4-inhibitors(DPP-4is). We then compared the hazard rate 
+ratios(HRR) for psychiatric admission and all-cause mortality between the 
+different treatment arms using a Cox-proportional-hazards model, adjusting for 
+covariates to minimize confounding.
+RESULTS: We included 354 individuals with schizophrenia(47 % female, mean age 
+43.8 years) and type-2-diabetes who initiated treatment with a second-line GLD. 
+Of these, 71, 197, and 86 initiated treatment with GLP1-ras, DPP-4is, and 
+SGLT2is respectively. We found no difference in the risk of psychiatric 
+admission between the three treatment arms. In the fully adjusted model, 
+treatment with DPP-4is and SGLT2is analysed as a compound exposure, was not 
+associated with a significant reduced risk of psychiatric admission, with a HRR 
+of 0.78(95 %-CI:0.38-1.59), when compared to GLP1-ras. Only 5 deaths occurred 
+during follow-up, making a comparison of all-cause mortality between the 
+treatment arms unfeasible.
+CONCLUSION: We observed no difference in the risk of psychiatric admission or 
+all-cause mortality for individuals with schizophrenia treated with GLP1-ras 
+compared to SGLT2is and DPP-4is.
+
+Copyright © 2025. Published by Elsevier B.V.
+
+DOI: 10.1016/j.psychres.2025.116592
+PMID: 40526989
+
+Conflict of interest statement: Declaration of competing interest CR received 
+the 2020 Lundbeck Foundation Talent Prize. AAD has received a speaker honorarium 
+from Otsuka Pharmaceutical. OKF received speaker fees from Lundbeck Pharma A/S 
+and is a consultant for WCG. SLJ received the Lundbeckfonden 
+Scholarshipstipendium in Psychiatry.
+
+
+4. J Med Food. 2025 Jun 16. doi: 10.1089/jmf.2025.k.0038. Online ahead of print.
+
+Salacia Reticulata Extract Improves Insulin Sensitivity and Glucose Homeostasis 
+by Activating Insulin Signaling and Glucagon-like Peptide-1 Modulation.
+
+Jung J(1), Park SH(1), Cho W(1), Lee M(2), Kim J(3), Gwon Y(3), Kim OK(4).
+
+Author information:
+(1)Clinical Nutrition Institute, Kyung Hee University, Seoul, Korea.
+(2)Department of Food Innovation and Health, Kyung Hee University, Yongin, 
+Korea.
+(3)R&D Division, Daehan Chemtech Co., Ltd., Gwacheon, Korea.
+(4)Division of Food and Nutrition and Human Ecology Research Institute, Chonnam 
+National University, Gwangju, Korea.
+
+This study evaluated the effects of Salacia reticulata on glucose metabolism, 
+insulin signaling, and key metabolic markers in type 2 diabetes (T2D). We 
+evaluated how S. reticulata influences the activity of major enzymes responsible 
+for carbohydrate breakdown. In vitro studies on C2C12 cells also examined 
+glucose uptake and insulin signaling pathway activation. Otsuka Long-Evans 
+Tokushima Fatty (OLETF) rats were treated with S. reticulata (25 and 50 mg/kg 
+body weight [bw]) or metformin (126 mg/kg bw) for 16 weeks. S. reticulata 
+suppressed the activities of α-glucosidase and α-amylase while promoting insulin 
+signaling pathways and glucose uptake in C2C12 myotubes. In OLETF rats, 
+administration of S. reticulata markedly enhanced glucose tolerance, lowered 
+fasting blood glucose and HbA1c levels, and significantly decreased the 
+homeostatic model assessment for insulin resistance (HOMA-IR) index, reflecting 
+improved insulin sensitivity. Western blot analysis revealed increased insulin 
+receptor substrate-1, PI3K, Akt, and activated protein kinase (AMPK) 
+phosphorylation, along with upregulated GLUT4 expression in skeletal muscle. 
+Serum glucagon-like peptide-1 (GLP-1) and adiponectin levels were significantly 
+elevated in the S. reticulata-treated groups, helping improve insulin action and 
+systemic metabolic regulation. As a result, S. reticulata exerts beneficial 
+effects on insulin sensitivity and glucose homeostasis by affecting key 
+mechanisms such as insulin signaling, incretin dynamics, and adipokine 
+modulation, reinforcing its value as a n'atural agent for treating T2D and 
+associated metabolic issues.
+
+DOI: 10.1089/jmf.2025.k.0038
+PMID: 40523228
+
+
+5. Pak J Pharm Sci. 2025 Mar-Apr;38(2):457-461.
+
+Effect of Semaglutide on C-peptide levels in patients with type 2 diabetes.
+
+Fan P(1), Ma X(1).
+
+Author information:
+(1)Department of Endocrinology, Tianshui Traditional Chinese Medicine Hospital, 
+Tianshui, Gansu China.
+
+The study evaluated the effect of semaglutide treatment for type 2 diabetes 
+mellitus (T2DM), specifically examining its effect on C-peptide levels. A total 
+of 80 patients hospitalized for T2DM were included (January 2022-December 2023), 
+and all patients had conventional treatment with oral metformin. Patients in the 
+control group received subcutaneous insulin aspart, while patients in the 
+observation group received subcutaneous semaglutide. Key variables, fasting 
+blood glucose (FBG), 2-hour postprandial blood glucose (2h-PBG), and time to 
+target blood glucose, were assessed at the baseline and again after three 
+months. Serum endothelin-1 (ET-1), functional vasodilation (FMD), fasting 
+C-peptide, fasting insulin (FINS), and the insulin resistance index (Homa-IR) 
+were also measured. At the end of three months, the observation group had 
+significantly lower 2h-PBG (9.01±0.53 mmol/L) and FBG (6.13±0.68 mmol/L) than 
+the control group (P<0.05). Additionally, the time to target glucose was shorter 
+in the observation group (3.88±0.69 vs. 5.73±1.01 days, P<0.05). The observation 
+group also had lower ET-1, higher FMD, and increased Homa-IR (P<0.05). In 
+conclusion, semaglutide optimizes glycemic control, lowers insulin resistance, 
+and increases vasorelaxation function. Semaglutide has great potential as a 
+therapeutic agent in T2DM.
+
+PMID: 40501244 [Indexed for MEDLINE]
+
+
+6. Front Endocrinol (Lausanne). 2025 May 27;16:1586941. doi: 
+10.3389/fendo.2025.1586941. eCollection 2025.
+
+Glucagon-like peptide-1 receptor agonists in liver transplant recipients with 
+diabetes: changes in glucose control and cardiometabolic risk factors.
+
+Grancini V(1), Cogliati I(1), Alicandro G(2)(3), Oliverio A(4), Di Benedetto 
+C(5), Gaglio A(1), Lampertico P(5)(6), Resi V(#)(1), Orsi E(#)(1).
+
+Author information:
+(1)Fondazione Istituto di Ricerca e Cura a Carattere Scientifico (IRCCS) Ca' 
+Granda Ospedale Maggiore Policlinico, Endocrinology Unit, Milan, Italy.
+(2)Department of Pathophysiology and Transplantation, University of Milan, 
+Milan, Italy.
+(3)Mother and Child Department, Pediatric Cystic Fibrosis Center, Fondazione 
+Istituto di Ricerca e Cura a Carattere Scientifico (IRCCS) Ca' Granda Ospedale 
+Maggiore Policlinico, Milan, Italy.
+(4)Nutrition Research and Metabolomics Unit, Department of Experimental 
+Oncology, Fondazione Istituto di Ricerca e Cura a Carattere Scientifico (IRCCS) 
+Istituto Nazionale dei Tumori di Milano, Milan, Italy.
+(5)Division of Gastroenterology and Hepatology, Foundation Istituto di Ricerca e 
+Cura a Carattere Scientifico (IRCCS) Ca' Granda Ospedale Maggiore Policlinico, 
+Milan, Italy.
+(6)CRC "A. M. and A. Migliavacca" Center for Liver Disease, Department of 
+Pathophysiology and Transplantation, University of Milan, Milan, Italy.
+(#)Contributed equally
+
+INTRODUCTION: Data about efficacy and safety of GLP1 receptor agonists in 
+liver-transplanted patients are lacking.
+METHODS: Among a population of liver-transplanted individuals with diabetes, we 
+evaluated 68 patients before, 6, 12 and 18 months after starting a GLP1RA-based 
+therapy, as add on to metformin or insulin. We assessed glycemic control, body 
+weight and composition (with bio-impedance analysis), liver fibrosis and 
+steatosis (with transient elastography). Amylase, lipase levels and concomitant 
+therapies were recorded at basal and follow up evaluations. Patients had an 
+e-mail contact to report any adverse events.
+RESULTS: We observed a significant decrease in fasting plasma glucose, HbA1c, 
+weight, BMI, waist circumference. We demonstrated a reduction in total and LDL 
+cholesterol. Liver stiffness decreased during the first 6 months. The rate of 
+adverse events was low and the symptoms reported didn't require any medical 
+measures: 26.9% reported mild nausea, only 3 patients (7.69%) discontinued the 
+drug dose due to gastrointestinal intolerance. No pancreatitis episodes were 
+detected, amylase and lipase levels didn't increase (despite concomitant 
+calcineurin inhibitors). No adjustments in immunosuppressant therapy were 
+reported. Among the 45 patients requiring insulin when a GLP1RA therapy was 
+added on, 20 (33.2%) and 31 (45.5%) could suspend insulin therapy at, 
+respectively, 6 and 18 months.
+DISCUSSION: In conclusion, GLP1RA-based therapy can be considered safe and 
+effective in a short-term follow up in liver-transplanted patients. Further 
+studies are needed to assess the effects of this drugs on long term 
+complications, such as renal impairment, cardiovascular events and all-cause 
+mortality.
+
+Copyright © 2025 Grancini, Cogliati, Alicandro, Oliverio, Di Benedetto, Gaglio, 
+Lampertico, Resi and Orsi.
+
+DOI: 10.3389/fendo.2025.1586941
+PMCID: PMC12148859
+PMID: 40496570 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.
+
+
+7. Front Endocrinol (Lausanne). 2025 May 27;16:1605631. doi: 
+10.3389/fendo.2025.1605631. eCollection 2025.
+
+The potential biomarker value of soluble CD36 in the treatment of diabetic 
+kidney disease: evidence from GLP-1 and insulin interventions.
+
+Li W(1), Wang Y(1).
+
+Author information:
+(1)Department of Endocrinology, The First Affiliated Hospital of Qingdao 
+University, Qingdao, China.
+
+BACKGROUND: Soluble CD36 (sCD36), the circulating form of the scavenger receptor 
+CD36, plays a key role in lipid accumulation and inflammation during the 
+progression of diabetic kidney disease (DKD), and has been proposed as a 
+promising non-invasive biomarker. The renoprotective effects of glucagon-like 
+peptide-1 receptor agonists (GLP-1RAs) may involve modulation of sCD36. This 
+study aimed to evaluate the impact of GLP-1RA and insulin treatment on sCD36 
+levels and their association with renal function in DKD patients.
+METHODS: This single-center, prospective observational cohort study enrolled 191 
+patients with type 2 diabetes and early-stage DKD, who were stratified into 
+three groups based on treatment regimen: control group (n = 63), insulin group 
+(n = 71), and GLP-1RA group (n = 57). All patients received standard care with 
+metformin, with the insulin and GLP-1RA groups receiving additional respective 
+treatments for 12 weeks. Clinical parameters including sCD36, urinary 
+albumin-to-creatinine ratio (UACR), lipid profile, glycemic markers, and islet 
+function indices were assessed at baseline and post-treatment. Intra- and 
+inter-group comparisons were performed using paired tests and analysis of 
+covariance. Generalized linear regression models were applied to assess the 
+relationship between sCD36 and renal function.
+RESULTS: Baseline sCD36 and UACR levels were comparable across the three groups 
+(P > 0.05). After 12 weeks, sCD36 levels significantly declined in the GLP-1RA 
+group (median: 195.20 ng/mL, IQR: 160.45-314.75), compared to the insulin group 
+(364.60 ng/mL, IQR: 279.10-394.10) and control group (386.10 ng/mL, IQR: 
+323.60-471.30) (P < 0.001). The GLP-1RA group also showed the most marked 
+reduction in UACR (P < 0.001). Regression analysis demonstrated a significant 
+positive association between sCD36 and UACR levels both before and after 
+treatment (P < 0.001), and the change in sCD36 (ΔsCD36) was positively 
+correlated with the improvement in UACR, suggesting a link to reduced renal 
+lipotoxicity and inflammation.
+CONCLUSION: GLP-1RAs significantly reduce sCD36 and UACR levels in patients with 
+early DKD, outperforming insulin in renoprotection. These findings raise the 
+possibility that GLP-1RAs may exert renoprotective effects through modulation of 
+CD36-related pathways, although direct mechanistic validation was not performed 
+in this study.sCD36 may serve as a useful biomarker for monitoring DKD 
+progression and therapeutic response, though further multicenter and long-term 
+studies are needed to confirm its clinical utility.
+
+Copyright © 2025 Li and Wang.
+
+DOI: 10.3389/fendo.2025.1605631
+PMCID: PMC12148844
+PMID: 40496556 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.
+
+
+8. World J Diabetes. 2025 May 15;16(5):105549. doi: 10.4239/wjd.v16.i5.105549.
+
+Anemia risk and mitigation strategies in type 2 diabetic patients: The role of 
+novel antidiabetic agents.
+
+Meliš P(1), Cigrovski Berkovic M(2).
+
+Author information:
+(1)Department for Endocrinology, Diabetes and Clinical Pharmacology, Clinical 
+Hospital Dubrava, Zagreb 10000, Croatia.
+(2)Department for Sport and Exercise Medicine, University of Zagreb Faculty of 
+Kinesiology, Zagreb 10000, Croatia. maja.cigrovskiberkovic@gmail.com.
+
+Anemia is a common yet often overlooked complication in patients with type 2 
+diabetes mellitus (T2DM), particularly those with chronic kidney disease. It 
+significantly impacts patients' quality of life, cardiovascular health, and 
+treatment outcomes. Despite its high prevalence, current clinical guidelines 
+lack specific recommendations for anemia prevention and management in T2DM, 
+especially in the context of newer antidiabetic therapies. This review explores 
+the potential of emerging antidiabetic medications, such as sodium-glucose 
+cotransporter-2 inhibitors, glucagon-like peptide-1 receptor agonists (GLP-1 
+RAs), and combined GLP-1-RA/GIP to mitigate anemia risk. Early detection and 
+management of anemia in T2DM patients are crucial for improving glycemic 
+control, reducing cardiovascular morbidity, and enhancing overall treatment 
+outcomes. This review underscores the need for further research to better 
+understand the mechanisms by which these novel therapies influence anemia risk 
+and to integrate these findings into clinical practice.
+
+©The Author(s) 2025. Published by Baishideng Publishing Group Inc. All rights 
+reserved.
+
+DOI: 10.4239/wjd.v16.i5.105549
+PMCID: PMC12142205
+PMID: 40487613
+
+Conflict of interest statement: Conflict-of-interest statement: All the authors 
+report no relevant conflicts of interest for this article.
+
+
+9. J Ocul Pharmacol Ther. 2025 Jun 9. doi: 10.1089/jop.2024.0175. Online ahead of
+ print.
+
+Risk and Protective Factors for Ocular Surface Disease in Patients with Type 2 
+Diabetic Mellitus: A Retrospective Cohort Study.
+
+Sun CC(1)(2), Pan LY(3)(4), Chen NN(5), Kuo YK(1), Chen TH(6)(7).
+
+Author information:
+(1)Department of Ophthalmology, Chang Gung Memorial Hospital, Keelung, Taiwan.
+(2)School of Medicine, College of Medicine, Chang Gung University, Taoyuan, 
+Taiwan.
+(3)Department of Ophthalmology, New Taipei Municipal Tucheng Hospital, New 
+Taipei City, Taiwan.
+(4)Department of Ophthalmology, Chang Gung Memorial Hospital, Taoyuan, Taiwan.
+(5)Department of Ophthalmology, Chang Gung Memorial Hospital, Chiayi, Taiwan.
+(6)Department of Cardiology, Chang Gung Memorial Hospital, Keelung, Taiwan.
+(7)School of Traditional Chinese Medicine, Chang Gung University, Taoyuan, 
+Taiwan.
+
+Purpose: Identify the risk and protective factors for ocular surface disease 
+(OSD) in patients with type 2 diabetes mellitus (T2DM). Methods: This 
+retrospective cohort study used the Chang Gung Research Database (2005-2020) for 
+patients with T2DM. A total of 161,001 patients were included, of which 915 had 
+OSD and 160,086 did not. The OSD group was further divided into recurrent 
+corneal erosion (RCE) (n = 92) and corneal ulcer (n = 371) groups after 
+excluding those with overlapping diagnoses. The risk and protective factors were 
+also analyzed. Results: After age and gender matching, the OSD group had a 
+considerably higher baseline and mean HbA1c and a higher incidence of dry eye 
+disease (DED), diabetic neuropathy, retinopathy, and ocular procedures. After 
+adjusting for gender, age, and diabetes mellitus (DM) duration, we found that 
+DED, higher mean HbA1c, diabetic neuropathy, trans pars plana vitrectomy (TPPV) 
+and cataract surgery were the contributing factors for OSD. Antihyperglycemic 
+agents, especially sodium-glucose cotransporter-2 inhibitors and glucagon-like 
+peptide-1 agonists, considerably protect against OSD. DED and TPPV were risk 
+factors for corneal ulcers but not for RCE; however, DM medication had the same 
+effect on corneal ulcers and RCE. Conclusions: Poor diabetic control, diabetic 
+neuropathy, and ocular procedures are the risk factors for OSD. 
+Antihyperglycemic agents, except metformin, can prevent OSD in patients with 
+T2DM. Additionally, DED and TPPV are risk factors for corneal ulcers but not for 
+RCE. A prospective randomized controlled trial is required to confirm our 
+results.
+
+DOI: 10.1089/jop.2024.0175
+PMID: 40485291
+
+
+10. Clin Ther. 2025 Jun 5:S0149-2918(25)00167-5. doi: 
+10.1016/j.clinthera.2025.05.003. Online ahead of print.
+
+Characteristics and Treatment Patterns of People Without Type 2 Diabetes 
+Diagnoses Who Use Tirzepatide in the United States.
+
+Gibble TH(1), Hankosky ER(2), Meeks A(2), Liao B(2), Ward J(2), Huang A(3), 
+Chinthammit C(2).
+
+Author information:
+(1)Eli Lilly and Company, Indianapolis, Indiana. Electronic address: 
+hunter_theresa_marie@lilly.com.
+(2)Eli Lilly and Company, Indianapolis, Indiana.
+(3)Tigermed-BDM Inc., Somerset, Indiana.
+
+PURPOSE: The purpose of this study was to understand real-world use of 
+Tirzepatide among people without type 2 diabetes (T2D) diagnoses in the United 
+States in the MerativeTM MarketScan® Commercial (MarketScan) and Optum 
+Clinformatics Claims (CDM) databases.
+METHODS: This retrospective, observational, descriptive study used data from the 
+MarketScan and Optum CDM databases (index date: first-observed Tirzepatide 
+claim) from May 2021 to September 2023. Key eligibility criteria included age 
+≥18 years, ≥1 Tirzepatide claim, no baseline T2D diagnosis codes or 
+antihyperglycemic medication use (except metformin), and continuous medical and 
+pharmacy enrollment for ≥12 months pre-index. Demographic characteristics were 
+assessed at the index date, while clinical characteristics and treatment-related 
+data were identified during the 12-month pre-index period. Tirzepatide 
+persistence and utilization (6 months post index) were assessed for individuals 
+with ≥6 months of follow-up after initiation of Tirzepatide treatment (index 
+date). Data were analyzed separately for each database.
+FINDINGS: Overall, 15,534 eligible adults were identified in the MarketScan 
+database and 6800 in the Optum CDM database; mean age was 46.2 years and 55.9 
+years, respectively, and in both databases, >70% were female. A total of 70.6% 
+(MarketScan) and 81.0% (Optum CDM) of individuals had at least one 
+obesity-related complication, with the most prevalent being hypertension, 
+dyslipidemia, and pre-diabetes. There were 8709 individuals in the MarketScan 
+database and 3384 in the Optum CDM database with ≥6 months of follow-up. In both 
+databases, approximately two-thirds of people were started on 2.5 mg and, by the 
+sixth prescription fill, the most common doses of Tirzepatide were 5 mg and 7.5 
+mg. Tirzepatide persistence ranged from 60.6% to 75.7% across both databases, 
+with an allowed gap between prescriptions of 45 days or 60 days. Of individuals 
+who discontinued tirzepatide, 10.2-19.5% restarted Tirzepatide during the 
+6-month follow-up.
+IMPLICATIONS: In both databases, most people initiating Tirzepatide without T2D 
+diagnoses had ≥1 obesity-related complication, indicating that Tirzepatide is 
+being used in people with multimorbidity. A high proportion of people who 
+initiated Tirzepatide were persistent on treatment at 6 months, which is higher 
+than that previously reported for glucagon-like peptide-1 receptor agonists.
+
+Copyright © 2025 The Author(s). Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.clinthera.2025.05.003
+PMID: 40480878
+
+Conflict of interest statement: Declaration of competing interest Theresa Hunter 
+Gibble is an employee and stockholder of Eli Lilly and Company. Emily R. 
+Hankosky is an employee and stockholder of Eli Lilly and Company. Alexandra 
+Meeks is an employee and stockholder of Eli Lilly and Company. Birong Liao is an 
+employee and stockholder of Eli Lilly and Company. Jennifer Ward is an employee 
+and stockholder of Eli Lilly and Company. Ahong Huang is a paid consultant of 
+Eli Lilly and Company. Chanadda Chinthammit is an employee and stockholder of 
+Eli Lilly and Company.
+
+
+11. Respir Med. 2025 Jun 4;245:108197. doi: 10.1016/j.rmed.2025.108197. Online
+ahead  of print.
+
+Glucagon-like peptide 1 (GLP-1) receptor agonists and asthma and COPD 
+exacerbations in adults with diabetes: A systematic review.
+
+Cooper DH(1), Akbarian N(2), Aaron SD(2), Luks V(2), Kendzerska T(2).
+
+Author information:
+(1)The Ottawa Hospital Research Institute, Canada; Department of Medicine, 
+Faculty of Medicine, University of Ottawa, Ottawa, Ontario, Canada. Electronic 
+address: Daniel.cooper@uottawa.ca.
+(2)The Ottawa Hospital Research Institute, Canada; Department of Medicine, 
+Faculty of Medicine, University of Ottawa, Ottawa, Ontario, Canada.
+
+BACKGROUND AND PURPOSE: Glucagon-like peptide-1 receptor agonists (GLP-1RA) are 
+antihyperglycemic agents used to control type 2 diabetes mellitus (T2DM). 
+Recently, there has been increased recognition of the potential pulmonary 
+protective effects of GLP-1RA. Given the bidirectional association between T2DM 
+and obstructive lung disease (OLD) incidence and progression, our systematic 
+review aimed to determine if GLP-1RA therapy for comorbid T2DM was associated 
+with a decreased risk of asthma and COPD exacerbations, relative to other T2DM 
+treatments.
+METHODS: We systematically searched for English-language articles published in 
+Ovid Medline, Embase, Scopus, CENTRAL and CINAHL databases from inception to 
+June 25, 2024. Random effects meta-analysis was used to aggregate data where 
+feasible.
+RESULTS: Of 23 full-text manuscripts considered for inclusion, six retrospective 
+observational studies were selected (total N = 62,678). The pooled incidence 
+rate ratios (IRR) of asthma or COPD exacerbations demonstrated a statistically 
+significant lower risk of exacerbations associated with GLP-1RA compared to 
+sulfonylureas (IRR, 95 %CI: 0.52, 0.42-0.64) or dipeptidyl peptidase-4 
+inhibitors (DPP-4I) (IRR 0.63, 0.47-0.86), but not sodium glucose 
+cotransporter-2 inhibitors (SGLT2I) (IRR 0.66, 0.21-2.05). The risk of 
+exacerbations rate was also lower in GLP-1RA users relative to insulin in a 
+single study (IRR 0.39, 0.26-0.58) and higher compared to metformin in a single 
+Japanese cohort (IRR 1.24, 1.08-1.43).
+CONCLUSION: Our systematic review and meta-analysis provides evidence for a 
+reduced risk for asthma and COPD exacerbations associated with GLP-1RA use in 
+adults with OLD and T2DM, relative to sulfonylureas or DPP-4I medications. 
+Future research should focus on confirming our observed relationships in 
+prospective trials.
+
+Copyright © 2025 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.rmed.2025.108197
+PMID: 40480531
+
+Conflict of interest statement: Declaration of competing interest There are no 
+other reported conflicts of interest.
+
+
+12. Diabetologia. 2025 Jun 5. doi: 10.1007/s00125-025-06453-z. Online ahead of 
+print.
+
+Glucagon-like peptide-1 receptor agonists and gastrointestinal cancer risk in 
+individuals with type 2 diabetes.
+
+Kuo CC(1), Chuang MH(1), Li CH(2), Tsai YW(3), Huang PY(1), Kuo HT(1)(4), Lai 
+CC(5)(6).
+
+Author information:
+(1)Department of Internal Medicine, Chi Mei Medical Center, Tainan, Taiwan.
+(2)Department of Physical Medicine and Rehabilitation, Chi Mei Hospital, Tainan, 
+Taiwan.
+(3)Center for Integrative Medicine, Chi Mei Medical Center, Tainan, Taiwan.
+(4)School of Medicine, College of Medicine, National Sun Yat-sen University, 
+Kaohsiung, Taiwan.
+(5)School of Medicine, College of Medicine, National Sun Yat-sen University, 
+Kaohsiung, Taiwan. dtmed141@gmail.com.
+(6)Department of Intensive Care Medicine, Chi Mei Medical Center, Tainan, 
+Taiwan. dtmed141@gmail.com.
+
+AIMS/HYPOTHESIS: Although benefits of glucagon-like peptide-1 receptor agonists 
+(GLP-1RAs) have been demonstrated in treatment of type 2 diabetes and weight 
+management, their potential role in cancer prevention remains inadequately 
+explored.
+METHODS: Using the TriNetX Research Network, we conducted a retrospective cohort 
+study comparing new users of GLP-1RAs with users of other glucose-lowering 
+medications. Propensity score matching was performed for demographic factors, 
+socioeconomic factors, family history, lifestyle factors and cancer risk 
+factors. The primary outcome was the incidence of obesity-related 
+gastrointestinal cancers, and secondary outcomes were the incidence of 
+individual cancer types.
+RESULTS: Using adjusted HRs (aHRs), GLP-1RA use was found to be associated with 
+a significantly lower risk of overall gastrointestinal cancer compared with all 
+other glucose-lowering medications (insulin: aHR 0.29; 95% CI 0.23, 0.37; 
+metformin: aHR 0.84; 95% CI 0.71, 0.99; sulfonylureas: aHR 0.71; 95% CI 0.62, 
+0.80; thiazolidinediones: aHR 0.86; 95% CI 0.74, 0.99; dipeptidyl peptidase-4 
+inhibitors: aHR 0.80; 95% CI 0.70, 0.91; sodium-glucose cotransporter-2 
+inhibitors: aHR 0.80; 95% CI 0.68, 0.96). The protective effect was most 
+pronounced compared with insulin therapy, with significant risk reductions 
+across all individual cancers.
+CONCLUSIONS/INTERPRETATION: GLP-1RA use is associated with a reduced risk of 
+gastrointestinal cancers in individuals with type 2 diabetes. These findings 
+suggest potential cancer-protective benefits of GLP-1RAs beyond their 
+established roles in glycaemic management and weight reduction.
+
+© 2025. The Author(s), under exclusive licence to Springer-Verlag GmbH Germany, 
+part of Springer Nature.
+
+DOI: 10.1007/s00125-025-06453-z
+PMID: 40471238
+
+Conflict of interest statement: Data availability: The data utilised in this 
+study were obtained from the TriNetX Research Network, a global federated health 
+research platform providing access to de-identified electronic medical records 
+from participating healthcare organisations. Due to data use agreements and 
+privacy regulations, the individual-level data are not publicly available. 
+However, aggregated data supporting the findings of this study can be accessed 
+through the TriNetX platform by qualified researchers upon reasonable request 
+and subject to approval by TriNetX. Funding: This research received no specific 
+grant from any funding agency in the public, commercial or not-for-profit 
+sectors. Authors’ relationships and activities: The authors declare that there 
+are no relationships or activities that might bias, or be perceived to bias, 
+their work. Contribution statement: C-CK and C-CL conceived and designed the 
+study. C-CK and C-CL performed the statistical analysis, prepared the first 
+draft of the manuscript, and revised the draft. All authors contributed to the 
+interpretation of data and critically revised the content of the draft. C-CK and 
+H-TK supervised the study. All authors gave final approval of the version to be 
+published. As such, they had full access to all data in the study and take 
+responsibility for the integrity of the data and the accuracy of the data 
+analysis. C-CL is the guarantor of this work.
+
+
+13. Diabetes Care. 2025 Jun 4:dc250154. doi: 10.2337/dc25-0154. Online ahead of 
+print.
+
+Risk of Thyroid Tumors With GLP-1 Receptor Agonists: A Retrospective Cohort 
+Study.
+
+Morales DR(1), Bu F(2), Viernes B(3)(4), DuVall SL(3)(4), Matheny ME(5)(6), 
+Simon KR(5)(6), Falconer T(7), Richter LR(7)(8), Ostropolets A(7), Lau 
+WCY(9)(10)(11)(12), Man KKC(9)(10)(11)(12), Chattopadhyay S(13), Mathioudakis 
+N(14), Minty E(15), Nishimura A(16), Sun F(17), Yin C(18), Seager SL(18), Chai 
+Y(9), Zhou JJ(13)(19), Lu Y(20), Reyes C(21), Pistillo A(21), Duarte-Salles 
+T(21), Blacketer C(22), Schuemie MJ(13)(23), Ryan PB(7)(23), Krumholz 
+HM(20)(24)(25), Hripcsak G(7), Khera R(20)(24)(26), Suchard MA(3)(13)(27)(28).
+
+Author information:
+(1)Division of Population Health and Genomics, School of Medicine, University of 
+Dundee, Dundee, U.K.
+(2)Department of Biostatistics, University of Michigan at Ann Arbor, Ann Arbor, 
+MI.
+(3)Veterans Affairs Informatics and Computing Infrastructure Department of 
+Veterans Affairs, Salt Lake City, UT.
+(4)Department of Medicine, University of Utah School of Medicine, Salt Lake 
+City, UT.
+(5)Tennessee Valley Healthcare System, Veterans Affairs Medical Center, 
+Nashville, TN.
+(6)Department of Biomedical Informatics, Vanderbilt University Medical Center, 
+Nashville, TN.
+(7)Department of Biomedical Informatics, Columbia University Irving Medical 
+Center, New York, NY.
+(8)Division of Pediatric Endocrinology, Diabetes, and Metabolism, Department of 
+Pediatrics, Columbia University Irving Medical Center, New York, NY.
+(9)Centre for Safe Medication Practice and Research, Department of Pharmacology 
+and Pharmacy, Li Ka Shing Faculty of Medicine, The University of Hong Kong, Hong 
+Kong, China.
+(10)Laboratory of Data Discovery for Health (D24H), Hong Kong Science Park, Hong 
+Kong, China.
+(11)Research Department of Practice and Policy, School of Pharmacy, University 
+College London, London, U.K.
+(12)Centre for Medicines Optimisation Research and Education, University College 
+London Hospitals NHS Foundation Trust, London, U.K.
+(13)Department of Biostatistics, Fielding School of Public Health, University of 
+California, Los Angeles, CA.
+(14)Division of Endocrinology, Diabetes, and Metabolism, Johns Hopkins 
+University School of Medicine, Baltimore, MD.
+(15)Faculty of Medicine, O'Brien Institute for Public Health, University of 
+Calgary, Calgary, Alberta, Canada.
+(16)Department of Biostatistics, Bloomberg School of Public Health, Johns 
+Hopkins University, Baltimore, MD.
+(17)Department of Epidemiology and Biostatistics, Peking University, Beijing, 
+China.
+(18)DTA&AI, Real World Solutions, IQVIA, Durham, NC.
+(19)Department of Medicine, David Geffen School of Medicine, University of 
+California, Los Angeles, Los Angeles, CA.
+(20)Section of Cardiovascular Medicine, Department of Internal Medicine, Yale 
+University, New Haven, CT.
+(21)Real-World Epidemiology Research Group, Fundaci Institut Universitari per a 
+la recerca a l'Atenci Primria de Salut Jordi Gol i Gurina, Barcelona, Spain.
+(22)Observational Health Data Analytics,Janssen Research and Development, LLC, 
+Titusville, NJ.
+(23)Epidemiology, Office of the Chief Medical Officer, Johnson & Johnson, 
+Titusville, NJ.
+(24)Center for Outcomes Research and Evaluation, Yale New Haven Hospital, New 
+Haven, CT.
+(25)Department of Health Policy and Management, Yale School of Public Health, 
+New Haven, CT.
+(26)Section of Health Informatics, Department of Biostatistics, Yale School of 
+Public Health, New Haven, CT.
+(27)Department of Biomathematics, David Geffen School of Medicine, University of 
+California, Los Angeles, Los Angeles, CA.
+(28)Department of Human Genetics, David Geffen School of Medicine, University of 
+California, Los Angeles, Los Angeles, CA.
+
+OBJECTIVE: To assess the association between glucagon-like peptide 1 receptor 
+agonist (GLP-1RA) use and risk of incident thyroid tumors.
+RESEARCH DESIGN AND METHODS: The retrospective, active-comparator new-user 
+cohort study used international administrative claims and electronic health 
+record databases. Participants included patients with type 2 diabetes mellitus 
+(T2DM) with prior metformin therapy initiating a GLP-1RA versus new users of 
+sodium-glucose cotransporter 2 inhibitors (SGLT2is), dipeptidyl peptidase 4 
+inhibitors (DPP-4is), and sulfonylureas (SUs). The outcome was incident thyroid 
+tumor and thyroid malignancy. Propensity score matching and stratification were 
+used to adjust for confounders with an intention-to-treat and on-treatment 
+strategy. Cox regression was used to estimate hazard ratios (HRs) pooled using a 
+random-effects meta-analysis. Unmeasured confounding was evaluated using 
+negative outcomes, with calibration of the HR.
+RESULTS: A total of 460,032 users of GLP-1RAs, 717,792 users of SGLT2is, 
+2,055,583 users of DPP-4is, and 1,119,868 users of SUs were included. Only U.S. 
+cohorts passed study diagnostics. Thyroid tumor incidence ranged from 0.88 to 
+1.03 per 1,000 person-years in GLP-1RA cohorts. GLP-1RA exposure was not 
+associated with an increased risk of thyroid tumors compared with SGLT2is, 
+DPP-4is, or SUs (meta-analysis: GLP-1RA vs. SGLT2i HR range from 0.83 [95% CI 
+0.57-1.27] to 0.95 [0.85-1.06]; GLP-1RA vs. SU HR range from 0.95 [0.75-1.20] to 
+1.03 [0.87-1.23]; GLP-1RA vs. DPP-4i HR range from 0.78 [0.60-1.01] to 0.93 
+[0.83-1.04]). Analysis using thyroid malignancy and including a 1-year lag 
+period produced similar conclusions.
+CONCLUSIONS: In patients with T2DM initiating second-line treatments, we 
+observed no increased risk of thyroid tumors with GLP-1RA exposure.
+
+© 2025 by the American Diabetes Association.
+
+DOI: 10.2337/dc25-0154
+PMID: 40465422
+
+
+14. J Diabetes. 2025 Jun;17(6):e70108. doi: 10.1111/1753-0407.70108.
+
+Trends in Pharmacological Treatment of Patients With New Onset Type 2 Diabetes: 
+Usage Patterns in an Evolving Guideline Landscape.
+
+Hou W(1), Tuttle KR(2)(3), Shen W(4)(5), Reikes A(6), Watanabe JH(7).
+
+Author information:
+(1)Donald Bren School of Information and Computer Sciences, University of 
+California, Irvine, California, USA.
+(2)Nephrology Division, University of Washington School of Medicine, Seattle, 
+Washington, USA.
+(3)Providence Medical Research Center, Providence Inland Northwest Health, 
+Spokane, Washington, USA.
+(4)Department of Statistics, University of California, Irvine, California, USA.
+(5)Donald Bren School of Information and Computer Sciences, Irvine, California, 
+USA.
+(6)Divisions of General Internal Medicine and Endocrinology, Department of 
+Medicine, University of California, Irvine School of Medicine, Irvine, 
+California, USA.
+(7)Department of Clinical Pharmacy, University of California San Francisco, San 
+Francisco, California, USA.
+
+AIMS: In patients with new onset type 2 diabetes, this study aimed to analyze 
+glucose-lowering medication use patterns between 2014 and 2022.
+MATERIALS AND METHODS: This retrospective study included adults with incident 
+type 2 diabetes in the University of California Health System between 2014 and 
+2022. We determined medications used within 1 year of diagnosis and evaluated 
+statistical evidence of use pattern changes via Mann-Kendall trend tests. Four 
+categories of high-risk patients requiring cardio-kidney-metabolic protection 
+were also evaluated in stratified analyses based on 2024 ADA guidelines.
+RESULTS: Of 40 150 patients with incident type 2 diabetes, 38.5% initiated 
+glucose-lowering medication within 1 year. Metformin remained the most used 
+medication from 2014 to 2022. From 2014 to 2022, usage of GLP-1 receptor 
+agonists and SGLT-2 inhibitors increased exponentially. GLP-1 receptor agonist 
+use increased from below 2.5%-21%. While SGLT-2 inhibitor use increased from 
+less than 2.5%-14%. This growth coincided with a decline in sulfonylurea usage. 
+Among high-risk, insulin was most prevalent in those with heart failure or 
+chronic kidney disease. However, usage of insulin declined overall in all 
+groups. Utilization of SGLT-2 inhibitors was particularly high in patients with 
+prior heart failure.
+CONCLUSIONS: In adults with new onset type 2 diabetes, GLP-1 receptor agonist 
+and SGLT-2 inhibitor utilization has markedly increased, coordinating with 
+evolving guidelines that emphasize cardiovascular and chronic kidney disease 
+management. However, overall adoption rates of these medications remain low 
+based on indicated populations. Sulfonylurea use declined while metformin 
+remains the most frequently initiated treatment.
+
+© 2025 The Author(s). Journal of Diabetes published by Ruijin Hospital, Shanghai 
+JiaoTong University School of Medicine and John Wiley & Sons Australia, Ltd.
+
+DOI: 10.1111/1753-0407.70108
+PMCID: PMC12134773
+PMID: 40464139 [Indexed for MEDLINE]
+
+Conflict of interest statement: K.R.T. is supported by NIH research grants 
+R01MD014712, U2CDK114886, UL1TR002319, U54DK083912, U01DK100846, OT2HL161847, 
+UM1AI109568, OT2OD032581, and CDC project numbers 75D301‐21‐P‐12254 and 
+75D301‐23‐C‐18264. She has also received investigator‐initiated grant support 
+from Travere Therapeutics Inc., Bayer, and the Doris Duke Charitable Foundation. 
+She reports consultancy fees from AstraZeneca, Boehringer Ingelheim, Eli Lilly, 
+Novo Nordisk, Travere Therapeutics Inc., and Pfizer, and speaker fees from Novo 
+Nordisk. W.H., W.S., and A.R. declare no conflicts of interest or financial 
+relationships. J.H.W. has received funding support from the California Health 
+Benefits Review Program and a UC Irvine Health Affairs Strategic Funding grant 
+to examine incretin mimetic use. J.H.W. serves on the Forum on Drug, Discovery, 
+Development, and Translation of the National Academies of Sciences, Engineering, 
+and Medicine.
+
+
+15. Panminerva Med. 2025 Jun;67(2):87-100. doi: 10.23736/S0031-0808.25.05314-5.
+
+An overview of recent developments in clinical trials of anti-diabetic drugs.
+
+Madhuri Y(1), Saifullah Q(1), Pandey M(2), Bhattamisra SK(3).
+
+Author information:
+(1)Gandhi Institute of Technology School of Pharmacy, Gandhi Institute of 
+Technology in Visakhapatnam (deemed to be university), Visakhapatnam, India.
+(2)Department of Pharmaceutical Sciences, Central University of Haryana, 
+Mahendragarh, India.
+(3)Department of Pharmacy, School of Health Sciences, Central University of 
+South Bihar, Gaya, India - subrat@cusb.ac.in.
+
+Type 2 diabetes mellitus (T2DM) is a chronic metabolic disorder affecting over 
+90% of diabetes patients worldwide. The condition is driven by genetic 
+predispositions, environmental factors, obesity, and physical inactivity. 
+Pharmacological treatments range from metformin to newer agents, including GLP-1 
+analogues and SGLT-2 inhibitors, which target different aspects of glucose 
+metabolism. The review highlights advancements in clinical trials for T2DM 
+treatments, focusing on recent and ongoing research. Clinical trial data were 
+sourced from ClinicalTrials.gov, and the search criteria focused on trials that 
+were published with monotherapy of T2DM having results within the last six 
+years, specifically from 2019 to 2024. The clinical trials of the patients under 
+the age group of adults (18 to 64 years) and older adults (>64 years) were 
+included. The data are mentioned in inverse chronological order with respect to 
+study duration. The clinical trial data suggest promising results in managing 
+hemoglobin A1c and body weight. However, adverse events such as cardiovascular, 
+gastrointestinal, and bone-related issues and other issues such as diabetic 
+ketoacidosis and pancreatitis were reported in some cases. Dulaglutide, 
+tripeptide, and oral insulin showed promising therapeutic effects in clinical 
+trials. Despite significant progress, the management of T2DM remains 
+challenging, emphasizing the need for ongoing innovation in treatment approaches 
+to improve patient quality of life and reduce the global burden of the disease.
+
+DOI: 10.23736/S0031-0808.25.05314-5
+PMID: 40457780 [Indexed for MEDLINE]
+
+
+16. Arch Clin Biomed Res. 2025;9(3):183-195. Epub 2025 May 5.
+
+Impact of Antidepressants on Weight Gain: Underlying Mechanisms and Mitigation 
+Strategies.
+
+Mouawad M(1), Nabipur L(1), Agrawal DK(1).
+
+Author information:
+(1)Department of Translational Research, College of Osteopathic Medicine of the 
+Pacific, Western University of Health Sciences, Pomona, California 91766 USA.
+
+Antidepressants are widely prescribed for major depressive disorder and anxiety, 
+yet their long-term use is associated with weight gain, affecting up to 55-65% 
+of patients. This adverse effect contributes to treatment discontinuation, 
+relapse, and worsened metabolic health outcomes, including increased risk for 
+obesity and type 2 diabetes. This artic le presents a critical evaluation of the 
+published reports on the mechanisms underlying antidepressant-induced weight 
+gain, comparative effects across drug classes, and mitigation strategies. Weight 
+gain varies significantly by antidepressant class. Tricyclic antidepressants, 
+monoamine oxidase inhibitors, and a tetracyclic antidepressant, mirtazapine, are 
+associated with the most substantial weight increases, while selective serotonin 
+reuptake inhibitors typically induce weight gain after prolonged use. Mechanisms 
+involve serotonergic and dopaminergic signaling, receptor desensitization, 
+insulin resistance, and altered leptin and ghrelin levels. Genetic factors, 
+including CYP2C19 metabolizer status, and lifestyle factors such as baseline 
+body mass index and diet, further influence risk. Bupropion, a 
+norepinephrine-dopamine reuptake inhibitor, is the only commonly prescribed 
+antidepressant consistently associated with weight loss or neutrality. 
+Mitigation strategies include switching medications, adding agents like 
+metformin or GLP-1 receptor agonists, and incorporating behavioral 
+interventions. Antidepressant-induced weight gain is a multifactorial issue 
+requiring individualized management. Understanding pharmacologic mechanisms and 
+patient-specific risk factors is essential for optimizing treatment efficacy 
+while minimizing metabolic burden.
+
+PMCID: PMC12121960
+PMID: 40444017
+
+Conflict of interest statement: Competing interests: All authors have read the 
+manuscript and declare no conflict of interest. No writing assistance was 
+utilized in the production of this manuscript.
+
+
+17. ERJ Open Res. 2025 May 27;11(3):00757-2024. doi: 10.1183/23120541.00757-2024.
+ eCollection 2025 May.
+
+Association of novel antihyperglycaemic drugs versus metformin with COPD 
+exacerbations.
+
+Kimura Y(1)(2), Jo T(1)(3), Inoue N(4)(5)(6), Suzukawa M(2), Matsui H(1), 
+Sasabuchi Y(7), Yasunaga H(1).
+
+Author information:
+(1)Department of Clinical Epidemiology and Health Economics, School of Public 
+Health, The University of Tokyo, Tokyo, Japan.
+(2)Clinical Research Center, NHO Tokyo National Hospital, Tokyo, Japan.
+(3)Department of Respiratory Medicine, The University of Tokyo, Tokyo, Japan.
+(4)Department of Health Policy and Informatics, Tokyo Medical and Dental 
+University Graduate School, Tokyo, Japan.
+(5)Department of Clinical Data Management and Research, Clinical Research 
+Center, National Hospital Organization Headquarters, Tokyo, Japan.
+(6)Institute of Clinical Epidemiology (iCE), Showa University, Tokyo, Japan.
+(7)Department of Real-world Evidence, Graduate School of Medicine, The 
+University of Tokyo, Tokyo, Japan.
+
+BACKGROUND: Dipeptidyl peptidase-4 inhibitors (DPP-4 Is), glucagon-like 
+peptidase 1 receptor agonists (GLP-1 RAs) and sodium glucose co-transporter-2 
+inhibitors (SGLT-2 Is) may contribute to better control of COPD due to their 
+anti-inflammatory effects, like those observed with metformin. We aimed to 
+investigate the association of these novel antihyperglycaemic drugs versus 
+metformin with fewer COPD exacerbations in patients with type 2 diabetes (T2DM) 
+comorbid with COPD.
+METHODS: Using the national administrative database covering 99% of the medical 
+facilities in Japan, we constructed three active comparators new-user cohorts 
+comprising 36 317 patients with T2DM and COPD who initiated treatment with the 
+novel antihyperglycaemic drugs and metformin between 2014 and 2022. Patients' 
+backgrounds were balanced using overlap propensity score weighting. We 
+calculated the hazard ratios (HRs) and their 95% confidence intervals (CIs) for 
+the initial occurrence of COPD exacerbation requiring systemic corticosteroids 
+using a weighted Cox proportional hazards model.
+RESULTS: DPP-4 Is were associated with a higher incidence of exacerbations 
+requiring systemic corticosteroids (22.4 versus 20.4 per 100 person-years; HR 
+1.16, 95% CI 1.07-1.25) compared with metformin. In contrast, the incidence of 
+such exacerbations in the GLP-1 RAs (30.1 versus 24.4 per 100 person-years; HR 
+1.07, 95% CI 0.87-1.32) and SGLT-2 Is (20.7 versus 21.8 per 100 person-years; HR 
+1.00, 95% CI 0.94-1.06) groups were comparable with that in the metformin group.
+CONCLUSIONS: While DPP-4 Is were associated with poorer control of COPD compared 
+with metformin, GLP-1 RAs and SGLT-2 Is offered COPD control comparable with 
+that of metformin.
+
+Copyright ©The authors 2025.
+
+DOI: 10.1183/23120541.00757-2024
+PMCID: PMC12107380
+PMID: 40432813
+
+Conflict of interest statement: Conflict of interest: Y. Kimura, T. Jo, N. 
+Inoue, H. Matsui, Y. Sasabuchi and H. Yasunaga declare no conflict of interest. 
+M. Suzukawa received research funding from Shionogi, MSD, Sanofi, Kyorin, 
+AstraZeneca and GlaxoSmithKline.
+
+
+18. Pharmaceuticals (Basel). 2025 May 1;18(5):670. doi: 10.3390/ph18050670.
+
+Exploring the Protective Effects of Traditional Antidiabetic Medications and 
+Novel Antihyperglycemic Agents in Diabetic Rodent Models.
+
+Tartau CG(1), Boboc IKS(2), Mititelu-Tartau L(3), Bogdan M(2), Buca BR(3), Pavel 
+LL(4), Amalinei C(1).
+
+Author information:
+(1)Department of Morphofunctional Sciences I, Faculty of Medicine, 'Grigore T. 
+Popa' University of Medicine and Pharmacy, 700115 Iasi, Romania.
+(2)Department of Pharmacology, Faculty of Pharmacy, University of Medicine and 
+Pharmacy of Craiova, 200349 Craiova, Romania.
+(3)Department of Pharmacology, Faculty of Medicine, 'Grigore T. Popa' University 
+of Medicine and Pharmacy, 700115 Iasi, Romania.
+(4)Department of Morphological and Functional Sciences, Faculty of Medicine and 
+Pharmacy, 'Dunarea de Jos' University, 800010 Galati, Romania.
+
+Type 2 Diabetes (T2D) is a complex metabolic disorder that affects multiple 
+organs, leading to severe complications in the pancreas, kidneys, liver, and 
+heart. Prolonged hyperglycemia, along with oxidative stress and chronic 
+inflammation, plays a crucial role in accelerating tissue damage, significantly 
+increasing the risk of diabetic complications such as nephropathy, hepatopathy, 
+and cardiovascular disease. This review evaluates the protective effects of 
+various antidiabetic treatments on organ tissues affected by T2D, based on 
+findings from experimental animal models. Metformin, a first-line antidiabetic 
+agent, has been widely recognized for its ability to reduce inflammation and 
+oxidative stress, thereby mitigating diabetes-induced organ damage. Its 
+protective role extends beyond glucose regulation, offering benefits such as 
+improved mitochondrial function and reduced fibrosis in affected tissues. In 
+addition to traditional therapies, new classes of antidiabetic drugs, including 
+sodium-glucose co-transporter-2 inhibitors and glucagon-like peptide-1 (GLP-1) 
+receptor agonists not only improve glycemic control but also exhibit 
+nephroprotective and cardioprotective properties by reducing glomerular 
+hyperfiltration, oxidative stress, and inflammation. Similarly, GLP-1 receptor 
+agonists have been associated with reduced hepatic steatosis and enhanced 
+cardiovascular function. Preclinical studies suggest that tirzepatide, a dual 
+GLP-1/gastric inhibitory polypeptide receptor agonist may offer superior 
+metabolic benefits compared to conventional GLP-1 agonists by improving β-cell 
+function, enhancing insulin sensitivity, and reducing fatty liver progression. 
+Despite promising preclinical results, differences between animal models and 
+human physiology pose a challenge. Further clinical research is needed to 
+confirm these effects and refine treatment strategies. Future T2D management 
+aims to go beyond glycemic control, emphasizing organ protection and long-term 
+disease prevention.
+
+DOI: 10.3390/ph18050670
+PMCID: PMC12114790
+PMID: 40430489
+
+Conflict of interest statement: The authors declare no conflicts of interest.
+
+
+19. Sci Rep. 2025 May 26;15(1):18363. doi: 10.1038/s41598-025-00080-9.
+
+Registered clinical trials targeting type 2 diabetes remission with 
+pharmacological interventions.
+
+Shoung N(1)(2), Carette C(1)(2)(3), Rassy N(1), Phan A(1), Greenfield 
+JR(4)(5)(6), Hu FB(7)(8)(9), Rives-Lange C(1)(2)(10), Czernichow S(11)(12)(13).
+
+Author information:
+(1)Assistance Publique-Hôpitaux de Paris (AP-HP), Nutrition Department, European 
+Hospital Georges Pompidou, Paris, France.
+(2)Université Paris Cité, Paris, France.
+(3)Inflammation Research Centre, UMR 1149, INSERM, Université Paris Cité, Paris, 
+France.
+(4)St Vincent's Clinical Campus, St Vincent's Hospital, Faculty of Medicine and 
+Health, University of New South Wales Sydney, Sydney, Australia.
+(5)Department of Endocrinology and Diabetes, St Vincent's Hospital, Sydney, 
+Australia.
+(6)Diabetes, Appetite and Metabolism, Garvan Institute of Medical Research, 
+Sydney, Australia.
+(7)Department of Nutrition, Harvard T.H. Chan School of Public Health, Boston, 
+MA, USA.
+(8)Department of Epidemiology, Harvard T.H. Chan School of Public Health, 
+Boston, MA, USA.
+(9)Channing Division of Network Medicine, Brigham and Women's Hospital and 
+Harvard Medical School, Boston, MA, USA.
+(10)UMR1153, Epidemiology and Biostatistics Sorbonne Paris Cité Center (CRESS), 
+METHODS Team, INSERM, Paris, France.
+(11)Assistance Publique-Hôpitaux de Paris (AP-HP), Nutrition Department, 
+European Hospital Georges Pompidou, Paris, France. sebastien.czernichow@aphp.fr.
+(12)Université Paris Cité, Paris, France. sebastien.czernichow@aphp.fr.
+(13)UMR1153, Epidemiology and Biostatistics Sorbonne Paris Cité Center (CRESS), 
+METHODS Team, INSERM, Paris, France. sebastien.czernichow@aphp.fr.
+
+Systematic reviews and meta-analyses indicate that dietary interventions and 
+metabolic surgery lead to higher rates of type 2 diabetes (T2D) remission, 
+improving beta-cell function and insulin sensitivity. There is limited data on 
+the effectiveness of pharmacological interventions targeting T2D remission. We 
+aimed to search clinical trial registries and perform a systematic mapping of 
+registered randomized clinical trials of pharmacological interventions targeting 
+T2D remission; summarizing the existing research space, and identifying gaps for 
+future research. We searched three clinical trial registries: 
+Clinicaltrials.gov, the World Health Organization International Clinical Trials 
+Registry Platform and the European Union Clinical Trials Information System on 
+the 19th March 2024. Key outcomes included sample size, interventions, 
+comparators, definition of T2D remission, follow-up duration, funding source, 
+eligibility criteria, trial completion status, publication status, and 
+availability of published results. The search yielded 1108 results, of which 34 
+trials were included. The majority were non-industry funded (70.6%, n = 24) and 
+88.2% (n = 30) of trials targeted remission of T2D diagnosed within 6 years. 
+Approximately 56% (n = 19) of trials used pharmacological combination therapy 
+with mainly metformin, insulin, and a glucagon-like peptide 1 (GLP-1) agonist. 
+The majority of studies (35.3%, n = 12) did not register defined specific 
+criteria to determine remission and there was a lack of consistency in methods 
+of beta-cell function measurement. We suggest that future research use a 
+standardized definition of T2D remission and the beta-cell function method. 
+Future trials should focus on using GLP-1 receptor agonists and GIP analogs, and 
+their role in weight loss and T2D.Registration: PROSPERO CRD42024511198.
+
+© 2025. The Author(s).
+
+DOI: 10.1038/s41598-025-00080-9
+PMCID: PMC12106727
+PMID: 40419497 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations. Competing interests: Nicholas 
+Shoung, Nathalie Rassy, Frank B. Hu, Aurélie Phan: none reported. Jerry 
+Greenfield has received honorarium from the following companies for delivering 
+talks to health professionals over the last 10 years: Novartis, Novo Nordisk, 
+Amgen, Allergan, Boehringer Inglheim, Lilly and Abbott. Sébastien Czernichow: 
+Personal fees from Bariatek, NovoNordisk, Eli Lilly, Pfizer, Fresenius Kabi, 
+Ipsen Pharma, Janssen-Cilag, Boehringer Ingelheim and Novartis outside the 
+submitted work. He holds shares of ALIFERT, JELLYNOV. Claire Carette: Personal 
+fees from Boehringer Ingelheim, Axis Santé, Pfizer, Bioprojet Pharma, Novo 
+Nordisk, Astra Zeneca, Novartis, Ipsen, MSD, Eli Lilly and Publicis Health and 
+nonfinancial support from Rhythm, Novo Nordisk, MSD, Novartis, Eli Lilly, 
+Sanofi, Astra Zeneca, Bristol-Myers Squibb, Abbott, Amgen, Vifor and Fresenius 
+Kabi outside the submitted work. Claire Rives-Lange: Personal fees from Nestlé 
+Health Science. Supports for attending meetings: Nestlé home care and Fitform.
+
+
+20. Neurosci Biobehav Rev. 2025 Aug;175:106218. doi: 
+10.1016/j.neubiorev.2025.106218. Epub 2025 May 20.
+
+Insulin resistance: The role in comorbid type 2 diabetes mellitus and 
+depression.
+
+Yao J(1), Zhu CQ(1), Sun Y(1), Huang YW(1), Li QH(1), Liao HM(1), Deng XJ(1), Li 
+WM(2).
+
+Author information:
+(1)Department of Endocrinology, Guangzhou Twelfth People's Hospital, Guangzhou 
+510620, China; Department of Endocrinology, Guangzhou Occupational Disease 
+Prevention and Treatment Hospital, Guangzhou 510620, China.
+(2)Department of Endocrinology, Guangzhou Twelfth People's Hospital, Guangzhou 
+510620, China; Department of Endocrinology, Guangzhou Occupational Disease 
+Prevention and Treatment Hospital, Guangzhou 510620, China. Electronic address: 
+liwanmeigz@163.com.
+
+Insulin resistance (IR) plays a significant role in the pathophysiology of 
+comorbid type 2 diabetes mellitus (T2DM) and depression (CDD) through 
+multifaceted mechanisms, including dysregulation of insulin signaling (both 
+central and peripheral), neuroendocrine disturbances 
+(hypothalamic-pituitary-adrenal axis dysfunction and monoaminergic 
+neurotransmission impairment), chronic inflammation, oxidative stress, 
+disruption of the microbiota-gut-brain axis, reduced brain-derived neurotrophic 
+factor levels, and altered synaptic plasticity. These IR-related pathways may 
+predispose individuals to depressive symptoms or exacerbate existing mood 
+disorders. A comprehensive understanding of these mechanisms is critical for 
+developing integrated therapeutic strategies that concurrently target metabolic 
+and psychiatric dysfunction. Antidepressant medications exhibit divergent 
+effects on glucose metabolism. Tricyclic antidepressants, particularly 
+amitriptyline and nortriptyline, worsen metabolic profiles by exacerbating IR, 
+promoting weight gain, and inducing hyperglycemia, thereby increasing diabetes 
+risk with prolonged use. Consequently, tricyclic antidepressants should be 
+avoided in metabolically vulnerable populations unless alternatives are 
+unavailable. Mirtazapine presents a paradoxical profile-while its 
+appetite-stimulating effects often lead to weight gain (a known IR risk factor), 
+some evidence suggests potential β-cell function preservation, necessitating 
+cautious use of mirtazapine in individuals with metabolic syndrome. Among 
+selective serotonin reuptake inhibitors, fluoxetine and escitalopram demonstrate 
+favorable metabolic effects, including improved insulin sensitivity and glycemic 
+control, though hypoglycemia risk (particularly with concomitant sulfonylureas) 
+warrants monitoring. Bupropion, a norepinephrine-dopamine reuptake inhibitor, 
+uniquely promotes weight loss and enhances glycemic control, making it a 
+preferred option for depression comorbid with obesity or T2DM. Agomelatine, with 
+its neutral metabolic profile and circadian rhythm-modulating properties, 
+represents a safer alternative for patients with metabolic concerns. 
+Concurrently, certain antidiabetic agents show promise in managing depression. 
+Metformin and sodium-glucose cotransporter-2 inhibitors may be prioritized for 
+diabetic patients at risk for depression, while glucagon-like peptide-1 receptor 
+agonists appear particularly beneficial for obesity-related mood disturbances. 
+Thiazolidinediones offer value in treatment-resistant cases, whereas insulin 
+secretagogues should be used cautiously in psychiatrically vulnerable 
+individuals. Future research should prioritize three key directions: (1) 
+Mechanistic investigations using advanced neuroimaging to elucidate the 
+contribution of IR to depressive phenotypes and evaluate novel interventions 
+(such as intranasal insulin); (2) Precision medicine approaches incorporating 
+biomarkers, including genetic polymorphisms, inflammatory markers, and gut 
+microbiome signatures, to optimize antidepressant selection and develop 
+personalized treatment algorithms; and (3) Therapeutic innovation, including 
+dual GLP-1/GIP agonists and anti-inflammatory-antidepressant combinations, as 
+well as integrating digital health technologies (e.g., continuous glucose 
+monitoring coupled with mood tracking), will enable real-time, data-driven 
+management. These advances will be instrumental in establishing integrated care 
+paradigms for this comorbidity, which intertwines metabolic and psychiatric 
+conditions.
+
+Copyright © 2025 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.neubiorev.2025.106218
+PMID: 40403856 [Indexed for MEDLINE]

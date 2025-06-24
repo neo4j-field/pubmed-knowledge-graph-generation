@@ -2,11 +2,19 @@
 name = "pubmed-knowledge-graph"
 version = "0.1.0"
 description = "Create a knowledge graph of Pubmed articles that may be connected to a patient journey graph"
-authors = [ "Alex Gilmore", "Chris Upkes" ]
+authors = [
+    {name = "Alex Gilmore"},
+    {name = "Chris Upkes"}
+]
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<4.0"
 dependencies = [
-    "biopython (>=1.85,<2.0)"
+    "biopython (>=1.85,<2.0)",
+    "pydantic (>=2.11.7,<3.0.0)",
+    "instructor (>=1.9.0,<2.0.0)",
+    "openai (>=1.91.0,<2.0.0)",
+    "unstructured (>=0.17.2,<0.18.0)",
+    "neo4j (>=5.28.1,<6.0.0)"
 ]
 
 
