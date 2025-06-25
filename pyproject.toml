@@ -15,7 +15,8 @@ dependencies = [
     "openai (>=1.91.0,<2.0.0)",
     "unstructured (>=0.17.2,<0.18.0)",
     "neo4j (>=5.28.1,<6.0.0)",
-    "nest-asyncio (>=1.6.0,<2.0.0)"
+    "nest-asyncio (>=1.6.0,<2.0.0)",
+    "pyneoinstance (>=2.0.2,<3.0.0)"
 ]
 
 
