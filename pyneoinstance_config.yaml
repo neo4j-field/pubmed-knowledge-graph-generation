@@ -1,6 +1,6 @@
 db_info:
   uri: bolt://localhost:7687
-  database: test-1
+  database: test-12186413
   user: neo4j
   password: password
 initializing_queries:
@@ -8,8 +8,11 @@ initializing_queries:
     # lexical graph constraints
     document_id: |
       CREATE CONSTRAINT document_id IF NOT EXISTS FOR (n:Document) REQUIRE n.id IS UNIQUE;
+    document_pmid: |
+      CREATE CONSTRAINT document_pmid IF NOT EXISTS FOR (n:Document) REQUIRE n.pmId IS NODE KEY;
     document_name: |
       CREATE CONSTRAINT document_name IF NOT EXISTS FOR (n:Document) REQUIRE n.name IS NODE KEY;
+
     chunk_id: |
       CREATE CONSTRAINT chunk_id IF NOT EXISTS FOR (n:Chunk) REQUIRE n.id IS NODE KEY;
 
@@ -40,7 +43,7 @@ loading_queries:
     # lexical graph nodes
     document: |
       UNWIND $rows as row
-      MERGE (n:Document {name: row.name})
+      MERGE (n:Document {pmId: row.pm_id, name: row.name})
       ON CREATE SET n.id = row.id, n.source = row.source
 
     chunk: |
@@ -112,7 +115,8 @@ loading_queries:
     # lexical graph relationships
     chunk_part_of_document: |
       UNWIND $rows as row
-      MATCH (c:Chunk {id: row.chunk_id}), (d:Document {id: row.document_id})
+      MATCH (c:Chunk {id: row.chunk_id})
+      MATCH (d:Document {id: row.document_id})
       MERGE (c)-[:PART_OF]->(d)
 
     # domain graph relationships
@@ -146,18 +150,12 @@ loading_queries:
       MATCH (o:ClinicalOutcome {name: row.clinical_outcome_name})
       MERGE (s)-[:HAS_OUTCOME]->(o)
 
-    chunk_has_entity_medication: |
-      UNWIND $rows as row
-      MATCH (c:Chunk {id: row.chunk_id})
-      MATCH (m:Medication {id: row.medication_id})
-      MERGE (c)-[:HAS_ENTITY]->(m)
-
     
     # linking lexical and domain graphs
     chunk_has_entity_medication: |
       UNWIND $rows as row
       MATCH (c:Chunk {id: row.chunk_id})
-      MATCH (e:Medication {id: row.medication_id})
+      MATCH (e:Medication {name: row.name})
       MERGE (c)-[:HAS_ENTITY]->(e)
     
     chunk_has_entity_medical_condition: |
@@ -181,7 +179,7 @@ loading_queries:
     chunk_has_entity_clinical_outcome: |
       UNWIND $rows as row
       MATCH (c:Chunk {id: row.chunk_id})
-      MATCH (e:ClinicalOutcome {id: row.clinical_outcome_id})
+      MATCH (e:ClinicalOutcome {name: row.name})
       MERGE (c)-[:HAS_ENTITY]->(e)
 
 processing_queries:
