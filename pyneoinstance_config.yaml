@@ -7,14 +7,17 @@ initializing_queries:
   constraints:
     # lexical graph constraints
     document_id: |
-      CREATE CONSTRAINT document_id IF NOT EXISTS FOR (n:Document) REQUIRE n.id IS UNIQUE;
-    document_pmid: |
-      CREATE CONSTRAINT document_pmid IF NOT EXISTS FOR (n:Document) REQUIRE n.pmId IS NODE KEY;
-    document_name: |
-      CREATE CONSTRAINT document_name IF NOT EXISTS FOR (n:Document) REQUIRE n.name IS NODE KEY;
+      CREATE CONSTRAINT document_id IF NOT EXISTS FOR (n:Document) REQUIRE n.id IS NODE KEY;
+    # document_pmid: |
+    #   CREATE CONSTRAINT document_pmid IF NOT EXISTS FOR (n:Document) REQUIRE n.pmId IS NODE KEY;
+    # document_name: |
+    #   CREATE CONSTRAINT document_name IF NOT EXISTS FOR (n:Document) REQUIRE n.name IS NODE KEY;
 
     chunk_id: |
       CREATE CONSTRAINT chunk_id IF NOT EXISTS FOR (n:Chunk) REQUIRE n.id IS NODE KEY;
+
+    unstructured_element_id: |
+      CREATE CONSTRAINT unstructured_element_id IF NOT EXISTS FOR (n:UnstructuredElement) REQUIRE n.id IS NODE KEY;
 
     # domain graph constraints
     # medication_id: |
@@ -43,13 +46,49 @@ loading_queries:
     # lexical graph nodes
     document: |
       UNWIND $rows as row
-      MERGE (n:Document {pmId: row.pm_id, name: row.name})
-      ON CREATE SET n.id = row.id, n.source = row.source
+      MERGE (n:Document {id: row.id})
+      ON CREATE 
+        SET n.name = row.name,
+        n.source = row.source
 
     chunk: |
       UNWIND $rows as row
       MERGE (n:Chunk {id: row.id})
-      ON CREATE SET n.text = row.text
+      ON CREATE 
+        SET n.text = row.text,
+            n.type = row.type
+    
+    text_element: |
+      UNWIND $rows as row
+      MERGE (n:TextElement {id: row.id})
+      ON CREATE 
+        SET n:UnstructuredElement,
+            n.text = row.text, 
+            n.type = row.type, 
+            n.pageNumber = row.page_number
+
+    image_element: |
+      UNWIND $rows as row
+      MERGE (n:ImageElement {id: row.id})
+      ON CREATE 
+        SET n:UnstructuredElement,
+            n.text = row.text, 
+            n.type = row.type, 
+            n.pageNumber = row.page_number,
+            n.imageBase64 = row.image_base64,
+            n.imageMimeType = row.image_mime_type
+    
+    table_element: |
+      UNWIND $rows as row
+      MERGE (n:TableElement {id: row.id})
+      ON CREATE 
+        SET n:UnstructuredElement,
+            n.text = row.text, 
+            n.type = row.type, 
+            n.pageNumber = row.page_number,
+            n.imageBase64 = row.image_base64,
+            n.imageMimeType = row.image_mime_type,
+            n.textAsHtml = row.text_as_html
 
     # domain graph nodes
     medication: |
@@ -117,7 +156,19 @@ loading_queries:
       UNWIND $rows as row
       MATCH (c:Chunk {id: row.chunk_id})
       MATCH (d:Document {id: row.document_id})
-      MERGE (c)-[:PART_OF]->(d)
+      MERGE (c)-[:PART_OF_DOCUMENT]->(d)
+
+    unstructured_element_part_of_chunk: |
+      UNWIND $rows as row
+      MATCH (u:UnstructuredElement {id: row.unstructured_element_id})
+      MATCH (c:Chunk {id: row.chunk_id})
+      MERGE (u)-[:PART_OF_CHUNK]->(c)
+    
+    chunk_has_next_chunk: |
+      UNWIND $rows as row
+      MATCH (c:Chunk {id: row.source_id})
+      MATCH (n:Chunk {id: row.target_id})
+      MERGE (c)-[:HAS_NEXT_CHUNK]->(n)
 
     # domain graph relationships
     study_medication_uses_medication: |
@@ -185,4 +236,11 @@ loading_queries:
 processing_queries:
   get_chunk_nodes_to_process_by_article_name: |
     MATCH (d:Document {name: $article_name})<-[:PART_OF]-(c:Chunk)
+    RETURN c.id as id, c.text as text
+  
+  get_chunk_nodes_to_embed: |
+    MATCH (c:Chunk)
+    WHERE c.text IS NOT NULL
+      AND size(c.text) >= $min_length
+      AND c.embedding IS NULL
     RETURN c.id as id, c.text as text
