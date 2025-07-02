@@ -1,6 +1,6 @@
 db_info:
   uri: bolt://localhost:7687
-  database: test-12186413
+  database: test-many-articles
   user: neo4j
   password: password
 initializing_queries:
@@ -95,60 +95,62 @@ loading_queries:
       UNWIND $rows AS row
       MERGE (n:Medication {name: row.name})
       SET n.medication_class = COALESCE(n.medication_class, row.medication_class), 
-        n.mechanism = COALESCE(n.mechanism, row.mechanism), 
-        n.generic_name = COALESCE(n.generic_name, row.generic_name), 
-        n.brand_names = COALESCE(n.brand_names, row.brand_names), 
-        n.approval_status = COALESCE(n.approval_status, row.approval_status)
+          n.mechanism = COALESCE(n.mechanism, row.mechanism), 
+          n.generic_name = COALESCE(n.generic_name, row.generic_name), 
+          n.brand_names = COALESCE(n.brand_names, row.brand_names), 
+          n.approval_status = COALESCE(n.approval_status, row.approval_status)
 
     study_medication: |
       UNWIND $rows AS row
       MERGE (n:StudyMedication {id: row.study_medication_id})
-      SET n.dosage = COALESCE(n.dosage, row.dosage), 
-        n.route = COALESCE(n.route, row.route), 
-        n.frequency = COALESCE(n.frequency, row.frequency), 
-        n.treatment_duration = COALESCE(n.treatment_duration, row.treatment_duration), 
-        n.treatment_arm = COALESCE(n.treatment_arm, row.treatment_arm), 
-        n.comparator = COALESCE(n.comparator, row.comparator), 
-        n.adherence_rate = COALESCE(n.adherence_rate, row.adherence_rate), 
-        n.formulation = COALESCE(n.formulation, row.formulation)
+      SET n.studyName = COALESCE(n.studyName, row.study_name),
+          n.dosage = COALESCE(n.dosage, row.dosage), 
+          n.route = COALESCE(n.route, row.route), 
+          n.frequency = COALESCE(n.frequency, row.frequency), 
+          n.treatmentDuration = COALESCE(n.treatmentDuration, row.treatment_duration), 
+          n.treatmentArm = COALESCE(n.treatmentArm, row.treatment_arm), 
+          n.comparator = COALESCE(n.comparator, row.comparator), 
+          n.adherenceRate = COALESCE(n.adherenceRate, row.adherence_rate), 
+          n.formulation = COALESCE(n.formulation, row.formulation)
     
     clinical_outcome: |
       UNWIND $rows AS row
       MERGE (n:ClinicalOutcome {id: row.clinical_outcome_id})
       SET n.category = COALESCE(n.category, row.category), 
-        n.measurement_unit = COALESCE(n.measurement_unit, row.measurement_unit), 
-        n.normal_range = COALESCE(n.normal_range, row.normal_range), 
-        n.baseline_value = COALESCE(n.baseline_value, row.baseline_value), 
-        n.post_treatment_value = COALESCE(n.post_treatment_value, row.post_treatment_value), 
-        n.change_from_baseline = COALESCE(n.change_from_baseline, row.change_from_baseline), 
-        n.p_value = COALESCE(n.p_value, row.p_value), 
-        n.confidence_interval = COALESCE(n.confidence_interval, row.confidence_interval), 
-        n.effect_size = COALESCE(n.effect_size, row.effect_size)
+          n.description = COALESCE(n.description, row.description), 
+          n.measurementUnit = COALESCE(n.measurementUnit, row.measurement_unit), 
+          n.normalRange = COALESCE(n.normalRange, row.normal_range), 
+          n.baselineValue = COALESCE(n.baselineValue, row.baseline_value), 
+          n.postTreatmentValue = COALESCE(n.postTreatmentValue, row.post_treatment_value), 
+          n.changeFromBaseline = COALESCE(n.changeFromBaseline, row.change_from_baseline), 
+          n.pValue = COALESCE(n.pValue, row.p_value), 
+          n.confidenceInterval = COALESCE(n.confidenceInterval, row.confidence_interval), 
+          n.effectSize = COALESCE(n.effectSize, row.effect_size)
 
     medical_condition: |
       UNWIND $rows AS row
       MERGE (n:MedicalCondition {name: row.name})
       SET n.category = COALESCE(n.category, row.category), 
-        n.severity = COALESCE(n.severity, row.severity), 
-        n.icd10_code = COALESCE(n.icd10_code, row.icd10_code), 
-        n.duration = COALESCE(n.duration, row.duration), 
-        n.prevalence = COALESCE(n.prevalence, row.prevalence)
+          n.severity = COALESCE(n.severity, row.severity), 
+          n.icd10Code = COALESCE(n.icd10Code, row.icd10_code), 
+          n.duration = COALESCE(n.duration, row.duration), 
+          n.prevalence = COALESCE(n.prevalence, row.prevalence)
     
     study_population: |
       UNWIND $rows AS row
       MERGE (n:StudyPopulation {id: row.study_population_id})
       SET n.description = COALESCE(n.description, row.description), 
-        n.age_range = COALESCE(n.age_range, row.age_range), 
-        n.mean_age = COALESCE(n.mean_age, row.mean_age), 
-        n.male_percentage = COALESCE(n.male_percentage, row.male_percentage), 
-        n.female_percentage = COALESCE(n.female_percentage, row.female_percentage), 
-        n.other_gender_percentage = COALESCE(n.other_gender_percentage, row.other_gender_percentage), 
-        n.sample_size = COALESCE(n.sample_size, row.sample_size), 
-        n.study_type = COALESCE(n.study_type, row.study_type), 
-        n.location = COALESCE(n.location, row.location), 
-        n.inclusion_criteria = COALESCE(n.inclusion_criteria, row.inclusion_criteria), 
-        n.exclusion_criteria = COALESCE(n.exclusion_criteria, row.exclusion_criteria), 
-        n.study_duration = COALESCE(n.study_duration, row.study_duration)
+          n.ageRange = COALESCE(n.ageRange, row.age_range), 
+          n.meanAge = COALESCE(n.meanAge, row.mean_age), 
+          n.malePercentage = COALESCE(n.malePercentage, row.male_percentage), 
+          n.femalePercentage = COALESCE(n.femalePercentage, row.female_percentage), 
+          n.otherGenderPercentage = COALESCE(n.otherGenderPercentage, row.other_gender_percentage), 
+          n.sampleSize = COALESCE(n.sampleSize, row.sample_size), 
+          n.studyType = COALESCE(n.studyType, row.study_type), 
+          n.location = COALESCE(n.location, row.location), 
+          n.inclusionCriteria = COALESCE(n.inclusionCriteria, row.inclusion_criteria), 
+          n.exclusionCriteria = COALESCE(n.exclusionCriteria, row.exclusion_criteria), 
+          n.studyDuration = COALESCE(n.studyDuration, row.study_duration)
 
   relationships:
     # lexical graph relationships
@@ -180,7 +182,7 @@ loading_queries:
     study_medication_produces_clinical_outcome: |
       UNWIND $rows as row
       MATCH (s:StudyMedication {id: row.study_medication_id})
-      MATCH (o:ClinicalOutcome {name: row.clinical_outcome_name})
+      MATCH (o:ClinicalOutcome {id: row.clinical_outcome_id})
       MERGE (s)-[:PRODUCES_CLINICAL_OUTCOME]->(o)
 
     study_population_has_medical_condition: |
@@ -198,8 +200,8 @@ loading_queries:
     study_population_has_clinical_outcome: |
       UNWIND $rows as row
       MATCH (s:StudyPopulation {id: row.study_population_id})
-      MATCH (o:ClinicalOutcome {name: row.clinical_outcome_name})
-      MERGE (s)-[:HAS_OUTCOME]->(o)
+      MATCH (o:ClinicalOutcome {id: row.clinical_outcome_id})
+      MERGE (s)-[:HAS_CLINICAL_OUTCOME]->(o)
 
     
     # linking lexical and domain graphs
@@ -230,7 +232,7 @@ loading_queries:
     chunk_has_entity_clinical_outcome: |
       UNWIND $rows as row
       MATCH (c:Chunk {id: row.chunk_id})
-      MATCH (e:ClinicalOutcome {name: row.name})
+      MATCH (e:ClinicalOutcome {id: row.clinical_outcome_id})
       MERGE (c)-[:HAS_ENTITY]->(e)
 
 processing_queries:
@@ -238,9 +240,9 @@ processing_queries:
     MATCH (d:Document {name: $article_name})<-[:PART_OF]-(c:Chunk)
     RETURN c.id as id, c.text as text
   
-  get_chunk_nodes_to_embed: |
+  get_chunk_nodes_to_process: |
     MATCH (c:Chunk)
     WHERE c.text IS NOT NULL
-      AND size(c.text) >= $min_length
       AND c.embedding IS NULL
+      AND size(c.text) >= $min_length
     RETURN c.id as id, c.text as text
