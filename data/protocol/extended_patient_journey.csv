@@ -1,0 +1,222 @@
+member_id,age,sex,zip_code,protocol,diagnosis,diagnosis_code,procedure_code,procedure_name,medications,visit_date,lab_test,lab_loinc,lab_value,outcome
+P001,65,M,72652,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2023-08-17,A1C,4548-4,6.7,A1C Controlled
+P001,65,M,72652,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2023-11-15,A1C,4548-4,8.2,A1C Not Controlled
+P001,65,M,72652,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-02-13,A1C,4548-4,8.0,A1C Not Controlled
+P001,65,M,72652,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-05-13,A1C,4548-4,8.7,A1C Not Controlled
+P002,47,F,25666,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-02-13,A1C,4548-4,6.7,A1C Controlled
+P002,47,F,25666,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-05-13,A1C,4548-4,7.5,A1C Not Controlled
+P002,47,F,25666,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-08-11,A1C,4548-4,6.1,A1C Controlled
+P003,51,F,95433,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-05-15,A1C,4548-4,8.4,A1C Not Controlled
+P003,51,F,95433,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-08-13,A1C,4548-4,6.0,A1C Controlled
+P003,51,F,95433,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-11-11,A1C,4548-4,8.4,A1C Not Controlled
+P003,51,F,95433,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2025-02-09,A1C,4548-4,8.1,A1C Not Controlled
+P003,51,F,95433,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2025-05-10,A1C,4548-4,7.0,A1C Not Controlled
+P004,49,M,69789,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-06-09,A1C,4548-4,7.1,A1C Not Controlled
+P004,49,M,69789,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-09-07,A1C,4548-4,7.1,A1C Not Controlled
+P004,49,M,69789,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-12-06,A1C,4548-4,7.0,A1C Not Controlled
+P005,53,M,31646,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-01-14,A1C,4548-4,6.2,A1C Controlled
+P005,53,M,31646,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-04-13,A1C,4548-4,6.9,A1C Controlled
+P005,53,M,31646,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-07-12,A1C,4548-4,7.9,A1C Not Controlled
+P005,53,M,31646,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-10-10,A1C,4548-4,8.7,A1C Not Controlled
+P005,53,M,31646,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-01-08,A1C,4548-4,7.1,A1C Not Controlled
+P005,53,M,31646,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-04-08,A1C,4548-4,6.6,A1C Controlled
+P006,47,M,55547,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-06-14,A1C,4548-4,8.6,A1C Not Controlled
+P006,47,M,55547,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-09-12,A1C,4548-4,8.6,A1C Not Controlled
+P006,47,M,55547,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-12-11,A1C,4548-4,7.1,A1C Not Controlled
+P007,59,F,49601,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2023-08-10,A1C,4548-4,6.6,A1C Controlled
+P007,59,F,49601,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2023-11-08,A1C,4548-4,6.8,A1C Controlled
+P007,59,F,49601,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-02-06,A1C,4548-4,8.8,A1C Not Controlled
+P007,59,F,49601,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-05-06,A1C,4548-4,7.9,A1C Not Controlled
+P007,59,F,49601,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-08-04,A1C,4548-4,7.8,A1C Not Controlled
+P008,50,M,00816,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2023-08-27,A1C,4548-4,6.8,A1C Controlled
+P008,50,M,00816,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2023-11-25,A1C,4548-4,8.8,A1C Not Controlled
+P008,50,M,00816,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-02-23,A1C,4548-4,8.1,A1C Not Controlled
+P008,50,M,00816,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-05-23,A1C,4548-4,6.7,A1C Controlled
+P008,50,M,00816,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-08-21,A1C,4548-4,7.0,A1C Not Controlled
+P008,50,M,00816,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-11-19,A1C,4548-4,8.3,A1C Not Controlled
+P009,46,M,11545,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2023-09-14,A1C,4548-4,6.8,A1C Controlled
+P009,46,M,11545,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2023-12-13,A1C,4548-4,6.6,A1C Controlled
+P009,46,M,11545,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-03-12,A1C,4548-4,8.8,A1C Not Controlled
+P009,46,M,11545,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-06-10,A1C,4548-4,8.6,A1C Not Controlled
+P009,46,M,11545,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-09-08,A1C,4548-4,6.9,A1C Controlled
+P009,46,M,11545,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-12-07,A1C,4548-4,8.0,A1C Not Controlled
+P010,57,F,65686,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-03-31,A1C,4548-4,6.7,A1C Controlled
+P010,57,F,65686,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-06-29,A1C,4548-4,7.7,A1C Not Controlled
+P010,57,F,65686,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-09-27,A1C,4548-4,6.8,A1C Controlled
+P010,57,F,65686,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-12-26,A1C,4548-4,7.8,A1C Not Controlled
+P011,73,F,34999,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-06-01,A1C,4548-4,7.5,A1C Not Controlled
+P011,73,F,34999,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-08-30,A1C,4548-4,6.3,A1C Controlled
+P011,73,F,34999,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-11-28,A1C,4548-4,6.1,A1C Controlled
+P011,73,F,34999,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-02-26,A1C,4548-4,6.3,A1C Controlled
+P012,65,M,71941,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2023-10-30,A1C,4548-4,7.1,A1C Not Controlled
+P012,65,M,71941,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-01-28,A1C,4548-4,9.0,A1C Not Controlled
+P012,65,M,71941,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-04-27,A1C,4548-4,7.6,A1C Not Controlled
+P012,65,M,71941,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-07-26,A1C,4548-4,8.9,A1C Not Controlled
+P012,65,M,71941,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-10-24,A1C,4548-4,8.6,A1C Not Controlled
+P012,65,M,71941,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-01-22,A1C,4548-4,6.0,A1C Controlled
+P013,68,M,07986,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-01-13,A1C,4548-4,6.9,A1C Controlled
+P013,68,M,07986,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-04-12,A1C,4548-4,6.5,A1C Controlled
+P013,68,M,07986,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-07-11,A1C,4548-4,6.0,A1C Controlled
+P014,68,F,21097,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-02-16,A1C,4548-4,8.5,A1C Not Controlled
+P014,68,F,21097,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-05-16,A1C,4548-4,7.5,A1C Not Controlled
+P014,68,F,21097,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-08-14,A1C,4548-4,6.6,A1C Controlled
+P014,68,F,21097,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-11-12,A1C,4548-4,7.1,A1C Not Controlled
+P014,68,F,21097,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2025-02-10,A1C,4548-4,6.5,A1C Controlled
+P015,75,M,84225,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2023-08-15,A1C,4548-4,6.3,A1C Controlled
+P015,75,M,84225,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2023-11-13,A1C,4548-4,7.1,A1C Not Controlled
+P015,75,M,84225,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-02-11,A1C,4548-4,9.0,A1C Not Controlled
+P016,70,F,33890,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-06-15,A1C,4548-4,8.6,A1C Not Controlled
+P016,70,F,33890,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-09-13,A1C,4548-4,8.8,A1C Not Controlled
+P016,70,F,33890,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-12-12,A1C,4548-4,6.3,A1C Controlled
+P016,70,F,33890,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2025-03-12,A1C,4548-4,7.5,A1C Not Controlled
+P017,47,M,39753,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2023-08-09,A1C,4548-4,6.8,A1C Controlled
+P017,47,M,39753,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2023-11-07,A1C,4548-4,8.6,A1C Not Controlled
+P017,47,M,39753,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-02-05,A1C,4548-4,7.3,A1C Not Controlled
+P017,47,M,39753,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-05-05,A1C,4548-4,6.6,A1C Controlled
+P018,62,M,39077,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2023-12-11,A1C,4548-4,7.3,A1C Not Controlled
+P018,62,M,39077,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-03-10,A1C,4548-4,7.6,A1C Not Controlled
+P018,62,M,39077,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-06-08,A1C,4548-4,6.4,A1C Controlled
+P018,62,M,39077,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-09-06,A1C,4548-4,6.7,A1C Controlled
+P018,62,M,39077,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-12-05,A1C,4548-4,7.0,A1C Not Controlled
+P019,63,M,06829,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2023-12-15,A1C,4548-4,8.1,A1C Not Controlled
+P019,63,M,06829,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-03-14,A1C,4548-4,6.2,A1C Controlled
+P019,63,M,06829,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-06-12,A1C,4548-4,6.2,A1C Controlled
+P020,46,F,74823,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2023-12-03,A1C,4548-4,8.0,A1C Not Controlled
+P020,46,F,74823,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-03-02,A1C,4548-4,6.6,A1C Controlled
+P020,46,F,74823,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-05-31,A1C,4548-4,6.4,A1C Controlled
+P020,46,F,74823,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-08-29,A1C,4548-4,8.8,A1C Not Controlled
+P020,46,F,74823,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-11-27,A1C,4548-4,7.7,A1C Not Controlled
+P021,60,M,41894,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2023-11-11,A1C,4548-4,6.3,A1C Controlled
+P021,60,M,41894,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-02-09,A1C,4548-4,8.0,A1C Not Controlled
+P021,60,M,41894,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-05-09,A1C,4548-4,7.1,A1C Not Controlled
+P021,60,M,41894,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-08-07,A1C,4548-4,7.2,A1C Not Controlled
+P022,72,M,78078,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2023-09-09,A1C,4548-4,8.2,A1C Not Controlled
+P022,72,M,78078,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2023-12-08,A1C,4548-4,8.4,A1C Not Controlled
+P022,72,M,78078,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-03-07,A1C,4548-4,6.3,A1C Controlled
+P022,72,M,78078,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-06-05,A1C,4548-4,6.6,A1C Controlled
+P022,72,M,78078,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-09-03,A1C,4548-4,7.6,A1C Not Controlled
+P022,72,M,78078,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-12-02,A1C,4548-4,6.4,A1C Controlled
+P023,50,F,38068,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2023-12-07,A1C,4548-4,7.3,A1C Not Controlled
+P023,50,F,38068,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-03-06,A1C,4548-4,8.6,A1C Not Controlled
+P023,50,F,38068,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-06-04,A1C,4548-4,7.7,A1C Not Controlled
+P024,46,M,36569,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2023-09-29,A1C,4548-4,7.2,A1C Not Controlled
+P024,46,M,36569,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2023-12-28,A1C,4548-4,7.4,A1C Not Controlled
+P024,46,M,36569,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-03-27,A1C,4548-4,8.6,A1C Not Controlled
+P024,46,M,36569,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-06-25,A1C,4548-4,8.7,A1C Not Controlled
+P025,50,F,88732,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-05-02,A1C,4548-4,8.8,A1C Not Controlled
+P025,50,F,88732,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-07-31,A1C,4548-4,8.4,A1C Not Controlled
+P025,50,F,88732,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-10-29,A1C,4548-4,6.9,A1C Controlled
+P025,50,F,88732,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2025-01-27,A1C,4548-4,8.1,A1C Not Controlled
+P025,50,F,88732,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2025-04-27,A1C,4548-4,8.2,A1C Not Controlled
+P026,70,F,74240,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2023-11-04,A1C,4548-4,6.7,A1C Controlled
+P026,70,F,74240,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-02-02,A1C,4548-4,6.2,A1C Controlled
+P026,70,F,74240,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-05-02,A1C,4548-4,8.2,A1C Not Controlled
+P026,70,F,74240,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-07-31,A1C,4548-4,6.2,A1C Controlled
+P026,70,F,74240,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-10-29,A1C,4548-4,6.9,A1C Controlled
+P027,46,F,88598,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-03-26,A1C,4548-4,8.6,A1C Not Controlled
+P027,46,F,88598,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-06-24,A1C,4548-4,6.2,A1C Controlled
+P027,46,F,88598,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-09-22,A1C,4548-4,6.2,A1C Controlled
+P028,72,M,19054,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-04-18,A1C,4548-4,7.7,A1C Not Controlled
+P028,72,M,19054,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-07-17,A1C,4548-4,6.1,A1C Controlled
+P028,72,M,19054,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-10-15,A1C,4548-4,6.2,A1C Controlled
+P028,72,M,19054,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-01-13,A1C,4548-4,8.0,A1C Not Controlled
+P029,63,F,27857,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2023-10-12,A1C,4548-4,6.7,A1C Controlled
+P029,63,F,27857,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-01-10,A1C,4548-4,7.2,A1C Not Controlled
+P029,63,F,27857,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-04-09,A1C,4548-4,8.0,A1C Not Controlled
+P029,63,F,27857,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-07-08,A1C,4548-4,6.9,A1C Controlled
+P029,63,F,27857,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-10-06,A1C,4548-4,6.9,A1C Controlled
+P030,69,M,14225,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2023-10-20,A1C,4548-4,6.2,A1C Controlled
+P030,69,M,14225,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-01-18,A1C,4548-4,6.6,A1C Controlled
+P030,69,M,14225,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-04-17,A1C,4548-4,6.8,A1C Controlled
+P031,74,F,32429,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2023-12-19,A1C,4548-4,6.9,A1C Controlled
+P031,74,F,32429,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-03-18,A1C,4548-4,7.3,A1C Not Controlled
+P031,74,F,32429,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-06-16,A1C,4548-4,7.6,A1C Not Controlled
+P031,74,F,32429,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-09-14,A1C,4548-4,6.9,A1C Controlled
+P031,74,F,32429,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-12-13,A1C,4548-4,9.0,A1C Not Controlled
+P032,70,M,11895,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2023-07-27,A1C,4548-4,6.8,A1C Controlled
+P032,70,M,11895,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2023-10-25,A1C,4548-4,8.7,A1C Not Controlled
+P032,70,M,11895,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-01-23,A1C,4548-4,8.2,A1C Not Controlled
+P032,70,M,11895,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-04-22,A1C,4548-4,6.5,A1C Controlled
+P033,54,M,30618,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2023-11-06,A1C,4548-4,7.5,A1C Not Controlled
+P033,54,M,30618,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-02-04,A1C,4548-4,6.8,A1C Controlled
+P033,54,M,30618,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-05-04,A1C,4548-4,8.7,A1C Not Controlled
+P033,54,M,30618,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-08-02,A1C,4548-4,6.2,A1C Controlled
+P033,54,M,30618,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-10-31,A1C,4548-4,7.9,A1C Not Controlled
+P034,71,F,30514,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-06-22,A1C,4548-4,8.3,A1C Not Controlled
+P034,71,F,30514,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-09-20,A1C,4548-4,7.9,A1C Not Controlled
+P034,71,F,30514,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-12-19,A1C,4548-4,6.8,A1C Controlled
+P034,71,F,30514,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2025-03-19,A1C,4548-4,8.2,A1C Not Controlled
+P034,71,F,30514,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2025-06-17,A1C,4548-4,7.7,A1C Not Controlled
+P035,58,M,89030,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2023-10-12,A1C,4548-4,7.6,A1C Not Controlled
+P035,58,M,89030,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-01-10,A1C,4548-4,8.5,A1C Not Controlled
+P035,58,M,89030,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-04-09,A1C,4548-4,7.7,A1C Not Controlled
+P035,58,M,89030,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-07-08,A1C,4548-4,6.4,A1C Controlled
+P036,49,M,08324,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2023-07-10,A1C,4548-4,8.7,A1C Not Controlled
+P036,49,M,08324,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2023-10-08,A1C,4548-4,6.6,A1C Controlled
+P036,49,M,08324,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-01-06,A1C,4548-4,6.7,A1C Controlled
+P037,48,F,75321,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-06-19,A1C,4548-4,8.6,A1C Not Controlled
+P037,48,F,75321,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-09-17,A1C,4548-4,8.9,A1C Not Controlled
+P037,48,F,75321,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-12-16,A1C,4548-4,8.4,A1C Not Controlled
+P037,48,F,75321,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-03-16,A1C,4548-4,8.6,A1C Not Controlled
+P038,45,M,44858,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2023-10-30,A1C,4548-4,6.8,A1C Controlled
+P038,45,M,44858,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-01-28,A1C,4548-4,8.4,A1C Not Controlled
+P038,45,M,44858,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-04-27,A1C,4548-4,6.3,A1C Controlled
+P038,45,M,44858,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-07-26,A1C,4548-4,8.6,A1C Not Controlled
+P039,72,F,95876,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-03-03,A1C,4548-4,7.0,A1C Not Controlled
+P039,72,F,95876,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-06-01,A1C,4548-4,8.5,A1C Not Controlled
+P039,72,F,95876,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-08-30,A1C,4548-4,8.6,A1C Not Controlled
+P039,72,F,95876,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-11-28,A1C,4548-4,6.7,A1C Controlled
+P039,72,F,95876,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2025-02-26,A1C,4548-4,8.0,A1C Not Controlled
+P039,72,F,95876,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2025-05-27,A1C,4548-4,7.2,A1C Not Controlled
+P040,53,M,19163,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-06-20,A1C,4548-4,8.0,A1C Not Controlled
+P040,53,M,19163,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-09-18,A1C,4548-4,8.5,A1C Not Controlled
+P040,53,M,19163,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-12-17,A1C,4548-4,7.0,A1C Not Controlled
+P040,53,M,19163,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-03-17,A1C,4548-4,6.1,A1C Controlled
+P040,53,M,19163,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-06-15,A1C,4548-4,8.6,A1C Not Controlled
+P040,53,M,19163,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-09-13,A1C,4548-4,6.8,A1C Controlled
+P041,63,F,88971,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-06-17,A1C,4548-4,7.0,A1C Not Controlled
+P041,63,F,88971,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-09-15,A1C,4548-4,8.4,A1C Not Controlled
+P041,63,F,88971,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-12-14,A1C,4548-4,7.3,A1C Not Controlled
+P041,63,F,88971,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2025-03-14,A1C,4548-4,9.0,A1C Not Controlled
+P041,63,F,88971,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2025-06-12,A1C,4548-4,6.3,A1C Controlled
+P041,63,F,88971,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2025-09-10,A1C,4548-4,8.7,A1C Not Controlled
+P042,51,F,19097,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-04-17,A1C,4548-4,7.6,A1C Not Controlled
+P042,51,F,19097,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-07-16,A1C,4548-4,8.4,A1C Not Controlled
+P042,51,F,19097,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-10-14,A1C,4548-4,8.1,A1C Not Controlled
+P043,75,M,02357,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-03-31,A1C,4548-4,8.8,A1C Not Controlled
+P043,75,M,02357,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-06-29,A1C,4548-4,8.8,A1C Not Controlled
+P043,75,M,02357,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-09-27,A1C,4548-4,7.9,A1C Not Controlled
+P044,66,M,99458,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-06-08,A1C,4548-4,7.0,A1C Not Controlled
+P044,66,M,99458,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-09-06,A1C,4548-4,8.1,A1C Not Controlled
+P044,66,M,99458,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-12-05,A1C,4548-4,7.7,A1C Not Controlled
+P044,66,M,99458,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-03-05,A1C,4548-4,6.6,A1C Controlled
+P044,66,M,99458,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-06-03,A1C,4548-4,8.0,A1C Not Controlled
+P044,66,M,99458,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-09-01,A1C,4548-4,7.1,A1C Not Controlled
+P045,68,M,49338,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-03-12,A1C,4548-4,6.9,A1C Controlled
+P045,68,M,49338,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-06-10,A1C,4548-4,6.6,A1C Controlled
+P045,68,M,49338,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-09-08,A1C,4548-4,8.4,A1C Not Controlled
+P046,64,F,40329,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-04-16,A1C,4548-4,8.0,A1C Not Controlled
+P046,64,F,40329,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-07-15,A1C,4548-4,7.5,A1C Not Controlled
+P046,64,F,40329,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-10-13,A1C,4548-4,8.4,A1C Not Controlled
+P046,64,F,40329,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-01-11,A1C,4548-4,8.9,A1C Not Controlled
+P046,64,F,40329,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-04-11,A1C,4548-4,8.2,A1C Not Controlled
+P046,64,F,40329,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-07-10,A1C,4548-4,8.0,A1C Not Controlled
+P047,54,F,97920,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-01-14,A1C,4548-4,6.7,A1C Controlled
+P047,54,F,97920,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-04-13,A1C,4548-4,6.6,A1C Controlled
+P047,54,F,97920,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-07-12,A1C,4548-4,6.1,A1C Controlled
+P047,54,F,97920,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2024-10-10,A1C,4548-4,6.7,A1C Controlled
+P047,54,F,97920,Protocol_A,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, GLP-1",2025-01-08,A1C,4548-4,7.4,A1C Not Controlled
+P048,72,M,62641,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-04-26,A1C,4548-4,8.2,A1C Not Controlled
+P048,72,M,62641,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-07-25,A1C,4548-4,7.2,A1C Not Controlled
+P048,72,M,62641,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-10-23,A1C,4548-4,7.2,A1C Not Controlled
+P048,72,M,62641,Protocol_B,Hypertension,I10,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-01-21,A1C,4548-4,6.4,A1C Controlled
+P049,67,M,36663,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-02-14,A1C,4548-4,6.5,A1C Controlled
+P049,67,M,36663,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-05-14,A1C,4548-4,8.9,A1C Not Controlled
+P049,67,M,36663,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-08-12,A1C,4548-4,7.6,A1C Not Controlled
+P049,67,M,36663,Protocol_A,Hypertension,I10,83036,HbA1c Test,"Metformin, GLP-1",2024-11-10,A1C,4548-4,6.2,A1C Controlled
+P050,52,M,41742,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2023-11-18,A1C,4548-4,8.0,A1C Not Controlled
+P050,52,M,41742,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-02-16,A1C,4548-4,9.0,A1C Not Controlled
+P050,52,M,41742,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-05-16,A1C,4548-4,7.8,A1C Not Controlled
+P050,52,M,41742,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-08-14,A1C,4548-4,8.9,A1C Not Controlled
+P050,52,M,41742,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2024-11-12,A1C,4548-4,8.7,A1C Not Controlled
+P050,52,M,41742,Protocol_B,Type 2 Diabetes,E11.9,83036,HbA1c Test,"Metformin, Sulfonylurea",2025-02-10,A1C,4548-4,7.8,A1C Not Controlled
