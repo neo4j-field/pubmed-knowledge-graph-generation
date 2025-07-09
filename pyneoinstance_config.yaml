@@ -1,6 +1,6 @@
 db_info:
   uri: bolt://localhost:7687
-  database: test-many-articles
+  database: patient-journey-test
   user: neo4j
   password: password
 initializing_queries:
@@ -8,36 +8,22 @@ initializing_queries:
     # lexical graph constraints
     document_id: |
       CREATE CONSTRAINT document_id IF NOT EXISTS FOR (n:Document) REQUIRE n.id IS NODE KEY;
-    # document_pmid: |
-    #   CREATE CONSTRAINT document_pmid IF NOT EXISTS FOR (n:Document) REQUIRE n.pmId IS NODE KEY;
-    # document_name: |
-    #   CREATE CONSTRAINT document_name IF NOT EXISTS FOR (n:Document) REQUIRE n.name IS NODE KEY;
-
     chunk_id: |
       CREATE CONSTRAINT chunk_id IF NOT EXISTS FOR (n:Chunk) REQUIRE n.id IS NODE KEY;
-
     unstructured_element_id: |
       CREATE CONSTRAINT unstructured_element_id IF NOT EXISTS FOR (n:UnstructuredElement) REQUIRE n.id IS NODE KEY;
 
     # domain graph constraints
-    # medication_id: |
-    #   CREATE CONSTRAINT medication_id IF NOT EXISTS FOR (n:Medication) REQUIRE n.id IS UNIQUE;
     medication_name: |
       CREATE CONSTRAINT medication_name IF NOT EXISTS FOR (n:Medication) REQUIRE n.name IS NODE KEY;
     study_medication_id: |
-      CREATE CONSTRAINT study_medication_id IF NOT EXISTS FOR (n:StudyMedication) REQUIRE n.id IS UNIQUE;
-    # medical_condition_id: |
-    #   CREATE CONSTRAINT medical_condition_id IF NOT EXISTS FOR (n:MedicalCondition) REQUIRE n.id IS UNIQUE;
+      CREATE CONSTRAINT study_medication_id IF NOT EXISTS FOR (n:StudyMedication) REQUIRE n.id IS NODE KEY;
     medical_condition_name: |
       CREATE CONSTRAINT medical_condition_name IF NOT EXISTS FOR (n:MedicalCondition) REQUIRE n.name IS NODE KEY;
     study_population_id: |
-      CREATE CONSTRAINT study_population_id IF NOT EXISTS FOR (n:StudyPopulation) REQUIRE n.id IS UNIQUE;
-    study_population_name: |
-      CREATE CONSTRAINT study_population_name IF NOT EXISTS FOR (n:StudyPopulation) REQUIRE n.name IS NODE KEY;
-    study_outcome_id: |
-      CREATE CONSTRAINT study_outcome_id IF NOT EXISTS FOR (n:StudyOutcome) REQUIRE n.id IS UNIQUE;
-    study_outcome_name: |
-      CREATE CONSTRAINT study_outcome_name IF NOT EXISTS FOR (n:StudyOutcome) REQUIRE n.name IS NODE KEY;
+      CREATE CONSTRAINT study_population_id IF NOT EXISTS FOR (n:StudyPopulation) REQUIRE n.id IS NODE KEY;
+    clinical_outcome_id: |
+      CREATE CONSTRAINT clinical_outcome_id IF NOT EXISTS FOR (n:ClinicalOutcome) REQUIRE n.id IS NODE KEY;
 
   indexes:
 # Running the Constraint queries will create indexes for node properties of interest.
@@ -104,11 +90,11 @@ loading_queries:
       UNWIND $rows AS row
       MERGE (n:StudyMedication {id: row.study_medication_id})
       SET n.studyName = COALESCE(n.studyName, row.study_name),
+          n.treatmentArm = COALESCE(n.treatmentArm, row.treatment_arm),
           n.dosage = COALESCE(n.dosage, row.dosage), 
           n.route = COALESCE(n.route, row.route), 
           n.frequency = COALESCE(n.frequency, row.frequency), 
           n.treatmentDuration = COALESCE(n.treatmentDuration, row.treatment_duration), 
-          n.treatmentArm = COALESCE(n.treatmentArm, row.treatment_arm), 
           n.comparator = COALESCE(n.comparator, row.comparator), 
           n.adherenceRate = COALESCE(n.adherenceRate, row.adherence_rate), 
           n.formulation = COALESCE(n.formulation, row.formulation)
@@ -116,16 +102,8 @@ loading_queries:
     clinical_outcome: |
       UNWIND $rows AS row
       MERGE (n:ClinicalOutcome {id: row.clinical_outcome_id})
-      SET n.category = COALESCE(n.category, row.category), 
-          n.description = COALESCE(n.description, row.description), 
-          n.measurementUnit = COALESCE(n.measurementUnit, row.measurement_unit), 
-          n.normalRange = COALESCE(n.normalRange, row.normal_range), 
-          n.baselineValue = COALESCE(n.baselineValue, row.baseline_value), 
-          n.postTreatmentValue = COALESCE(n.postTreatmentValue, row.post_treatment_value), 
-          n.changeFromBaseline = COALESCE(n.changeFromBaseline, row.change_from_baseline), 
-          n.pValue = COALESCE(n.pValue, row.p_value), 
-          n.confidenceInterval = COALESCE(n.confidenceInterval, row.confidence_interval), 
-          n.effectSize = COALESCE(n.effectSize, row.effect_size)
+      SET n.studyName = COALESCE(n.studyName, row.study_name),
+          n.name = COALESCE(n.name, row.name)
 
     medical_condition: |
       UNWIND $rows AS row
@@ -140,8 +118,9 @@ loading_queries:
       UNWIND $rows AS row
       MERGE (n:StudyPopulation {id: row.study_population_id})
       SET n.description = COALESCE(n.description, row.description), 
-          n.ageRange = COALESCE(n.ageRange, row.age_range), 
-          n.meanAge = COALESCE(n.meanAge, row.mean_age), 
+          n.studyName = COALESCE(n.studyName, row.study_name),
+          n.minAge = COALESCE(n.minAge, row.min_age), 
+          n.maxAge = COALESCE(n.maxAge, row.max_age), 
           n.malePercentage = COALESCE(n.malePercentage, row.male_percentage), 
           n.femalePercentage = COALESCE(n.femalePercentage, row.female_percentage), 
           n.otherGenderPercentage = COALESCE(n.otherGenderPercentage, row.other_gender_percentage), 
@@ -214,7 +193,7 @@ loading_queries:
     chunk_has_entity_medical_condition: |
       UNWIND $rows as row
       MATCH (c:Chunk {id: row.chunk_id})
-      MATCH (e:MedicalCondition {id: row.medical_condition_id})
+      MATCH (e:MedicalCondition {name: row.name})
       MERGE (c)-[:HAS_ENTITY]->(e)
 
     chunk_has_entity_study_medication: |
@@ -234,10 +213,25 @@ loading_queries:
       MATCH (c:Chunk {id: row.chunk_id})
       MATCH (e:ClinicalOutcome {id: row.clinical_outcome_id})
       MERGE (c)-[:HAS_ENTITY]->(e)
+    
+    demographic_in_study_population: |
+      MATCH (d:Demographic)
+      MATCH (s:StudyPopulation)
+      WHERE d.age >= s.minAge AND d.age <= s.maxAge
+      
+      FOREACH (male in CASE WHEN d.sex = "M" AND s.malePercentage > 0 THEN 1 ELSE 0 END |
+        MERGE (d)-[:IN_STUDY_POPULATION]->(s)
+      )
+      FOREACH (female in CASE WHEN d.sex = "F" AND s.femalePercentage > 0 THEN 1 ELSE 0 END |
+        MERGE (d)-[:IN_STUDY_POPULATION]->(s)
+      )
+      FOREACH (other in CASE WHEN d.sex = "O" AND s.otherGenderPercentage > 0 THEN 1 ELSE 0 END |
+        MERGE (d)-[:IN_STUDY_POPULATION]->(s)
+      )
 
 processing_queries:
   get_chunk_nodes_to_process_by_article_name: |
-    MATCH (d:Document {name: $article_name})<-[:PART_OF]-(c:Chunk)
+    MATCH (d:Document {name: $article_name})<-[:PART_OF_DOCUMENT]-(c:Chunk)
     RETURN c.id as id, c.text as text
   
   get_chunk_nodes_to_process: |
