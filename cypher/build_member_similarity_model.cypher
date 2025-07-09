@@ -20,28 +20,28 @@ MATCH (m3:Member {id: 'P003'}), (d3:Demographic)
 CREATE (m3)-[:HAS_DEMO]->(d3);
 
 // Create Conditions
-CREATE (c1:Condition {code: 'E11.9', name: 'Type 2 Diabetes'}),
-       (c2:Condition {code: 'I10', name: 'Hypertension'});
+CREATE (c1:MedicalCondition {code: 'E11.9', name: 'Type 2 Diabetes'}),
+       (c2:MedicalCondition {code: 'I10', name: 'Hypertension'});
 
 // Link Members to Conditions
-MATCH (m1:Member {id: 'P001'}), (c1:Condition)
+MATCH (m1:Member {id: 'P001'}), (c1:MedicalCondition)
 CREATE (m1)-[:HAS_DIAGNOSIS]->(c1);
-MATCH (m2:Member {id: 'P002'}), (c1:Condition)
+MATCH (m2:Member {id: 'P002'}), (c1:MedicalCondition)
 CREATE (m2)-[:HAS_DIAGNOSIS]->(c1), (m2)-[:HAS_DIAGNOSIS]->(c2);
-MATCH (m3:Member {id: 'P003'}), (c1:Condition), (c2:Condition)
+MATCH (m3:Member {id: 'P003'}), (c1:MedicalCondition), (c2:MedicalCondition)
 CREATE (m3)-[:HAS_DIAGNOSIS]->(c1), (m3)-[:HAS_DIAGNOSIS]->(c2);
 
-// Create Drugs
-CREATE (dMet:Drug {name: 'Metformin'}),
-       (dGLP:Drug {name: 'GLP-1'}),
-       (dSul:Drug {name: 'Sulfonylurea'});
+// Create Medications
+CREATE (dMet:Medication {name: 'Metformin'}),
+       (dGLP:Medication {name: 'GLP-1'}),
+       (dSul:Medication {name: 'Sulfonylurea'});
 
-// Link Members to Drugs
-MATCH (m1:Member {id: 'P001'}), (dMet:Drug), (dGLP:Drug)
+// Link Members to Medications
+MATCH (m1:Member {id: 'P001'}), (dMet:Medication), (dGLP:Medication)
 CREATE (m1)-[:TAKES]->(dMet), (m1)-[:TAKES]->(dGLP);
-MATCH (m2:Member {id: 'P002'}), (dMet:Drug), (dSul:Drug)
+MATCH (m2:Member {id: 'P002'}), (dMet:Medication), (dSul:Medication)
 CREATE (m2)-[:TAKES]->(dMet), (m2)-[:TAKES]->(dSul);
-MATCH (m3:Member {id: 'P003'}), (dMet:Drug)
+MATCH (m3:Member {id: 'P003'}), (dMet:Medication)
 CREATE (m3)-[:TAKES]->(dMet);
 
 // Create Procedures
