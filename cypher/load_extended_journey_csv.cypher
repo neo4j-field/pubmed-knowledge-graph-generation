@@ -19,21 +19,21 @@ WITH row,
 
 MERGE (m:Member {id: row.member_id})
 MERGE (demo:Demographic {age: age, sex: row.sex, zip: row.zip_code})
-MERGE (m)-[:HAS_DEMO]->(demo)
+MERGE (m)-[:IN_DEMOGRAPHIC]->(demo)
 
 MERGE (c:MedicalCondition {icd10Code: row.diagnosis_code, name: row.diagnosis})
 MERGE (m)-[:HAS_DIAGNOSIS]->(c)
 
 MERGE (p:Procedure {code: row.procedure_code, name: row.procedure_name})
-MERGE (m)-[:UNDERWENT {date: date(row.visit_date)}]->(p)
+MERGE (m)-[:UNDERWENT_PROCEDURE {date: date(row.visit_date)}]->(p)
 
 MERGE (l:LabResult {name: row.lab_test, value: lab_val})
-MERGE (m)-[:HAS_LAB {date: date(row.visit_date)}]->(l)
+MERGE (m)-[:HAS_LAB_RESULT {date: date(row.visit_date)}]->(l)
 
 MERGE (o:ClinicalOutcome {name: row.outcome})
-MERGE (m)-[:ACHIEVES {date: date(row.visit_date)}]->(o)
+MERGE (m)-[:ACHIEVES_CLINICAL_OUTCOME {date: date(row.visit_date)}]->(o)
 
 FOREACH (med IN meds |
   MERGE (d:Medication {name: med})
-  MERGE (m)-[:TAKES]->(d)
+  MERGE (m)-[:TAKES_MEDICATION]->(d)
 )

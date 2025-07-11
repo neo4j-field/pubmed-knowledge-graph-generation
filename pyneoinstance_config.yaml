@@ -82,9 +82,9 @@ loading_queries:
       MERGE (n:Medication {name: row.name})
       SET n.medication_class = COALESCE(n.medication_class, row.medication_class), 
           n.mechanism = COALESCE(n.mechanism, row.mechanism), 
-          n.generic_name = COALESCE(n.generic_name, row.generic_name), 
-          n.brand_names = COALESCE(n.brand_names, row.brand_names), 
-          n.approval_status = COALESCE(n.approval_status, row.approval_status)
+          n.genericName = COALESCE(n.genericName, row.generic_name), 
+          n.brandNames = COALESCE(n.brandNames, row.brand_names), 
+          n.approvalStatus = COALESCE(n.approvalStatus, row.approval_status)
 
     study_medication: |
       UNWIND $rows AS row
@@ -152,6 +152,7 @@ loading_queries:
       MERGE (c)-[:HAS_NEXT_CHUNK]->(n)
 
     # domain graph relationships
+    # -- this relationship also links to patient journey graph
     study_medication_uses_medication: |
       UNWIND $rows as row
       MATCH (s:StudyMedication {id: row.study_medication_id})
@@ -214,20 +215,44 @@ loading_queries:
       MATCH (e:ClinicalOutcome {id: row.clinical_outcome_id})
       MERGE (c)-[:HAS_ENTITY]->(e)
     
+    # linking domain graph to patient journey graph
     demographic_in_study_population: |
       MATCH (d:Demographic)
       MATCH (s:StudyPopulation)
-      WHERE d.age >= s.minAge AND d.age <= s.maxAge
-      
-      FOREACH (male in CASE WHEN d.sex = "M" AND s.malePercentage > 0 THEN 1 ELSE 0 END |
-        MERGE (d)-[:IN_STUDY_POPULATION]->(s)
-      )
-      FOREACH (female in CASE WHEN d.sex = "F" AND s.femalePercentage > 0 THEN 1 ELSE 0 END |
-        MERGE (d)-[:IN_STUDY_POPULATION]->(s)
-      )
-      FOREACH (other in CASE WHEN d.sex = "O" AND s.otherGenderPercentage > 0 THEN 1 ELSE 0 END |
-        MERGE (d)-[:IN_STUDY_POPULATION]->(s)
-      )
+      // sex and age are in study population and match
+      CALL (d, s) {
+          WITH d, s
+          WHERE s.minAge IS NOT NULL
+              AND d.age >= s.minAge 
+              AND s.maxAge IS NOT NULL
+              AND d.age <= s.maxAge
+              AND (
+                  (d.sex = "M" AND s.malePercentage IS NOT NULL) OR
+                  (d.sex = "F" AND s.femalePercentage IS NOT NULL) OR
+                  (d.sex <> "M" AND d.sex <> "F" AND s.otherGenderPercentage IS NOT NULL)
+              )
+          MERGE (d)-[r:IN_STUDY_POPULATION]->(s)
+          ON CREATE
+              SET r.fit = 1.0
+      }
+      // sex or age are in study population and match
+      CALL (d, s) {
+          WITH d, s
+          WHERE (
+              (s.minAge IS NOT NULL AND d.age >= s.minAge AND s.maxAge IS NOT NULL AND d.age <= s.maxAge AND
+              s.malePercentage IS NULL AND s.femalePercentage IS NULL AND s.otherGenderPercentage IS NULL) OR
+              
+              (s.minAge IS NULL AND s.maxAge IS NULL AND
+              ((d.sex = "M" AND s.malePercentage IS NOT NULL) OR
+                (d.sex = "F" AND s.femalePercentage IS NOT NULL) OR
+                (d.sex <> "M" AND d.sex <> "F" AND s.otherGenderPercentage IS NOT NULL)))
+          )
+          MERGE (d)-[r:IN_STUDY_POPULATION]->(s)
+          ON CREATE
+              SET r.fit = 0.5
+      }
+
+
 
 processing_queries:
   get_chunk_nodes_to_process_by_article_name: |
