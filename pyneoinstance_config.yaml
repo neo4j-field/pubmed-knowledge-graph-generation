@@ -16,8 +16,10 @@ initializing_queries:
     # domain graph constraints
     medication_name: |
       CREATE CONSTRAINT medication_name IF NOT EXISTS FOR (n:Medication) REQUIRE n.name IS NODE KEY;
-    study_medication_id: |
-      CREATE CONSTRAINT study_medication_id IF NOT EXISTS FOR (n:StudyMedication) REQUIRE n.id IS NODE KEY;
+    treatment_arm_id: |
+      CREATE CONSTRAINT treatment_arm_id IF NOT EXISTS FOR (n:TreatmentArm) REQUIRE n.id IS NODE KEY;
+    # study_medication_id: |
+    #   CREATE CONSTRAINT study_medication_id IF NOT EXISTS FOR (n:StudyMedication) REQUIRE n.id IS NODE KEY;
     medical_condition_name: |
       CREATE CONSTRAINT medical_condition_name IF NOT EXISTS FOR (n:MedicalCondition) REQUIRE n.name IS NODE KEY;
     study_population_id: |
@@ -80,11 +82,17 @@ loading_queries:
     medication: |
       UNWIND $rows AS row
       MERGE (n:Medication {name: row.name})
-      SET n.medication_class = COALESCE(n.medication_class, row.medication_class), 
+      SET n.medicationClass = COALESCE(n.medicationClass, row.medication_class), 
           n.mechanism = COALESCE(n.mechanism, row.mechanism), 
           n.genericName = COALESCE(n.genericName, row.generic_name), 
           n.brandNames = COALESCE(n.brandNames, row.brand_names), 
           n.approvalStatus = COALESCE(n.approvalStatus, row.approval_status)
+    
+    treatment_arm: |
+      UNWIND $rows AS row
+      MERGE (n:TreatmentArm {id: row.treatment_arm_id})
+      SET n.studyName = COALESCE(n.studyName, row.study_name),
+          n.name = COALESCE(n.name, row.name)
 
     study_medication: |
       UNWIND $rows AS row
@@ -112,7 +120,6 @@ loading_queries:
           n.severity = COALESCE(n.severity, row.severity), 
           n.icd10Code = COALESCE(n.icd10Code, row.icd10_code), 
           n.duration = COALESCE(n.duration, row.duration), 
-          n.prevalence = COALESCE(n.prevalence, row.prevalence)
     
     study_population: |
       UNWIND $rows AS row
@@ -165,6 +172,29 @@ loading_queries:
       MATCH (o:ClinicalOutcome {id: row.clinical_outcome_id})
       MERGE (s)-[:PRODUCES_CLINICAL_OUTCOME]->(o)
 
+    medication_used_in_treatment_arm: |
+      UNWIND $rows as row
+      MATCH (m:Medication {name: row.medication_name})
+      MATCH (t:TreatmentArm {id: row.treatment_arm_id})
+      MERGE (m)-[r:USED_IN_TREATMENT_ARM]->(t)
+      ON CREATE
+        SET r.studyName = COALESCE(r.studyName, row.study_name),
+            r.treatmentArm = COALESCE(r.treatmentArm, row.treatment_arm_name),
+            r.medication = COALESCE(r.medication, row.medication_name),
+            r.dosage = COALESCE(r.dosage, row.dosage), 
+            r.route = COALESCE(r.route, row.route), 
+            r.frequency = COALESCE(r.frequency, row.frequency), 
+            r.treatmentDuration = COALESCE(r.treatmentDuration, row.treatment_duration), 
+            r.comparator = COALESCE(r.comparator, row.comparator), 
+            r.adherenceRate = COALESCE(r.adherenceRate, row.adherence_rate), 
+            r.formulation = COALESCE(r.formulation, row.formulation)
+    
+    treatment_arm_has_clinical_outcome: |
+      UNWIND $rows as row
+      MATCH (t:TreatmentArm {id: row.treatment_arm_id})
+      MATCH (o:ClinicalOutcome {id: row.clinical_outcome_id})
+      MERGE (t)-[:HAS_CLINICAL_OUTCOME]->(o)
+
     study_population_has_medical_condition: |
       UNWIND $rows as row
       MATCH (s:StudyPopulation {id: row.study_population_id})
@@ -183,6 +213,11 @@ loading_queries:
       MATCH (o:ClinicalOutcome {id: row.clinical_outcome_id})
       MERGE (s)-[:HAS_CLINICAL_OUTCOME]->(o)
 
+    study_population_in_treatment_arm: |
+      UNWIND $rows as row
+      MATCH (s:StudyPopulation {id: row.study_population_id})
+      MATCH (t:TreatmentArm {id: row.treatment_arm_id})
+      MERGE (s)-[:IN_TREATMENT_ARM]->(t)
     
     # linking lexical and domain graphs
     chunk_has_entity_medication: |
@@ -213,6 +248,12 @@ loading_queries:
       UNWIND $rows as row
       MATCH (c:Chunk {id: row.chunk_id})
       MATCH (e:ClinicalOutcome {id: row.clinical_outcome_id})
+      MERGE (c)-[:HAS_ENTITY]->(e)
+
+    chunk_has_entity_treatment_arm: |
+      UNWIND $rows as row
+      MATCH (c:Chunk {id: row.chunk_id})
+      MATCH (e:TreatmentArm {id: row.treatment_arm_id})
       MERGE (c)-[:HAS_ENTITY]->(e)
     
     # linking domain graph to patient journey graph
@@ -264,4 +305,17 @@ processing_queries:
     WHERE c.text IS NOT NULL
       AND c.embedding IS NULL
       AND size(c.text) >= $min_length
+    RETURN c.id as id, c.text as text
+
+  
+  get_chunk_nodes_to_embed: |
+    MATCH (c:Chunk)
+    WHERE c.text IS NOT NULL
+      AND c.embedding IS NULL
+      AND size(c.text) >= $min_length
+    RETURN c.id as id, c.text as text
+  
+  get_chunk_nodes_to_extract_entities: |
+    MATCH (c:Chunk)
+    WHERE NOT EXISTS {(c)-[:HAS_ENTITY]->()}
     RETURN c.id as id, c.text as text
