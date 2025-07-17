@@ -377,3 +377,119 @@ processing_queries:
     WITH dupedNode
     DETACH DELETE dupedNode;
 
+validation_queries:
+  # overall node counts
+  get_medication_count: |
+    MATCH (m:Medication)
+    RETURN COUNT(m) as count
+  
+  get_treatment_arm_count: |
+    MATCH (t:TreatmentArm)
+    RETURN COUNT(t) as count
+  
+  get_clinical_outcome_count: |
+    MATCH (o:ClinicalOutcome)
+    RETURN COUNT(o) as count
+  
+  get_study_population_count: |
+    MATCH (s:StudyPopulation)
+    RETURN COUNT(s) as count
+  
+  get_medical_condition_count: |
+    MATCH (m:MedicalCondition)
+    RETURN COUNT(m) as count
+
+  # orphan counts
+  get_medication_orphan_count: |
+    MATCH (m:Medication)
+    WHERE NOT EXISTS {(m)--()}
+    RETURN COUNT(m) as count
+
+  get_treatment_arm_orphan_count: |
+    MATCH (t:TreatmentArm)
+    WHERE NOT EXISTS {(t)--()}
+    RETURN COUNT(t) as count
+
+  get_study_population_orphan_count: |
+    MATCH (s:StudyPopulation)
+    WHERE NOT EXISTS {(s)--()}
+    RETURN COUNT(s) as count
+
+  get_clinical_outcome_orphan_count: |
+    MATCH (o:ClinicalOutcome)
+    WHERE NOT EXISTS {(o)--()}
+    RETURN COUNT(o) as count
+  
+  get_study_medication_orphan_count: |
+    MATCH (s:StudyMedication)
+    WHERE NOT EXISTS {(s)--()}
+    RETURN COUNT(s) as count
+
+  get_medical_condition_orphan_count: |
+    MATCH (m:MedicalCondition)
+    WHERE NOT EXISTS {(m)--()}
+    RETURN COUNT(m) as count
+  
+  # domain graph relationship counts
+  get_medication_domain_rels: |
+    MATCH (n:Medication)--(:!Chunk)
+    RETURN COUNT(n) as count
+
+  get_treatment_arm_domain_rels: |
+    MATCH (n:TreatmentArm)--(:!Chunk)
+    RETURN COUNT(n) as count
+  
+  get_clinical_outcome_domain_rels: |
+    MATCH (n:ClinicalOutcome)--(:!Chunk)
+    RETURN COUNT(n) as count
+  
+  get_study_population_domain_rels: |
+    MATCH (n:StudyPopulation)--(:!Chunk)
+    RETURN COUNT(n) as count
+  
+  get_medical_condition_domain_rels: |
+    MATCH (n:MedicalCondition)--(:!Chunk)
+    RETURN COUNT(n) as count
+  
+  # lexical graph relationship counts
+  get_medication_lexical_rels: |
+    MATCH (n:Medication)<-[:HAS_ENTITY]-(c:Chunk)
+    RETURN COUNT(n) as count
+  
+  get_treatment_arm_lexical_rels: |
+    MATCH (n:TreatmentArm)<-[:HAS_ENTITY]-(c:Chunk)
+    RETURN COUNT(n) as count
+  
+  get_clinical_outcome_lexical_rels: |
+    MATCH (n:ClinicalOutcome)<-[:HAS_ENTITY]-(c:Chunk)
+    RETURN COUNT(n) as count
+  
+  get_study_population_lexical_rels: |
+    MATCH (n:StudyPopulation)<-[:HAS_ENTITY]-(c:Chunk)
+    RETURN COUNT(n) as count
+  
+  get_medical_condition_lexical_rels: |
+    MATCH (n:MedicalCondition)<-[:HAS_ENTITY]-(c:Chunk)
+    RETURN COUNT(n) as count
+  
+  # overall relationship counts
+  get_medication_used_in_treatment_arm_count: |
+    MATCH (:Medication)-[r:USED_IN_TREATMENT_ARM]->(:TreatmentArm)
+    RETURN COUNT(r) as count
+  
+  get_treatment_arm_has_clinical_outcome_count: |
+    MATCH (:TreatmentArm)-[r:HAS_CLINICAL_OUTCOME]->(:ClinicalOutcome)
+    RETURN COUNT(r) as count
+  
+  get_study_population_has_medical_condition_count: |
+    MATCH (:StudyPopulation)-[r:HAS_MEDICAL_CONDITION]->(:MedicalCondition)
+    RETURN COUNT(r) as count
+  
+  get_study_population_in_treatment_arm_count: |
+    MATCH (:StudyPopulation)-[r:IN_TREATMENT_ARM]->(:TreatmentArm)
+    RETURN COUNT(r) as count
+
+  # relationship properties
+  get_medication_used_in_treatment_arm_properties: |
+    MATCH (:Medication)-[r:USED_IN_TREATMENT_ARM]->(:TreatmentArm)
+    RETURN r
