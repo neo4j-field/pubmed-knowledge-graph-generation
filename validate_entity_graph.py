@@ -206,6 +206,9 @@ def generate_rich_entity_graph_validation_report() -> str:
         )
     
     # Display tables
+    console.print()
+    console.print('*' * 100)
+    console.print()
     console.print(Text("Entity Graph Validation", style="bold magenta"))
     console.print(nodes_table)
     console.print()
