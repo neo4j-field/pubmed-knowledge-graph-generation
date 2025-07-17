@@ -5,7 +5,7 @@
 CREATE CONSTRAINT IF NOT EXISTS FOR (m:Member) REQUIRE m.id IS UNIQUE;
 CREATE CONSTRAINT IF NOT EXISTS FOR (c:MedicalCondition) REQUIRE c.code IS UNIQUE;
 CREATE CONSTRAINT IF NOT EXISTS FOR (c:MedicalCondition) REQUIRE c.name IS NODE KEY;
-CREATE CONSTRAINT IF NOT EXISTS FOR (d:Medication) REQUIRE d.name IS UNIQUE;
+CREATE CONSTRAINT IF NOT EXISTS FOR (d:Medication) REQUIRE d.name IS NODE KEY;
 CREATE CONSTRAINT IF NOT EXISTS FOR (p:Procedure) REQUIRE p.code IS UNIQUE;
 CREATE CONSTRAINT IF NOT EXISTS FOR (l:LabResult) REQUIRE (l.name, l.value) IS NODE KEY;
 CREATE CONSTRAINT IF NOT EXISTS FOR (o:ClinicalOutcome) REQUIRE o.name IS UNIQUE;
@@ -30,7 +30,7 @@ MERGE (m)-[:UNDERWENT_PROCEDURE {date: date(row.visit_date)}]->(p)
 MERGE (l:LabResult {name: row.lab_test, value: lab_val})
 MERGE (m)-[:HAS_LAB_RESULT {date: date(row.visit_date)}]->(l)
 
-MERGE (o:ClinicalOutcome {name: row.outcome})
+MERGE (o:ClinicalOutcome {name: row.outcome, id: row.outcome})
 MERGE (m)-[:ACHIEVES_CLINICAL_OUTCOME {date: date(row.visit_date)}]->(o)
 
 FOREACH (med IN meds |

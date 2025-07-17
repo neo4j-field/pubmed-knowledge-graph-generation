@@ -117,9 +117,7 @@ loading_queries:
       UNWIND $rows AS row
       MERGE (n:MedicalCondition {name: row.name})
       SET n.category = COALESCE(n.category, row.category), 
-          n.severity = COALESCE(n.severity, row.severity), 
-          n.icd10Code = COALESCE(n.icd10Code, row.icd10_code), 
-          n.duration = COALESCE(n.duration, row.duration), 
+          n.icd10Code = COALESCE(n.icd10Code, row.icd10_code)
     
     study_population: |
       UNWIND $rows AS row
@@ -294,7 +292,6 @@ loading_queries:
       }
 
 
-
 processing_queries:
   get_chunk_nodes_to_process_by_article_name: |
     MATCH (d:Document {name: $article_name})<-[:PART_OF_DOCUMENT]-(c:Chunk)
@@ -319,3 +316,64 @@ processing_queries:
     MATCH (c:Chunk)
     WHERE NOT EXISTS {(c)-[:HAS_ENTITY]->()}
     RETURN c.id as id, c.text as text
+
+  # we want to resolve medications 
+  # Condense nodes if 
+  #   if name == generic name
+  #   if name in brand names
+  #   if name is a partial match of generic name
+  resolve_medications: |
+    // Step 1: Find all medications that share names, generic names, or brand names
+    MATCH (n:Medication)
+    WHERE n.name = n.genericName
+    WITH n
+    MATCH (m:Medication)
+    WHERE elementId(n) <> elementId(m)
+        AND (n.name = m.genericName OR n.name IN COALESCE(m.brandNames, []))
+    WITH n, collect(m) as dupes
+    WHERE size(dupes) > 0
+
+    // Step 2: Combine brand names from all nodes
+    UNWIND ([n] + dupes) as med
+    WITH n, dupes, collect(COALESCE(med.brandNames, [])) as allBrandLists
+    UNWIND allBrandLists as brandList
+    UNWIND brandList as brand
+    WITH n, dupes, collect(DISTINCT brand) as newBrandNames
+    SET n.brandNames = newBrandNames
+
+    // Step 3: Process each duplicate node with separate CALL{} blocks for each relationship type
+    WITH n, dupes
+    UNWIND dupes as dupedNode
+
+    // Step 4: Transfer HAS_ENTITY relationships
+    CALL (n, dupedNode) {
+        WITH n, dupedNode
+        OPTIONAL MATCH (dupedNode)<-[:HAS_ENTITY]-(chunk:Chunk)
+        WITH n, chunk
+        WHERE chunk IS NOT NULL
+        MERGE (n)<-[:HAS_ENTITY]-(chunk)
+    }
+
+    // Step 5: Transfer USED_IN_TREATMENT_ARM relationships
+    CALL (n, dupedNode) {
+        WITH n, dupedNode
+        OPTIONAL MATCH (dupedNode)-[rta:USED_IN_TREATMENT_ARM]->(ta:TreatmentArm)
+        WITH n, rta, ta
+        WHERE rta IS NOT NULL AND ta IS NOT NULL
+        MERGE (n)-[newRta:USED_IN_TREATMENT_ARM]->(ta)
+        SET newRta = properties(rta)
+    }
+
+    // Step 6: Transfer TAKES_MEDICATION relationships
+    CALL (n, dupedNode) {
+        WITH n, dupedNode
+        OPTIONAL MATCH (dupedNode)<-[:TAKES_MEDICATION]-(member:Member)
+        WITH n, member
+        WHERE member IS NOT NULL
+        MERGE (n)<-[:TAKES_MEDICATION]-(member)
+    }
+
+    // Step 7: Delete the duplicate node
+    WITH dupedNode
+    DETACH DELETE dupedNode;
+
