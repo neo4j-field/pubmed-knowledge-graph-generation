@@ -5,7 +5,7 @@
 MERGE (oc1:OntologyConcept {id: "D012345", name: "Metformin", source: "MeSH"})
 MERGE (oc2:OntologyConcept {id: "C0011860", name: "HbA1c Test", source: "UMLS"})
 MERGE (oc3:OntologyConcept {id: "RXN123456", name: "GLP-1 receptor agonists", source: "RxNorm"})
-MERGE (oc4:OntologyConcept {id: "C0011849", name: "Type 2 Diabetes Mellitus", source: "UMLS"})
+MERGE (oc4:OntologyConcept {id: "C0011849", name: "Type 2 Diabetes Mellitus", source: "UMLS"});
 
 // Link Drugs to OntologyConcepts
 MATCH (d:Drug {name: "Metformin"}), (o:OntologyConcept {name: "Metformin"})

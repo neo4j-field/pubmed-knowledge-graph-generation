@@ -1,0 +1,531 @@
+db_info:
+  uri: bolt://localhost:7687
+  database: patient-journey-test-3
+  user: neo4j
+  password: password
+initializing_queries:
+  constraints:
+    # lexical graph constraints
+    document_id: |
+      CREATE CONSTRAINT document_id IF NOT EXISTS FOR (n:Document) REQUIRE n.id IS NODE KEY;
+    chunk_id: |
+      CREATE CONSTRAINT chunk_id IF NOT EXISTS FOR (n:Chunk) REQUIRE n.id IS NODE KEY;
+    unstructured_element_id: |
+      CREATE CONSTRAINT unstructured_element_id IF NOT EXISTS FOR (n:UnstructuredElement) REQUIRE n.id IS NODE KEY;
+
+    # domain graph constraints
+    medication_name: |
+      CREATE CONSTRAINT medication_name IF NOT EXISTS FOR (n:Medication) REQUIRE n.name IS NODE KEY;
+    treatment_arm_id: |
+      CREATE CONSTRAINT treatment_arm_id IF NOT EXISTS FOR (n:TreatmentArm) REQUIRE n.id IS NODE KEY;
+    medical_condition_name: |
+      CREATE CONSTRAINT medical_condition_name IF NOT EXISTS FOR (n:MedicalCondition) REQUIRE n.name IS NODE KEY;
+    study_population_id: |
+      CREATE CONSTRAINT study_population_id IF NOT EXISTS FOR (n:StudyPopulation) REQUIRE n.id IS NODE KEY;
+    clinical_outcome_id: |
+      CREATE CONSTRAINT clinical_outcome_id IF NOT EXISTS FOR (n:ClinicalOutcome) REQUIRE n.id IS NODE KEY;
+    
+    # patient journey graph constraints
+    member_id: |
+      CREATE CONSTRAINT member_id IF NOT EXISTS FOR (n:Member) REQUIRE n.id IS UNIQUE;
+    procedure_code: |
+      CREATE CONSTRAINT procedure_code IF NOT EXISTS FOR (n:Procedure) REQUIRE n.code IS UNIQUE;
+    lab_result_name: |
+      CREATE CONSTRAINT lab_result_name IF NOT EXISTS FOR (n:LabResult) REQUIRE (n.name, n.value) IS NODE KEY;
+    demographic_age_sex_zip: |
+      CREATE CONSTRAINT demographic_age_sex_zip IF NOT EXISTS FOR (n:Demographic) REQUIRE (n.age, n.sex, n.zip) IS NODE KEY;
+
+  indexes:
+# Running the Constraint queries will create indexes for node properties of interest.
+loading_queries:
+  nodes:
+    # lexical graph nodes
+    document: |
+      UNWIND $rows as row
+      MERGE (n:Document {id: row.id})
+      ON CREATE 
+        SET n.name = row.name,
+        n.source = row.source
+
+    chunk: |
+      UNWIND $rows as row
+      MERGE (n:Chunk {id: row.id})
+      ON CREATE 
+        SET n.text = row.text,
+            n.type = row.type
+    
+    text_element: |
+      UNWIND $rows as row
+      MERGE (n:TextElement {id: row.id})
+      ON CREATE 
+        SET n:UnstructuredElement,
+            n.text = row.text, 
+            n.type = row.type, 
+            n.pageNumber = row.page_number
+
+    image_element: |
+      UNWIND $rows as row
+      MERGE (n:ImageElement {id: row.id})
+      ON CREATE 
+        SET n:UnstructuredElement,
+            n.text = row.text, 
+            n.type = row.type, 
+            n.pageNumber = row.page_number,
+            n.imageBase64 = row.image_base64,
+            n.imageMimeType = row.image_mime_type
+    
+    table_element: |
+      UNWIND $rows as row
+      MERGE (n:TableElement {id: row.id})
+      ON CREATE 
+        SET n:UnstructuredElement,
+            n.text = row.text, 
+            n.type = row.type, 
+            n.pageNumber = row.page_number,
+            n.imageBase64 = row.image_base64,
+            n.imageMimeType = row.image_mime_type,
+            n.textAsHtml = row.text_as_html
+
+    # domain graph nodes
+    medication: |
+      UNWIND $rows AS row
+      MERGE (n:Medication {name: row.name})
+      SET n.medicationClass = COALESCE(n.medicationClass, row.medication_class), 
+          n.mechanism = COALESCE(n.mechanism, row.mechanism), 
+          n.genericName = COALESCE(n.genericName, row.generic_name), 
+          n.brandNames = COALESCE(n.brandNames, row.brand_names), 
+          n.approvalStatus = COALESCE(n.approvalStatus, row.approval_status)
+    
+    treatment_arm: |
+      UNWIND $rows AS row
+      MERGE (n:TreatmentArm {id: row.treatment_arm_id})
+      SET n.studyName = COALESCE(n.studyName, row.study_name),
+          n.name = COALESCE(n.name, row.name)
+
+    study_medication: |
+      UNWIND $rows AS row
+      MERGE (n:StudyMedication {id: row.study_medication_id})
+      SET n.studyName = COALESCE(n.studyName, row.study_name),
+          n.treatmentArm = COALESCE(n.treatmentArm, row.treatment_arm),
+          n.dosage = COALESCE(n.dosage, row.dosage), 
+          n.route = COALESCE(n.route, row.route), 
+          n.frequency = COALESCE(n.frequency, row.frequency), 
+          n.treatmentDuration = COALESCE(n.treatmentDuration, row.treatment_duration), 
+          n.comparator = COALESCE(n.comparator, row.comparator), 
+          n.adherenceRate = COALESCE(n.adherenceRate, row.adherence_rate), 
+          n.formulation = COALESCE(n.formulation, row.formulation)
+    
+    clinical_outcome: |
+      UNWIND $rows AS row
+      MERGE (n:ClinicalOutcome {id: row.clinical_outcome_id})
+      SET n.studyName = COALESCE(n.studyName, row.study_name),
+          n.name = COALESCE(n.name, row.name)
+
+    medical_condition: |
+      UNWIND $rows AS row
+      MERGE (n:MedicalCondition {name: row.name})
+      SET n.category = COALESCE(n.category, row.category), 
+          n.icd10Code = COALESCE(n.icd10Code, row.icd10_code)
+    
+    study_population: |
+      UNWIND $rows AS row
+      MERGE (n:StudyPopulation {id: row.study_population_id})
+      SET n.description = COALESCE(n.description, row.description), 
+          n.studyName = COALESCE(n.studyName, row.study_name),
+          n.minAge = COALESCE(n.minAge, row.min_age), 
+          n.maxAge = COALESCE(n.maxAge, row.max_age), 
+          n.malePercentage = COALESCE(n.malePercentage, row.male_percentage), 
+          n.femalePercentage = COALESCE(n.femalePercentage, row.female_percentage), 
+          n.otherGenderPercentage = COALESCE(n.otherGenderPercentage, row.other_gender_percentage), 
+          n.sampleSize = COALESCE(n.sampleSize, row.sample_size), 
+          n.studyType = COALESCE(n.studyType, row.study_type), 
+          n.location = COALESCE(n.location, row.location), 
+          n.inclusionCriteria = COALESCE(n.inclusionCriteria, row.inclusion_criteria), 
+          n.exclusionCriteria = COALESCE(n.exclusionCriteria, row.exclusion_criteria), 
+          n.studyDuration = COALESCE(n.studyDuration, row.study_duration)
+
+  relationships:
+    # lexical graph relationships
+    chunk_part_of_document: |
+      UNWIND $rows as row
+      MATCH (c:Chunk {id: row.chunk_id})
+      MATCH (d:Document {id: row.document_id})
+      MERGE (c)-[:PART_OF_DOCUMENT]->(d)
+
+    unstructured_element_part_of_chunk: |
+      UNWIND $rows as row
+      MATCH (u:UnstructuredElement {id: row.unstructured_element_id})
+      MATCH (c:Chunk {id: row.chunk_id})
+      MERGE (u)-[:PART_OF_CHUNK]->(c)
+    
+    chunk_has_next_chunk: |
+      UNWIND $rows as row
+      MATCH (c:Chunk {id: row.source_id})
+      MATCH (n:Chunk {id: row.target_id})
+      MERGE (c)-[:HAS_NEXT_CHUNK]->(n)
+
+    # domain graph relationships
+    # -- this relationship also links to patient journey graph
+    study_medication_uses_medication: |
+      UNWIND $rows as row
+      MATCH (s:StudyMedication {id: row.study_medication_id})
+      MATCH (m:Medication {name: row.medication_name})
+      MERGE (s)-[:USES_MEDICATION]->(m)
+
+    study_medication_produces_clinical_outcome: |
+      UNWIND $rows as row
+      MATCH (s:StudyMedication {id: row.study_medication_id})
+      MATCH (o:ClinicalOutcome {id: row.clinical_outcome_id})
+      MERGE (s)-[:PRODUCES_CLINICAL_OUTCOME]->(o)
+
+    medication_used_in_treatment_arm: |
+      UNWIND $rows as row
+      MATCH (m:Medication {name: row.medication_name})
+      MATCH (t:TreatmentArm {id: row.treatment_arm_id})
+      MERGE (m)-[r:USED_IN_TREATMENT_ARM]->(t)
+      ON CREATE
+        SET r.studyName = COALESCE(r.studyName, row.study_name),
+            r.treatmentArm = COALESCE(r.treatmentArm, row.treatment_arm_name),
+            r.medication = COALESCE(r.medication, row.medication_name),
+            r.dosage = COALESCE(r.dosage, row.dosage), 
+            r.route = COALESCE(r.route, row.route), 
+            r.frequency = COALESCE(r.frequency, row.frequency), 
+            r.treatmentDuration = COALESCE(r.treatmentDuration, row.treatment_duration), 
+            r.comparator = COALESCE(r.comparator, row.comparator), 
+            r.adherenceRate = COALESCE(r.adherenceRate, row.adherence_rate), 
+            r.formulation = COALESCE(r.formulation, row.formulation)
+    
+    treatment_arm_has_clinical_outcome: |
+      UNWIND $rows as row
+      MATCH (t:TreatmentArm {id: row.treatment_arm_id})
+      MATCH (o:ClinicalOutcome {id: row.clinical_outcome_id})
+      MERGE (t)-[:HAS_CLINICAL_OUTCOME]->(o)
+
+    study_population_has_medical_condition: |
+      UNWIND $rows as row
+      MATCH (s:StudyPopulation {id: row.study_population_id})
+      MATCH (m:MedicalCondition {name: row.medical_condition_name})
+      MERGE (s)-[:HAS_MEDICAL_CONDITION]->(m)
+
+    study_population_receives_study_medication: |
+      UNWIND $rows as row
+      MATCH (s:StudyPopulation {id: row.study_population_id})
+      MATCH (m:StudyMedication {id: row.study_medication_id})
+      MERGE (s)-[:RECEIVES_STUDY_MEDICATION]->(m)
+
+    study_population_has_clinical_outcome: |
+      UNWIND $rows as row
+      MATCH (s:StudyPopulation {id: row.study_population_id})
+      MATCH (o:ClinicalOutcome {id: row.clinical_outcome_id})
+      MERGE (s)-[:HAS_CLINICAL_OUTCOME]->(o)
+
+    study_population_in_treatment_arm: |
+      UNWIND $rows as row
+      MATCH (s:StudyPopulation {id: row.study_population_id})
+      MATCH (t:TreatmentArm {id: row.treatment_arm_id})
+      MERGE (s)-[:IN_TREATMENT_ARM]->(t)
+    
+    # linking lexical and domain graphs
+    chunk_has_entity_medication: |
+      UNWIND $rows as row
+      MATCH (c:Chunk {id: row.chunk_id})
+      MATCH (e:Medication {name: row.name})
+      MERGE (c)-[:HAS_ENTITY]->(e)
+    
+    chunk_has_entity_medical_condition: |
+      UNWIND $rows as row
+      MATCH (c:Chunk {id: row.chunk_id})
+      MATCH (e:MedicalCondition {name: row.name})
+      MERGE (c)-[:HAS_ENTITY]->(e)
+
+    chunk_has_entity_study_medication: |
+      UNWIND $rows as row
+      MATCH (c:Chunk {id: row.chunk_id})
+      MATCH (e:StudyMedication {id: row.study_medication_id})
+      MERGE (c)-[:HAS_ENTITY]->(e)
+
+    chunk_has_entity_study_population: |
+      UNWIND $rows as row
+      MATCH (c:Chunk {id: row.chunk_id})
+      MATCH (e:StudyPopulation {id: row.study_population_id})
+      MERGE (c)-[:HAS_ENTITY]->(e)
+
+    chunk_has_entity_clinical_outcome: |
+      UNWIND $rows as row
+      MATCH (c:Chunk {id: row.chunk_id})
+      MATCH (e:ClinicalOutcome {id: row.clinical_outcome_id})
+      MERGE (c)-[:HAS_ENTITY]->(e)
+
+    chunk_has_entity_treatment_arm: |
+      UNWIND $rows as row
+      MATCH (c:Chunk {id: row.chunk_id})
+      MATCH (e:TreatmentArm {id: row.treatment_arm_id})
+      MERGE (c)-[:HAS_ENTITY]->(e)
+    
+    # linking domain graph to patient journey graph
+    demographic_in_study_population: |
+      MATCH (d:Demographic)
+      MATCH (s:StudyPopulation)
+      // sex and age are in study population and match
+      CALL (d, s) {
+          WITH d, s
+          WHERE s.minAge IS NOT NULL
+              AND d.age >= s.minAge 
+              AND s.maxAge IS NOT NULL
+              AND d.age <= s.maxAge
+              AND (
+                  (d.sex = "M" AND s.malePercentage IS NOT NULL) OR
+                  (d.sex = "F" AND s.femalePercentage IS NOT NULL) OR
+                  (d.sex <> "M" AND d.sex <> "F" AND s.otherGenderPercentage IS NOT NULL)
+              )
+          MERGE (d)-[r:IN_STUDY_POPULATION]->(s)
+          ON CREATE
+              SET r.fit = 1.0
+      }
+      // sex or age are in study population and match
+      CALL (d, s) {
+          WITH d, s
+          WHERE (
+              (s.minAge IS NOT NULL AND d.age >= s.minAge AND s.maxAge IS NOT NULL AND d.age <= s.maxAge AND
+              s.malePercentage IS NULL AND s.femalePercentage IS NULL AND s.otherGenderPercentage IS NULL) OR
+              
+              (s.minAge IS NULL AND s.maxAge IS NULL AND
+              ((d.sex = "M" AND s.malePercentage IS NOT NULL) OR
+                (d.sex = "F" AND s.femalePercentage IS NOT NULL) OR
+                (d.sex <> "M" AND d.sex <> "F" AND s.otherGenderPercentage IS NOT NULL)))
+          )
+          MERGE (d)-[r:IN_STUDY_POPULATION]->(s)
+          ON CREATE
+              SET r.fit = 0.5
+      }
+
+  patient_journey_graph: |
+    UNWIND $rows as row
+    WITH row,
+      split(row.medications, ', ') AS meds,
+      toInteger(row.age) AS age,
+      toFloat(row.lab_value) AS lab_val
+
+    MERGE (m:Member {id: row.member_id})
+    MERGE (demo:Demographic {age: age, sex: row.sex, zip: row.zip_code})
+    MERGE (m)-[:IN_DEMOGRAPHIC]->(demo)
+
+    MERGE (c:MedicalCondition {icd10Code: row.diagnosis_code, name: row.diagnosis})
+    MERGE (m)-[:HAS_DIAGNOSIS]->(c)
+
+    MERGE (p:Procedure {code: row.procedure_code, name: row.procedure_name})
+    MERGE (m)-[:UNDERWENT_PROCEDURE {date: date(row.visit_date)}]->(p)
+
+    MERGE (l:LabResult {name: row.lab_test, value: lab_val})
+    MERGE (m)-[:HAS_LAB_RESULT {date: date(row.visit_date)}]->(l)
+
+    MERGE (o:ClinicalOutcome {name: row.outcome, id: row.outcome})
+    MERGE (m)-[:ACHIEVES_CLINICAL_OUTCOME {date: date(row.visit_date)}]->(o)
+
+    FOREACH (med IN meds |
+      MERGE (d:Medication {name: med})
+      MERGE (m)-[:TAKES_MEDICATION]->(d)
+    )
+
+
+processing_queries:
+  get_chunk_nodes_to_process_by_article_name: |
+    MATCH (d:Document {name: $article_name})<-[:PART_OF_DOCUMENT]-(c:Chunk)
+    RETURN c.id as id, c.text as text
+  
+  get_chunk_nodes_to_process: |
+    MATCH (c:Chunk)
+    WHERE c.text IS NOT NULL
+      AND c.embedding IS NULL
+      AND size(c.text) >= $min_length
+    RETURN c.id as id, c.text as text
+
+  
+  get_chunk_nodes_to_embed: |
+    MATCH (c:Chunk)
+    WHERE c.text IS NOT NULL
+      AND c.embedding IS NULL
+      AND size(c.text) >= $min_length
+    RETURN c.id as id, c.text as text
+  
+  get_chunk_nodes_to_extract_entities: |
+    MATCH (c:Chunk)
+    WHERE NOT EXISTS {(c)-[:HAS_ENTITY]->()}
+    RETURN c.id as id, c.text as text
+
+  # we want to resolve medications 
+  # Condense nodes if 
+  #   if name == generic name
+  #   if name in brand names
+  #   if name is a partial match of generic name
+  resolve_medications: |
+    // Step 1: Find all medications that share names, generic names, or brand names
+    MATCH (n:Medication)
+    WHERE n.name = n.genericName
+    WITH n
+    MATCH (m:Medication)
+    WHERE elementId(n) <> elementId(m)
+        AND (n.name = m.genericName OR n.name IN COALESCE(m.brandNames, []))
+    WITH n, collect(m) as dupes
+    WHERE size(dupes) > 0
+
+    // Step 2: Combine brand names from all nodes
+    UNWIND ([n] + dupes) as med
+    WITH n, dupes, collect(COALESCE(med.brandNames, [])) as allBrandLists
+    UNWIND allBrandLists as brandList
+    UNWIND brandList as brand
+    WITH n, dupes, collect(DISTINCT brand) as newBrandNames
+    SET n.brandNames = newBrandNames
+
+    // Step 3: Process each duplicate node with separate CALL{} blocks for each relationship type
+    WITH n, dupes
+    UNWIND dupes as dupedNode
+
+    // Step 4: Transfer HAS_ENTITY relationships
+    CALL (n, dupedNode) {
+        WITH n, dupedNode
+        OPTIONAL MATCH (dupedNode)<-[:HAS_ENTITY]-(chunk:Chunk)
+        WITH n, chunk
+        WHERE chunk IS NOT NULL
+        MERGE (n)<-[:HAS_ENTITY]-(chunk)
+    }
+
+    // Step 5: Transfer USED_IN_TREATMENT_ARM relationships
+    CALL (n, dupedNode) {
+        WITH n, dupedNode
+        OPTIONAL MATCH (dupedNode)-[rta:USED_IN_TREATMENT_ARM]->(ta:TreatmentArm)
+        WITH n, rta, ta
+        WHERE rta IS NOT NULL AND ta IS NOT NULL
+        MERGE (n)-[newRta:USED_IN_TREATMENT_ARM]->(ta)
+        SET newRta = properties(rta)
+    }
+
+    // Step 6: Transfer TAKES_MEDICATION relationships
+    CALL (n, dupedNode) {
+        WITH n, dupedNode
+        OPTIONAL MATCH (dupedNode)<-[:TAKES_MEDICATION]-(member:Member)
+        WITH n, member
+        WHERE member IS NOT NULL
+        MERGE (n)<-[:TAKES_MEDICATION]-(member)
+    }
+
+    // Step 7: Delete the duplicate node
+    WITH dupedNode
+    DETACH DELETE dupedNode;
+
+validation_queries:
+  # overall node counts
+  get_medication_count: |
+    MATCH (m:Medication)
+    RETURN COUNT(m) as count
+  
+  get_treatment_arm_count: |
+    MATCH (t:TreatmentArm)
+    RETURN COUNT(t) as count
+  
+  get_clinical_outcome_count: |
+    MATCH (o:ClinicalOutcome)
+    RETURN COUNT(o) as count
+  
+  get_study_population_count: |
+    MATCH (s:StudyPopulation)
+    RETURN COUNT(s) as count
+  
+  get_medical_condition_count: |
+    MATCH (m:MedicalCondition)
+    RETURN COUNT(m) as count
+
+  # orphan counts
+  get_medication_orphan_count: |
+    MATCH (m:Medication)
+    WHERE NOT EXISTS {(m)--()}
+    RETURN COUNT(m) as count
+
+  get_treatment_arm_orphan_count: |
+    MATCH (t:TreatmentArm)
+    WHERE NOT EXISTS {(t)--()}
+    RETURN COUNT(t) as count
+
+  get_study_population_orphan_count: |
+    MATCH (s:StudyPopulation)
+    WHERE NOT EXISTS {(s)--()}
+    RETURN COUNT(s) as count
+
+  get_clinical_outcome_orphan_count: |
+    MATCH (o:ClinicalOutcome)
+    WHERE NOT EXISTS {(o)--()}
+    RETURN COUNT(o) as count
+  
+  get_study_medication_orphan_count: |
+    MATCH (s:StudyMedication)
+    WHERE NOT EXISTS {(s)--()}
+    RETURN COUNT(s) as count
+
+  get_medical_condition_orphan_count: |
+    MATCH (m:MedicalCondition)
+    WHERE NOT EXISTS {(m)--()}
+    RETURN COUNT(m) as count
+  
+  # domain graph relationship counts
+  get_medication_domain_rels: |
+    MATCH (n:Medication)--(:!Chunk)
+    RETURN COUNT(n) as count
+
+  get_treatment_arm_domain_rels: |
+    MATCH (n:TreatmentArm)--(:!Chunk)
+    RETURN COUNT(n) as count
+  
+  get_clinical_outcome_domain_rels: |
+    MATCH (n:ClinicalOutcome)--(:!Chunk)
+    RETURN COUNT(n) as count
+  
+  get_study_population_domain_rels: |
+    MATCH (n:StudyPopulation)--(:!Chunk)
+    RETURN COUNT(n) as count
+  
+  get_medical_condition_domain_rels: |
+    MATCH (n:MedicalCondition)--(:!Chunk)
+    RETURN COUNT(n) as count
+  
+  # lexical graph relationship counts
+  get_medication_lexical_rels: |
+    MATCH (n:Medication)<-[:HAS_ENTITY]-(c:Chunk)
+    RETURN COUNT(n) as count
+  
+  get_treatment_arm_lexical_rels: |
+    MATCH (n:TreatmentArm)<-[:HAS_ENTITY]-(c:Chunk)
+    RETURN COUNT(n) as count
+  
+  get_clinical_outcome_lexical_rels: |
+    MATCH (n:ClinicalOutcome)<-[:HAS_ENTITY]-(c:Chunk)
+    RETURN COUNT(n) as count
+  
+  get_study_population_lexical_rels: |
+    MATCH (n:StudyPopulation)<-[:HAS_ENTITY]-(c:Chunk)
+    RETURN COUNT(n) as count
+  
+  get_medical_condition_lexical_rels: |
+    MATCH (n:MedicalCondition)<-[:HAS_ENTITY]-(c:Chunk)
+    RETURN COUNT(n) as count
+  
+  # overall relationship counts
+  get_medication_used_in_treatment_arm_count: |
+    MATCH (:Medication)-[r:USED_IN_TREATMENT_ARM]->(:TreatmentArm)
+    RETURN COUNT(r) as count
+  
+  get_treatment_arm_has_clinical_outcome_count: |
+    MATCH (:TreatmentArm)-[r:HAS_CLINICAL_OUTCOME]->(:ClinicalOutcome)
+    RETURN COUNT(r) as count
+  
+  get_study_population_has_medical_condition_count: |
+    MATCH (:StudyPopulation)-[r:HAS_MEDICAL_CONDITION]->(:MedicalCondition)
+    RETURN COUNT(r) as count
+  
+  get_study_population_in_treatment_arm_count: |
+    MATCH (:StudyPopulation)-[r:IN_TREATMENT_ARM]->(:TreatmentArm)
+    RETURN COUNT(r) as count
+
+  # relationship properties
+  get_medication_used_in_treatment_arm_properties: |
+    MATCH (:Medication)-[r:USED_IN_TREATMENT_ARM]->(:TreatmentArm)
+    RETURN r

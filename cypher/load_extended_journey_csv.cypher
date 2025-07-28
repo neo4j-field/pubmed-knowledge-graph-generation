@@ -2,13 +2,14 @@
 // Cypher script to load extended patient journey data from CSV
 
 // Constraints (optional but recommended)
-CREATE CONSTRAINT IF NOT EXISTS ON (m:Member) ASSERT m.id IS UNIQUE;
-CREATE CONSTRAINT IF NOT EXISTS ON (c:Condition) ASSERT c.code IS UNIQUE;
-CREATE CONSTRAINT IF NOT EXISTS ON (d:Drug) ASSERT d.name IS UNIQUE;
-CREATE CONSTRAINT IF NOT EXISTS ON (p:Procedure) ASSERT p.code IS UNIQUE;
-CREATE CONSTRAINT IF NOT EXISTS ON (l:LabResult) ASSERT (l.name, l.value) IS NODE KEY;
-CREATE CONSTRAINT IF NOT EXISTS ON (o:Outcome) ASSERT o.name IS UNIQUE;
-CREATE CONSTRAINT IF NOT EXISTS ON (demo:Demographic) ASSERT (demo.age, demo.sex, demo.zip) IS NODE KEY;
+CREATE CONSTRAINT IF NOT EXISTS FOR (m:Member) REQUIRE m.id IS UNIQUE;
+CREATE CONSTRAINT IF NOT EXISTS FOR (c:MedicalCondition) REQUIRE c.code IS UNIQUE;
+CREATE CONSTRAINT IF NOT EXISTS FOR (c:MedicalCondition) REQUIRE c.name IS NODE KEY;
+CREATE CONSTRAINT IF NOT EXISTS FOR (d:Medication) REQUIRE d.name IS NODE KEY;
+CREATE CONSTRAINT IF NOT EXISTS FOR (p:Procedure) REQUIRE p.code IS UNIQUE;
+CREATE CONSTRAINT IF NOT EXISTS FOR (l:LabResult) REQUIRE (l.name, l.value) IS NODE KEY;
+// CREATE CONSTRAINT IF NOT EXISTS FOR (o:ClinicalOutcome) REQUIRE o.name IS UNIQUE;
+CREATE CONSTRAINT IF NOT EXISTS FOR (demo:Demographic) REQUIRE (demo.age, demo.sex, demo.zip) IS NODE KEY;
 
 LOAD CSV WITH HEADERS FROM 'file:///extended_patient_journey.csv' AS row
 WITH row,
@@ -18,21 +19,21 @@ WITH row,
 
 MERGE (m:Member {id: row.member_id})
 MERGE (demo:Demographic {age: age, sex: row.sex, zip: row.zip_code})
-MERGE (m)-[:HAS_DEMO]->(demo)
+MERGE (m)-[:IN_DEMOGRAPHIC]->(demo)
 
-MERGE (c:Condition {code: row.diagnosis_code, name: row.diagnosis})
+MERGE (c:MedicalCondition {icd10Code: row.diagnosis_code, name: row.diagnosis})
 MERGE (m)-[:HAS_DIAGNOSIS]->(c)
 
 MERGE (p:Procedure {code: row.procedure_code, name: row.procedure_name})
-MERGE (m)-[:UNDERWENT {date: date(row.visit_date)}]->(p)
+MERGE (m)-[:UNDERWENT_PROCEDURE {date: date(row.visit_date)}]->(p)
 
 MERGE (l:LabResult {name: row.lab_test, value: lab_val})
-MERGE (m)-[:HAS_LAB {date: date(row.visit_date)}]->(l)
+MERGE (m)-[:HAS_LAB_RESULT {date: date(row.visit_date)}]->(l)
 
-MERGE (o:Outcome {name: row.outcome})
-MERGE (m)-[:ACHIEVES {date: date(row.visit_date)}]->(o)
+MERGE (o:ClinicalOutcome {name: row.outcome, id: row.outcome})
+MERGE (m)-[:ACHIEVES_CLINICAL_OUTCOME {date: date(row.visit_date)}]->(o)
 
-FOREACH (drug IN meds |
-  MERGE (d:Drug {name: drug})
-  MERGE (m)-[:TAKES]->(d)
+FOREACH (med IN meds |
+  MERGE (d:Medication {name: med})
+  MERGE (m)-[:TAKES_MEDICATION]->(d)
 )
