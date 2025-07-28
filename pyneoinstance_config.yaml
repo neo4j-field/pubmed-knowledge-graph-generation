@@ -1,6 +1,6 @@
 db_info:
   uri: bolt://localhost:7687
-  database: patient-journey-test
+  database: patient-journey-test-3
   user: neo4j
   password: password
 initializing_queries:
@@ -18,14 +18,22 @@ initializing_queries:
       CREATE CONSTRAINT medication_name IF NOT EXISTS FOR (n:Medication) REQUIRE n.name IS NODE KEY;
     treatment_arm_id: |
       CREATE CONSTRAINT treatment_arm_id IF NOT EXISTS FOR (n:TreatmentArm) REQUIRE n.id IS NODE KEY;
-    # study_medication_id: |
-    #   CREATE CONSTRAINT study_medication_id IF NOT EXISTS FOR (n:StudyMedication) REQUIRE n.id IS NODE KEY;
     medical_condition_name: |
       CREATE CONSTRAINT medical_condition_name IF NOT EXISTS FOR (n:MedicalCondition) REQUIRE n.name IS NODE KEY;
     study_population_id: |
       CREATE CONSTRAINT study_population_id IF NOT EXISTS FOR (n:StudyPopulation) REQUIRE n.id IS NODE KEY;
     clinical_outcome_id: |
       CREATE CONSTRAINT clinical_outcome_id IF NOT EXISTS FOR (n:ClinicalOutcome) REQUIRE n.id IS NODE KEY;
+    
+    # patient journey graph constraints
+    member_id: |
+      CREATE CONSTRAINT member_id IF NOT EXISTS FOR (n:Member) REQUIRE n.id IS UNIQUE;
+    procedure_code: |
+      CREATE CONSTRAINT procedure_code IF NOT EXISTS FOR (n:Procedure) REQUIRE n.code IS UNIQUE;
+    lab_result_name: |
+      CREATE CONSTRAINT lab_result_name IF NOT EXISTS FOR (n:LabResult) REQUIRE (n.name, n.value) IS NODE KEY;
+    demographic_age_sex_zip: |
+      CREATE CONSTRAINT demographic_age_sex_zip IF NOT EXISTS FOR (n:Demographic) REQUIRE (n.age, n.sex, n.zip) IS NODE KEY;
 
   indexes:
 # Running the Constraint queries will create indexes for node properties of interest.
@@ -290,6 +298,34 @@ loading_queries:
           ON CREATE
               SET r.fit = 0.5
       }
+
+  patient_journey_graph: |
+    UNWIND $rows as row
+    WITH row,
+      split(row.medications, ', ') AS meds,
+      toInteger(row.age) AS age,
+      toFloat(row.lab_value) AS lab_val
+
+    MERGE (m:Member {id: row.member_id})
+    MERGE (demo:Demographic {age: age, sex: row.sex, zip: row.zip_code})
+    MERGE (m)-[:IN_DEMOGRAPHIC]->(demo)
+
+    MERGE (c:MedicalCondition {icd10Code: row.diagnosis_code, name: row.diagnosis})
+    MERGE (m)-[:HAS_DIAGNOSIS]->(c)
+
+    MERGE (p:Procedure {code: row.procedure_code, name: row.procedure_name})
+    MERGE (m)-[:UNDERWENT_PROCEDURE {date: date(row.visit_date)}]->(p)
+
+    MERGE (l:LabResult {name: row.lab_test, value: lab_val})
+    MERGE (m)-[:HAS_LAB_RESULT {date: date(row.visit_date)}]->(l)
+
+    MERGE (o:ClinicalOutcome {name: row.outcome, id: row.outcome})
+    MERGE (m)-[:ACHIEVES_CLINICAL_OUTCOME {date: date(row.visit_date)}]->(o)
+
+    FOREACH (med IN meds |
+      MERGE (d:Medication {name: med})
+      MERGE (m)-[:TAKES_MEDICATION]->(d)
+    )
 
 
 processing_queries:
