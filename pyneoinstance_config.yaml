@@ -139,7 +139,6 @@ loading_queries:
           n.otherGenderPercentage = COALESCE(n.otherGenderPercentage, row.other_gender_percentage), 
           n.sampleSize = COALESCE(n.sampleSize, row.sample_size), 
           n.studyType = COALESCE(n.studyType, row.study_type), 
-          n.location = COALESCE(n.location, row.location), 
           n.inclusionCriteria = COALESCE(n.inclusionCriteria, row.inclusion_criteria), 
           n.exclusionCriteria = COALESCE(n.exclusionCriteria, row.exclusion_criteria), 
           n.studyDuration = COALESCE(n.studyDuration, row.study_duration)
