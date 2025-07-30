@@ -1,0 +1,36 @@
+---
+config:
+    flowchart:
+        defaultRenderer: elk
+---
+
+graph BT
+%% Nodes
+Medication("Medication<br/>name: STRING | KEY<br/>medicationClass: STRING<br/>mechanism: STRING<br/>genericName: STRING<br/>brandNames: LIST<br/>approvalStatus: STRING")
+TreatmentArm("TreatmentArm<br/>id: STRING | KEY<br/>studyName: STRING<br/>name: STRING")
+ClinicalOutcome("ClinicalOutcome<br/>id: STRING | KEY<br/>studyName: STRING<br/>name: STRING")
+MedicalCondition("MedicalCondition<br/>name: STRING | KEY<br/>category: STRING<br/>icd10Code: STRING")
+StudyPopulation("StudyPopulation<br/>id: STRING | KEY<br/>description: STRING<br/>studyName: STRING<br/>minAge: INTEGER<br/>maxAge: INTEGER<br/>malePercentage: FLOAT<br/>femalePercentage: FLOAT<br/>otherGenderPercentage: FLOAT<br/>sampleSize: INTEGER<br/>studyType: STRING<br/>inclusionCriteria: LIST<br/>exclusionCriteria: LIST<br/>studyDuration: STRING")
+
+%% Relationships
+Medication -->|USED_IN_TREATMENT_ARM<br/>studyName: STRING<br/>treatmentArm: STRING<br/>medication: STRING<br/>dosage: STRING<br/>route: STRING<br/>frequency: STRING<br/>treatmentDuration: STRING<br/>comparator: STRING<br/>adherenceRate: FLOAT<br/>formulation: STRING| TreatmentArm
+TreatmentArm -->|HAS_CLINICAL_OUTCOME| ClinicalOutcome
+StudyPopulation -->|HAS_MEDICAL_CONDITION| MedicalCondition
+StudyPopulation -->|HAS_CLINICAL_OUTCOME| ClinicalOutcome
+StudyPopulation -->|IN_TREATMENT_ARM| TreatmentArm
+
+%% Styling - Left align text
+classDef node_0_color fill:#e3f2fd,stroke:#1976d2,stroke-width:3px,color:#000,font-size:12px,text-align:left
+class Medication node_0_color
+
+classDef node_1_color fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px,color:#000,font-size:12px,text-align:left
+class TreatmentArm node_1_color
+
+classDef node_2_color fill:#e8f5e8,stroke:#388e3c,stroke-width:3px,color:#000,font-size:12px,text-align:left
+class ClinicalOutcome node_2_color
+
+classDef node_3_color fill:#fff3e0,stroke:#f57c00,stroke-width:3px,color:#000,font-size:12px,text-align:left
+class MedicalCondition node_3_color
+
+classDef node_4_color fill:#fce4ec,stroke:#c2185b,stroke-width:3px,color:#000,font-size:12px,text-align:left
+class StudyPopulation node_4_color
