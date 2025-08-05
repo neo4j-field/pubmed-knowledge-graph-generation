@@ -36,7 +36,17 @@ initializing_queries:
       CREATE CONSTRAINT demographic_age_sex_zip IF NOT EXISTS FOR (n:Demographic) REQUIRE (n.age, n.sex, n.zip) IS NODE KEY;
 
   indexes:
-# Running the Constraint queries will create indexes for node properties of interest.
+  # Running the Constraint queries will create indexes for constrained node properties.
+
+    chunk_vector_index: |
+      CREATE VECTOR INDEX chunk_vector_index IF NOT EXISTS
+      FOR (c:Chunk)
+      ON c.embedding
+      OPTIONS { indexConfig: {
+      `vector.dimensions`: 768,
+      `vector.similarity_function`: 'cosine'
+      }}
+
 loading_queries:
   nodes:
     # lexical graph nodes
@@ -346,6 +356,11 @@ processing_queries:
       AND c.embedding IS NULL
       AND size(c.text) >= $min_length
     RETURN c.id as id, c.text as text
+
+  write_embeddings_by_chunk_id: |
+    UNWIND $rows as row
+    MATCH (c:Chunk {id: row.id})
+    CALL db.create.setNodeVectorProperty(c, 'embedding', row.embedding)
   
   get_chunk_nodes_to_extract_entities: |
     MATCH (c:Chunk)
