@@ -332,7 +332,7 @@ loading_queries:
     MERGE (m)-[:ACHIEVES_CLINICAL_OUTCOME {date: date(row.visit_date)}]->(o)
 
     FOREACH (med IN meds |
-      MERGE (d:Medication {name: med})
+      MERGE (d:Medication {name: toLower(med)})
       MERGE (m)-[:TAKES_MEDICATION]->(d)
     )
 

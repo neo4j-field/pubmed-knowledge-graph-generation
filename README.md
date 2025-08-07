@@ -31,7 +31,7 @@ The system uses advanced document processing with Unstructured.IO, LLM-based ent
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/cupkes/pubmed-knowledge-graph.git
    cd pubmed-knowledge-graph
    ```
 
@@ -213,6 +213,46 @@ make validate-graph-pip
    - "Cannot set gray non-stroke color" warnings are non-fatal
    - Ensure poppler and tesseract are properly installed
    - Verify PDF files are not corrupted
+
+## LangGraph Agent Interface
+
+The project includes an interactive LangGraph-based agent that provides a conversational interface for querying the knowledge graph and researching medications.
+
+### Description
+
+The agent (`agent.py`) is a React-style agent that uses Neo4j Cypher querying capabilities to research and analyze medications, studies and patients. It acts as a healthcare expert that can answer questions by dynamically querying the knowledge graph and provides cited responses based on the underlying documents and structured patient data.
+
+### Tools Available
+
+The agent uses the [Neo4j Cypher MCP server](https://github.com/neo4j-contrib/mcp-neo4j/tree/main/servers/mcp-neo4j-cypher) to understand the data model schema and execute read-only Cypher queries.
+
+The agent has access to three primary tools:
+
+1. **get_neo4j_schema** - Retrieves the database schema to inform Cypher query construction
+2. **read_neo4j_cypher** - Executes read-only Cypher queries against the knowledge graph
+3. **research_medication** - Performs vector similarity search to find relevant document chunks about specific medications
+
+### Interface (CLI)
+
+To use the agent, run:
+
+```bash
+make run-agent-poetry
+# or
+make run-agent-pip
+```
+
+The agent provides an interactive command-line interface where you can:
+- Ask questions about medications, diseases, treatments, or patients
+- Request specific information about drugs in the knowledge graph
+- Get cited responses with references to source documents
+
+Example queries:
+- "What are the side effects of metformin?"
+- "How can metformin affect my patient who is male and 65 years old?"
+- "What medications interact with warfarin?"
+
+Type `exit`, `quit`, or `q` to end the session.
 
 ---
 

@@ -11,9 +11,19 @@ from langchain_core.messages.utils import (
     trim_messages, 
     count_tokens_approximately
 )
+from langchain_core.messages import AnyMessage, ToolMessage
+from langchain_core.runnables import RunnableConfig
+from langgraph.prebuilt.chat_agent_executor import AgentState
+
+from langchain_core.tools import StructuredTool
 from langchain_mcp_adapters.tools import load_mcp_tools
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.prebuilt import create_react_agent
+
+from openai import OpenAI
+
+from pydantic import BaseModel, Field, field_validator
+from pyneoinstance import Neo4jInstance, load_yaml_file
 
 
 if load_dotenv():
@@ -32,15 +42,99 @@ neo4j_cypher_mcp = StdioServerParameters(
         },
 )
 
+
+neo4j_config = load_yaml_file("pyneoinstance_config.yaml").get("db_info")
+
+def _embed_text(text: str) -> list[float]:
+    """
+    Embed text using the OpenAI API.
+    """
+
+    embedding_client = OpenAI()
+    response = embedding_client.embeddings.create(
+        model="text-embedding-3-small",
+        input=text,
+        encoding_format="float",
+        dimensions=768, # must be the same dimensions as the vector index
+    )
+    return response.data[0].embedding
+
+
+def research_medication(medication_name: str, research_prompt: str) -> str:
+    """
+    Search the database for information about a specific medication.
+    """
+
+    if neo4j_config is None:
+        raise ValueError("Neo4j config not found in `pyneoinstance_config.yaml` under `db_info` key")
+    
+    g = Neo4jInstance(uri=neo4j_config["uri"], user=neo4j_config["user"], password=neo4j_config["password"])
+
+    query = """
+call db.index.vector.queryNodes("chunk_vector_index", 10, $embedding)
+yield node, score
+with node
+match p = (node)-[:HAS_NEXT_CHUNK]-(:Chunk)
+where exists {(node)-[:HAS_ENTITY]->(:Medication {name: $medication_name})}
+with nodes(p) as nodes
+unwind nodes as n
+with distinct n
+match (n)-[:PART_OF_DOCUMENT]-(d:Document)
+return n.id as chunk_id, 
+       d.id as document_id, 
+       d.name as document_title, 
+       n.text as chunk_text
+    """
+
+    embedding = _embed_text(f"Medication: {medication_name}\n{research_prompt}")
+
+    results_df = g.execute_read_query(query, 
+                                      neo4j_config["database"],
+                                      {"embedding": embedding, "medication_name": medication_name})
+    return results_df.to_dict(orient="records")
+
+class ResearchMedicationInput(BaseModel):
+    medication_name: str = Field(..., description="The name of the medication to research. ")
+    research_prompt: str = Field(..., description="A prompt describing the information desired about the medication.")
+
+    @field_validator("medication_name")
+    def validate_medication_name(cls, v: str) -> str:
+        return v.lower()
+    
+research_medication_tool = StructuredTool.from_function(
+    func=research_medication,
+    name="research_medication",
+    description="Research a medication by name and provide information about it.",
+    args_schema=ResearchMedicationInput,
+    return_direct=False,
+)
+
+
 config = {"configurable": {"thread_id": "1"}}
 
 SYSTEM_PROMPT = """You are a Neo4j expert that knows how to write Cypher queries to address healthcare questions.
-As a Cypher expert
+As a Cypher expert, when writing queries:
 * You must always ensure you have the data model schema to inform your queries
 * If an error is returned from the database, you may refactor your query or ask the user to provide additional information
-* If an empty result is returned, use your best judgement to determine if the query is correct."""
+* If an empty result is returned, use your best judgement to determine if the query is correct.
 
-# This function will be called every time before the node that calls LLM
+If using a tool that does NOT require writing a Cypher query, you do not need the database schema.
+
+As a healthcare expert, when answering questions:
+* Always provide citations in your responses that refer to the underlying documents
+* Answers must always be grounded in the context you are provided"""
+
+
+def prompt(state: AgentState, config: RunnableConfig) -> list[AnyMessage]:
+    """
+    Returns a list of messages generated at runtime, based on input or configuration.
+
+    Based on the documentation:
+    https://langchain-ai.github.io/langgraph/agents/agents/#4-add-a-custom-prompt
+    """
+    filtered_messages = [msg for msg in state["messages"] if not isinstance(msg, ToolMessage)]
+    return [{"role": "system", "content": SYSTEM_PROMPT}] + filtered_messages
+
 def pre_model_hook(state):
     """
     This function will be called every time before the node that calls LLM.
@@ -52,9 +146,10 @@ def pre_model_hook(state):
         state["messages"],
         strategy="last",
         token_counter=count_tokens_approximately,
-        max_tokens=500,
+        max_tokens=30_000,
         start_on="human",
         end_on=("human", "tool"),
+        include_system=True,
     )
     # You can return updated messages either under `llm_input_messages` or 
     # To keep the original message history unmodified in the graph state and pass the updated history only as the input to the LLM, 
@@ -101,7 +196,10 @@ async def main():
 
             # We only need to get schema and execute read queries
             allowed_tools = [tool for tool in tools if tool.name in {"get_neo4j_schema", "read_neo4j_cypher"}]
-            
+            allowed_tools.append(research_medication_tool)
+            print("tools:")
+            for tool in allowed_tools:
+                print(tool)
 
             # Create and run the agent
             agent = create_react_agent("openai:gpt-4.1", 
