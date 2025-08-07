@@ -1,6 +1,6 @@
 db_info:
   uri: bolt://localhost:7687
-  database: patient-journey-test
+  database: nashville-demo
   user: neo4j
   password: password
 initializing_queries:
