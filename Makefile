@@ -27,6 +27,12 @@ validate-graph-poetry:
 validate-graph-pip:
 	python3 scripts/validate_entity_graph.py
 
+run-agent-poetry:
+	poetry run python agent.py
+
+run-agent-pip:
+	python3 agent.py
+
 # Clean up temporary files
 clean:
 	find . -type f -name "*.pyc" -delete
