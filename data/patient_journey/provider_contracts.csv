@@ -1,0 +1,11 @@
+provider_id,contract_id,capitation_type,cap_amount,adjudication_rule,effective_date,termination_date
+PR1000,CT8603,Shared Savings,181.2,Standard,8/10/2023,10/23/2025
+PR1001,CT4621,PMPM,149.37,Expedited,11/24/2022,6/1/2026
+PR1002,CT9178,Fee-for-Service,187.82,Standard,6/22/2023,8/2/2025
+PR1003,CT2255,Fee-for-Service,61.52,Manual Review,12/13/2022,1/29/2026
+PR1004,CT3248,Shared Savings,150.28,Manual Review,2/12/2024,2/12/2026
+PR1005,CT4782,Shared Savings,142.97,Standard,7/6/2024,3/5/2026
+PR1006,CT7069,Fee-for-Service,108.54,Manual Review,11/30/2022,8/26/2026
+PR1007,CT4980,Fee-for-Service,76.61,Standard,12/13/2023,12/10/2026
+PR1008,CT5899,Shared Savings,170.9,Manual Review,1/20/2023,10/18/2025
+PR1009,CT9564,Shared Savings,104.34,Expedited,11/5/2023,1/15/2026

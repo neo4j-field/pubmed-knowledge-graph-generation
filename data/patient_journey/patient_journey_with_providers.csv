@@ -1,0 +1,334 @@
+patient_id,event_date,event_type,event_description,provider_id
+P001,2024-06-11,follow_up,Follow-up Visit,PR002
+P001,2024-09-09,member_enrolled,Enrollment,
+P001,2024-10-05,discharge,Discharge,
+P001,2024-10-25,specialist_visit,Specialist Visit,PR006
+P001,2024-12-31,pc_visit,Primary Care Visit,PR020
+P002,2023-10-11,pc_visit,Primary Care Visit,PR013
+P002,2023-12-09,follow_up,Follow-up Visit,PR001
+P002,2024-01-27,er,ER Visit,PR014
+P002,2024-04-05,pc_visit,Primary Care Visit,PR018
+P002,2024-07-03,pharmacy,Prescription Fill,PR005
+P002,2024-07-18,inpatient,Hospitalization,PR004
+P002,2024-09-24,pharmacy,Prescription Fill,PR001
+P003,2023-08-13,specialist_visit,Specialist Visit,PR005
+P003,2023-08-31,member_enrolled,Enrollment,
+P003,2023-11-12,follow_up,Follow-up Visit,PR015
+P003,2024-02-04,pc_visit,Primary Care Visit,PR014
+P003,2024-03-23,care_gap,Care Gap Identified,
+P003,2024-04-27,er,ER Visit,PR005
+P003,2024-07-23,pharmacy,Prescription Fill,PR015
+P003,2024-08-10,er,ER Visit,PR015
+P003,2024-10-17,er,ER Visit,PR019
+P003,2025-01-15,inpatient,Hospitalization,PR017
+P004,2023-10-14,follow_up,Follow-up Visit,PR006
+P004,2023-12-03,follow_up,Follow-up Visit,PR003
+P004,2024-01-17,specialist_visit,Specialist Visit,PR017
+P004,2024-04-08,er,ER Visit,PR015
+P005,2024-04-12,follow_up,Follow-up Visit,PR005
+P005,2024-07-11,care_gap_closed,Care Gap Closed,
+P005,2024-09-01,follow_up,Follow-up Visit,PR002
+P005,2024-10-24,discharge,Discharge,
+P005,2024-12-29,pc_visit,Primary Care Visit,PR020
+P005,2025-02-22,pc_visit,Primary Care Visit,PR013
+P006,2023-09-05,pharmacy,Prescription Fill,PR020
+P006,2023-11-25,care_gap_closed,Care Gap Closed,
+P006,2023-12-18,specialist_visit,Specialist Visit,PR011
+P006,2024-01-21,care_gap_closed,Care Gap Closed,
+P006,2024-02-27,pharmacy,Prescription Fill,PR004
+P007,2024-02-29,care_gap,Care Gap Identified,
+P007,2024-04-04,discharge,Discharge,
+P007,2024-05-02,pc_visit,Primary Care Visit,PR020
+P007,2024-06-01,pharmacy,Prescription Fill,PR001
+P007,2024-08-27,member_enrolled,Enrollment,
+P007,2024-09-24,follow_up,Follow-up Visit,PR004
+P008,2024-06-10,er,ER Visit,PR020
+P008,2024-07-30,inpatient,Hospitalization,PR007
+P008,2024-09-29,follow_up,Follow-up Visit,PR008
+P008,2024-10-30,pharmacy,Prescription Fill,PR019
+P008,2024-12-07,member_enrolled,Enrollment,
+P008,2025-01-23,member_enrolled,Enrollment,
+P008,2025-03-28,care_gap_closed,Care Gap Closed,
+P009,2023-11-21,pharmacy,Prescription Fill,PR015
+P009,2023-12-30,care_gap_closed,Care Gap Closed,
+P009,2024-02-29,pc_visit,Primary Care Visit,PR004
+P009,2024-05-26,er,ER Visit,PR018
+P009,2024-08-09,member_enrolled,Enrollment,
+P009,2024-10-26,pharmacy,Prescription Fill,PR007
+P010,2024-06-19,lab,Lab Test,PR007
+P010,2024-07-18,pc_visit,Primary Care Visit,PR015
+P010,2024-10-11,specialist_visit,Specialist Visit,PR010
+P010,2024-12-12,pharmacy,Prescription Fill,PR008
+P010,2025-01-27,specialist_visit,Specialist Visit,PR012
+P010,2025-04-03,pc_visit,Primary Care Visit,PR008
+P011,2023-09-21,inpatient,Hospitalization,PR015
+P011,2023-11-10,discharge,Discharge,
+P011,2023-12-16,inpatient,Hospitalization,PR003
+P011,2024-01-01,care_gap,Care Gap Identified,
+P011,2024-02-11,pharmacy,Prescription Fill,PR011
+P011,2024-04-24,follow_up,Follow-up Visit,PR015
+P011,2024-05-16,follow_up,Follow-up Visit,PR018
+P011,2024-07-30,member_enrolled,Enrollment,
+P011,2024-10-21,specialist_visit,Specialist Visit,PR020
+P011,2024-11-25,pc_visit,Primary Care Visit,PR011
+P012,2023-12-24,lab,Lab Test,PR018
+P012,2024-01-09,follow_up,Follow-up Visit,PR006
+P012,2024-04-04,inpatient,Hospitalization,PR006
+P012,2024-06-21,pc_visit,Primary Care Visit,PR004
+P012,2024-08-01,er,ER Visit,PR011
+P013,2023-12-19,member_enrolled,Enrollment,
+P013,2024-02-17,discharge,Discharge,
+P013,2024-05-06,care_gap,Care Gap Identified,
+P013,2024-06-24,lab,Lab Test,PR017
+P013,2024-07-16,care_gap_closed,Care Gap Closed,
+P013,2024-09-22,member_enrolled,Enrollment,
+P013,2024-10-19,care_gap,Care Gap Identified,
+P013,2024-11-14,member_enrolled,Enrollment,
+P013,2025-01-25,specialist_visit,Specialist Visit,PR020
+P014,2024-03-08,care_gap,Care Gap Identified,
+P014,2024-05-21,specialist_visit,Specialist Visit,PR007
+P014,2024-06-23,inpatient,Hospitalization,PR014
+P014,2024-09-15,specialist_visit,Specialist Visit,PR014
+P014,2024-10-16,member_enrolled,Enrollment,
+P015,2024-04-05,discharge,Discharge,
+P015,2024-05-30,care_gap,Care Gap Identified,
+P015,2024-08-09,specialist_visit,Specialist Visit,PR016
+P015,2024-11-01,discharge,Discharge,
+P015,2024-12-27,care_gap,Care Gap Identified,
+P016,2024-06-17,specialist_visit,Specialist Visit,PR013
+P016,2024-09-04,member_enrolled,Enrollment,
+P016,2024-11-14,discharge,Discharge,
+P016,2024-12-26,specialist_visit,Specialist Visit,PR020
+P016,2025-03-19,lab,Lab Test,PR003
+P016,2025-05-06,lab,Lab Test,PR007
+P016,2025-06-04,er,ER Visit,PR012
+P016,2025-07-21,er,ER Visit,PR002
+P016,2025-08-09,er,ER Visit,PR006
+P017,2023-06-26,pc_visit,Primary Care Visit,PR011
+P017,2023-07-28,discharge,Discharge,
+P017,2023-10-13,specialist_visit,Specialist Visit,PR015
+P017,2024-01-06,pharmacy,Prescription Fill,PR001
+P017,2024-01-25,care_gap,Care Gap Identified,
+P017,2024-02-28,discharge,Discharge,
+P017,2024-05-10,specialist_visit,Specialist Visit,PR017
+P018,2024-04-26,specialist_visit,Specialist Visit,PR009
+P018,2024-05-17,follow_up,Follow-up Visit,PR012
+P018,2024-07-22,pharmacy,Prescription Fill,PR008
+P018,2024-09-19,follow_up,Follow-up Visit,PR018
+P018,2024-12-01,care_gap,Care Gap Identified,
+P018,2025-01-10,pharmacy,Prescription Fill,PR013
+P018,2025-03-04,care_gap,Care Gap Identified,
+P018,2025-04-28,care_gap_closed,Care Gap Closed,
+P018,2025-06-28,care_gap_closed,Care Gap Closed,
+P019,2023-12-01,discharge,Discharge,
+P019,2024-02-21,member_enrolled,Enrollment,
+P019,2024-04-29,pharmacy,Prescription Fill,PR006
+P019,2024-07-05,care_gap_closed,Care Gap Closed,
+P019,2024-09-18,member_enrolled,Enrollment,
+P019,2024-11-13,discharge,Discharge,
+P019,2025-01-30,care_gap,Care Gap Identified,
+P020,2023-12-31,lab,Lab Test,PR018
+P020,2024-03-14,pharmacy,Prescription Fill,PR005
+P020,2024-05-19,er,ER Visit,PR009
+P020,2024-07-26,lab,Lab Test,PR008
+P021,2023-10-25,specialist_visit,Specialist Visit,PR010
+P021,2023-11-22,er,ER Visit,PR011
+P021,2024-01-10,discharge,Discharge,
+P021,2024-02-14,inpatient,Hospitalization,PR004
+P021,2024-05-11,specialist_visit,Specialist Visit,PR016
+P021,2024-06-07,follow_up,Follow-up Visit,PR003
+P022,2024-01-19,discharge,Discharge,
+P022,2024-04-15,follow_up,Follow-up Visit,PR004
+P022,2024-06-17,care_gap,Care Gap Identified,
+P022,2024-08-21,lab,Lab Test,PR017
+P022,2024-11-02,discharge,Discharge,
+P023,2024-01-30,er,ER Visit,PR011
+P023,2024-02-27,pc_visit,Primary Care Visit,PR020
+P023,2024-04-17,er,ER Visit,PR002
+P023,2024-07-01,pc_visit,Primary Care Visit,PR006
+P023,2024-09-01,lab,Lab Test,PR016
+P023,2024-10-06,care_gap_closed,Care Gap Closed,
+P023,2024-10-26,er,ER Visit,PR020
+P023,2024-11-21,follow_up,Follow-up Visit,PR019
+P023,2025-02-01,pharmacy,Prescription Fill,PR011
+P023,2025-04-20,lab,Lab Test,PR001
+P024,2024-02-02,pc_visit,Primary Care Visit,PR003
+P024,2024-03-30,er,ER Visit,PR018
+P024,2024-06-22,lab,Lab Test,PR008
+P024,2024-07-28,member_enrolled,Enrollment,
+P025,2024-01-22,specialist_visit,Specialist Visit,PR014
+P025,2024-03-15,follow_up,Follow-up Visit,PR009
+P025,2024-05-10,care_gap_closed,Care Gap Closed,
+P025,2024-07-19,pharmacy,Prescription Fill,PR016
+P025,2024-08-11,er,ER Visit,PR012
+P025,2024-09-17,pharmacy,Prescription Fill,PR006
+P025,2024-11-20,lab,Lab Test,PR015
+P026,2023-11-07,lab,Lab Test,PR014
+P026,2023-12-28,inpatient,Hospitalization,PR008
+P026,2024-01-21,care_gap,Care Gap Identified,
+P026,2024-02-07,pharmacy,Prescription Fill,PR012
+P026,2024-03-15,discharge,Discharge,
+P026,2024-05-04,member_enrolled,Enrollment,
+P026,2024-07-12,follow_up,Follow-up Visit,PR018
+P026,2024-09-05,er,ER Visit,PR012
+P026,2024-10-11,lab,Lab Test,PR016
+P027,2023-11-10,member_enrolled,Enrollment,
+P027,2024-01-07,care_gap,Care Gap Identified,
+P027,2024-02-26,lab,Lab Test,PR004
+P027,2024-05-11,specialist_visit,Specialist Visit,PR006
+P027,2024-07-23,care_gap_closed,Care Gap Closed,
+P027,2024-08-20,specialist_visit,Specialist Visit,PR010
+P027,2024-10-09,pharmacy,Prescription Fill,PR017
+P027,2024-12-11,discharge,Discharge,
+P027,2024-12-27,pharmacy,Prescription Fill,PR016
+P027,2025-02-13,pharmacy,Prescription Fill,PR011
+P028,2024-06-19,pc_visit,Primary Care Visit,PR004
+P028,2024-07-11,lab,Lab Test,PR017
+P028,2024-09-16,care_gap,Care Gap Identified,
+P028,2024-11-01,discharge,Discharge,
+P028,2025-01-26,follow_up,Follow-up Visit,PR008
+P028,2025-03-18,discharge,Discharge,
+P028,2025-04-28,inpatient,Hospitalization,PR008
+P028,2025-05-28,inpatient,Hospitalization,PR020
+P029,2023-10-24,lab,Lab Test,PR004
+P029,2023-12-19,er,ER Visit,PR019
+P029,2024-02-01,member_enrolled,Enrollment,
+P029,2024-04-06,specialist_visit,Specialist Visit,PR016
+P029,2024-06-12,discharge,Discharge,
+P029,2024-09-01,pc_visit,Primary Care Visit,PR014
+P029,2024-10-16,inpatient,Hospitalization,PR005
+P029,2024-11-24,discharge,Discharge,
+P030,2024-05-31,care_gap,Care Gap Identified,
+P030,2024-08-10,lab,Lab Test,PR007
+P030,2024-10-07,pc_visit,Primary Care Visit,PR007
+P030,2024-11-08,care_gap_closed,Care Gap Closed,
+P030,2025-01-24,care_gap,Care Gap Identified,
+P030,2025-03-08,lab,Lab Test,PR015
+P031,2024-06-05,er,ER Visit,PR014
+P031,2024-08-14,er,ER Visit,PR012
+P031,2024-10-24,discharge,Discharge,
+P031,2024-11-09,lab,Lab Test,PR007
+P031,2025-01-04,follow_up,Follow-up Visit,PR012
+P032,2024-03-30,lab,Lab Test,PR019
+P032,2024-04-20,care_gap,Care Gap Identified,
+P032,2024-05-15,follow_up,Follow-up Visit,PR012
+P032,2024-07-11,pharmacy,Prescription Fill,PR011
+P032,2024-08-16,pc_visit,Primary Care Visit,PR015
+P032,2024-10-13,care_gap,Care Gap Identified,
+P032,2024-10-30,lab,Lab Test,PR009
+P033,2024-06-17,specialist_visit,Specialist Visit,PR006
+P033,2024-07-14,follow_up,Follow-up Visit,PR009
+P033,2024-08-17,lab,Lab Test,PR002
+P033,2024-10-19,pc_visit,Primary Care Visit,PR001
+P033,2024-11-25,care_gap,Care Gap Identified,
+P033,2025-01-06,er,ER Visit,PR007
+P033,2025-02-13,specialist_visit,Specialist Visit,PR003
+P034,2023-07-20,member_enrolled,Enrollment,
+P034,2023-09-27,pharmacy,Prescription Fill,PR014
+P034,2023-12-16,care_gap,Care Gap Identified,
+P034,2024-01-02,member_enrolled,Enrollment,
+P034,2024-02-22,member_enrolled,Enrollment,
+P034,2024-04-30,inpatient,Hospitalization,PR003
+P034,2024-05-20,inpatient,Hospitalization,PR007
+P035,2023-12-20,inpatient,Hospitalization,PR004
+P035,2024-02-22,inpatient,Hospitalization,PR014
+P035,2024-03-10,specialist_visit,Specialist Visit,PR013
+P035,2024-06-02,inpatient,Hospitalization,PR001
+P035,2024-07-04,specialist_visit,Specialist Visit,PR017
+P035,2024-07-25,care_gap_closed,Care Gap Closed,
+P035,2024-10-15,lab,Lab Test,PR019
+P035,2024-12-10,specialist_visit,Specialist Visit,PR017
+P035,2025-03-02,care_gap,Care Gap Identified,
+P036,2023-09-13,er,ER Visit,PR010
+P036,2023-11-02,care_gap,Care Gap Identified,
+P036,2024-01-23,lab,Lab Test,PR010
+P036,2024-02-13,specialist_visit,Specialist Visit,PR004
+P036,2024-04-13,specialist_visit,Specialist Visit,PR017
+P036,2024-05-07,inpatient,Hospitalization,PR018
+P036,2024-05-29,lab,Lab Test,PR014
+P036,2024-06-23,lab,Lab Test,PR005
+P036,2024-07-28,member_enrolled,Enrollment,
+P036,2024-10-01,discharge,Discharge,
+P037,2024-01-16,discharge,Discharge,
+P037,2024-03-16,follow_up,Follow-up Visit,PR019
+P037,2024-04-04,er,ER Visit,PR006
+P037,2024-06-30,follow_up,Follow-up Visit,PR012
+P037,2024-08-21,member_enrolled,Enrollment,
+P037,2024-10-31,inpatient,Hospitalization,PR003
+P038,2023-11-01,er,ER Visit,PR013
+P038,2023-12-17,lab,Lab Test,PR020
+P038,2024-01-28,care_gap_closed,Care Gap Closed,
+P038,2024-02-17,care_gap_closed,Care Gap Closed,
+P038,2024-03-06,care_gap,Care Gap Identified,
+P039,2024-06-03,er,ER Visit,PR005
+P039,2024-07-22,discharge,Discharge,
+P039,2024-09-13,care_gap_closed,Care Gap Closed,
+P039,2024-11-05,discharge,Discharge,
+P039,2025-01-10,specialist_visit,Specialist Visit,PR006
+P039,2025-03-13,follow_up,Follow-up Visit,PR018
+P039,2025-05-23,care_gap,Care Gap Identified,
+P039,2025-08-20,inpatient,Hospitalization,PR012
+P039,2025-09-28,care_gap,Care Gap Identified,
+P040,2024-04-19,member_enrolled,Enrollment,
+P040,2024-07-03,er,ER Visit,PR017
+P040,2024-08-17,discharge,Discharge,
+P040,2024-11-07,member_enrolled,Enrollment,
+P040,2024-12-20,lab,Lab Test,PR005
+P041,2024-03-28,lab,Lab Test,PR006
+P041,2024-06-15,care_gap,Care Gap Identified,
+P041,2024-06-30,member_enrolled,Enrollment,
+P041,2024-09-03,care_gap,Care Gap Identified,
+P041,2024-11-20,inpatient,Hospitalization,PR001
+P041,2025-01-02,inpatient,Hospitalization,PR014
+P041,2025-03-17,follow_up,Follow-up Visit,PR015
+P042,2024-05-11,follow_up,Follow-up Visit,PR017
+P042,2024-07-01,discharge,Discharge,
+P042,2024-08-13,care_gap,Care Gap Identified,
+P042,2024-11-02,pharmacy,Prescription Fill,PR014
+P043,2024-01-22,follow_up,Follow-up Visit,PR005
+P043,2024-02-10,lab,Lab Test,PR009
+P043,2024-05-07,member_enrolled,Enrollment,
+P043,2024-07-10,pc_visit,Primary Care Visit,PR002
+P044,2024-01-08,specialist_visit,Specialist Visit,PR010
+P044,2024-04-06,member_enrolled,Enrollment,
+P044,2024-07-02,er,ER Visit,PR004
+P044,2024-08-25,pharmacy,Prescription Fill,PR001
+P044,2024-09-22,care_gap_closed,Care Gap Closed,
+P044,2024-11-05,discharge,Discharge,
+P045,2023-08-21,pc_visit,Primary Care Visit,PR001
+P045,2023-10-02,er,ER Visit,PR010
+P045,2023-11-08,er,ER Visit,PR019
+P045,2024-01-07,pharmacy,Prescription Fill,PR014
+P045,2024-03-19,pc_visit,Primary Care Visit,PR014
+P045,2024-04-27,pc_visit,Primary Care Visit,PR003
+P045,2024-06-13,lab,Lab Test,PR020
+P045,2024-08-08,follow_up,Follow-up Visit,PR020
+P046,2023-09-28,care_gap_closed,Care Gap Closed,
+P046,2023-11-05,care_gap,Care Gap Identified,
+P046,2023-12-20,care_gap,Care Gap Identified,
+P046,2024-01-08,er,ER Visit,PR013
+P046,2024-03-24,lab,Lab Test,PR008
+P046,2024-05-23,pc_visit,Primary Care Visit,PR017
+P047,2024-03-15,follow_up,Follow-up Visit,PR004
+P047,2024-05-08,lab,Lab Test,PR020
+P047,2024-07-20,specialist_visit,Specialist Visit,PR006
+P047,2024-09-21,pharmacy,Prescription Fill,PR004
+P048,2023-09-27,member_enrolled,Enrollment,
+P048,2023-11-04,pc_visit,Primary Care Visit,PR002
+P048,2024-01-24,inpatient,Hospitalization,PR016
+P048,2024-02-24,care_gap,Care Gap Identified,
+P048,2024-04-22,care_gap_closed,Care Gap Closed,
+P048,2024-06-12,lab,Lab Test,PR004
+P048,2024-06-29,care_gap,Care Gap Identified,
+P048,2024-09-08,care_gap,Care Gap Identified,
+P048,2024-11-15,pc_visit,Primary Care Visit,PR002
+P049,2023-10-21,care_gap_closed,Care Gap Closed,
+P049,2023-12-14,follow_up,Follow-up Visit,PR007
+P049,2024-02-13,lab,Lab Test,PR007
+P049,2024-05-12,member_enrolled,Enrollment,
+P049,2024-06-14,inpatient,Hospitalization,PR004
+P049,2024-08-13,member_enrolled,Enrollment,
+P050,2024-01-14,care_gap_closed,Care Gap Closed,
+P050,2024-03-08,discharge,Discharge,
+P050,2024-04-02,discharge,Discharge,
+P050,2024-05-31,specialist_visit,Specialist Visit,PR015

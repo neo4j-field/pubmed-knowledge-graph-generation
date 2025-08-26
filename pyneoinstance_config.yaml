@@ -26,14 +26,28 @@ initializing_queries:
       CREATE CONSTRAINT clinical_outcome_id IF NOT EXISTS FOR (n:ClinicalOutcome) REQUIRE n.id IS NODE KEY;
     
     # patient journey graph constraints
-    member_id: |
-      CREATE CONSTRAINT member_id IF NOT EXISTS FOR (n:Member) REQUIRE n.id IS UNIQUE;
-    procedure_code: |
-      CREATE CONSTRAINT procedure_code IF NOT EXISTS FOR (n:Procedure) REQUIRE n.code IS UNIQUE;
-    lab_result_name: |
-      CREATE CONSTRAINT lab_result_name IF NOT EXISTS FOR (n:LabResult) REQUIRE (n.name, n.value) IS NODE KEY;
-    demographic_age_sex_zip: |
-      CREATE CONSTRAINT demographic_age_sex_zip IF NOT EXISTS FOR (n:Demographic) REQUIRE (n.age, n.sex, n.zip) IS NODE KEY;
+    # member_id: |
+    #   CREATE CONSTRAINT member_id IF NOT EXISTS FOR (n:Member) REQUIRE n.id IS UNIQUE;
+    # procedure_code: |
+    #   CREATE CONSTRAINT procedure_code IF NOT EXISTS FOR (n:Procedure) REQUIRE n.code IS UNIQUE;
+    # lab_result_name: |
+    #   CREATE CONSTRAINT lab_result_name IF NOT EXISTS FOR (n:LabResult) REQUIRE (n.name, n.value) IS NODE KEY;
+    # demographic_age_sex_zip: |
+    #   CREATE CONSTRAINT demographic_age_sex_zip IF NOT EXISTS FOR (n:Demographic) REQUIRE (n.age, n.sex, n.zip) IS NODE KEY;
+    patient_id: |
+      CREATE CONSTRAINT patient_id IF NOT EXISTS FOR (n:Patient) REQUIRE n.id IS UNIQUE;
+    provider_id: |
+      CREATE CONSTRAINT provider_id IF NOT EXISTS FOR (n:Provider) REQUIRE n.id IS UNIQUE;
+    claim_id: |
+      CREATE CONSTRAINT claim_id IF NOT EXISTS FOR (n:Claim) REQUIRE n.id IS UNIQUE;
+    event_id: |
+      CREATE CONSTRAINT event_id IF NOT EXISTS FOR (n:Event) REQUIRE n.id IS UNIQUE;
+    diagnosis_id: |
+      CREATE CONSTRAINT diagnosis_id IF NOT EXISTS FOR (n:Diagnosis) REQUIRE n.id IS UNIQUE;
+    care_gap_id: |
+      CREATE CONSTRAINT gap_id IF NOT EXISTS FOR (n:CareGap) REQUIRE n.id IS UNIQUE;
+    risk_id: |
+      CREATE CONSTRAINT risk_id IF NOT EXISTS FOR (n:RiskScore) REQUIRE n.id IS UNIQUE;
 
   indexes:
   # Running the Constraint queries will create indexes for constrained node properties.
@@ -335,6 +349,77 @@ loading_queries:
       MERGE (d:Medication {name: toLower(med)})
       MERGE (m)-[:TAKES_MEDICATION]->(d)
     )
+
+patient_journey:
+  # patients.csv
+  patients: |
+    UNWIND $rows as row
+    MERGE (p:Patient {patient_id: row.patient_id})
+    SET p.age = toInteger(row.age),
+        p.gender = row.gender;
+
+  # providers.csv
+  providers: |
+    UNWIND $rows as row
+    MERGE (pr:Provider {provider_id: row.provider_id})
+    SET pr.name = row.provider_name,
+        pr.specialty = row.specialty;
+
+  # claims_with_all_codes.csv
+  claims: |
+    UNWIND $rows as row
+    MERGE (c:Claim {claim_id: row.claim_id})
+    SET c.date = date(row.date),
+        c.type = row.claim_type,
+        c.icd9 = row.icd9,
+        c.cpt4 = row.cpt4,
+        c.ndc = row.ndc,
+        c.rxnorm = row.rxnorm
+    WITH c, row
+    MATCH (p:Patient {patient_id: row.patient_id})
+    MERGE (p)-[:HAS_CLAIM]->(c)
+    WITH c, row
+    MATCH (pr:Provider {provider_id: row.provider_id})
+    MERGE (c)-[:PROVIDED_BY]->(pr);
+
+  # patient_journey_with_providers.csv
+  events: |
+    UNWIND $rows as row
+    MERGE (e:Event {event_id: row.event_id})
+    SET e.date = date(row.event_date),
+        e.event_type = row.event_type
+    WITH e, row
+    MATCH (p:Patient {patient_id: row.patient_id})
+    MERGE (p)-[:HAS_EVENT]->(e);
+
+  # conditions.csv
+  conditions: |
+    UNWIND $rows as row
+    MERGE (d:Diagnosis {code: row.icd9_code})
+    SET d.description = row.description
+    WITH d, row
+    MATCH (p:Patient {patient_id: row.patient_id})
+    MERGE (p)-[:HAS_CONDITION]->(d);
+
+  # care_gaps.csv
+  care_gaps: |
+    UNWIND $rows as row
+    MERGE (g:CareGap {gap_id: row.gap_id})
+    SET g.description = row.description,
+        g.status = row.status
+    WITH g, row
+    MATCH (p:Patient {patient_id: row.patient_id})
+    MERGE (p)-[:HAS_GAP]->(g);
+
+  # risk_scores.csv
+  risk_scores: |
+    UNWIND $rows as row
+    MERGE (r:RiskScore {risk_id: row.risk_id})
+    SET r.score = toFloat(row.score),
+        r.risk_group = row.risk_group
+    WITH r, row
+    MATCH (p:Patient {patient_id: row.patient_id})
+    MERGE (p)-[:HAS_RISK_SCORE]->(r);
 
 
 processing_queries:

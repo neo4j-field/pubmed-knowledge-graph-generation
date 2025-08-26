@@ -1,0 +1,87 @@
+patient_id,condition
+P001,Type II Diabetes
+P002,Type II Diabetes
+P002,Osteoarthritis
+P003,Type II Diabetes
+P004,Type II Diabetes
+P005,Type II Diabetes
+P005,Hypothyroidism
+P006,Hyperlipidemia
+P006,Chronic Kidney Disease
+P007,Type II Diabetes
+P008,Coronary Artery Disease
+P009,Hyperlipidemia
+P009,Hypertension
+P010,Coronary Artery Disease
+P010,Chronic Kidney Disease
+P011,Coronary Artery Disease
+P012,Asthma
+P012,Type II Diabetes
+P013,COPD
+P013,Type II Diabetes
+P014,Hyperlipidemia
+P014,Anxiety
+P015,Type II Diabetes
+P015,Depression
+P015,Hypertension
+P016,COPD
+P016,Hypertension
+P017,Anxiety
+P017,Osteoarthritis
+P018,Hyperlipidemia
+P018,Hypothyroidism
+P018,Depression
+P019,Hypertension
+P020,Depression
+P021,Coronary Artery Disease
+P022,Asthma
+P023,Osteoarthritis
+P023,Depression
+P024,GERD
+P025,GERD
+P025,Depression
+P026,Hyperlipidemia
+P026,Hypothyroidism
+P027,Asthma
+P027,Anxiety
+P027,GERD
+P028,Anxiety
+P028,Depression
+P029,COPD
+P029,Depression
+P030,GERD
+P031,Anxiety
+P032,Asthma
+P032,GERD
+P033,Type II Diabetes
+P033,Hypertension
+P034,Anxiety
+P034,GERD
+P035,Coronary Artery Disease
+P036,GERD
+P037,Hyperlipidemia
+P037,Type II Diabetes
+P038,Hyperlipidemia
+P038,Coronary Artery Disease
+P038,Chronic Kidney Disease
+P039,GERD
+P040,Asthma
+P040,Chronic Kidney Disease
+P041,Anxiety
+P041,GERD
+P042,Coronary Artery Disease
+P042,Osteoarthritis
+P043,Coronary Artery Disease
+P043,GERD
+P044,Type II Diabetes
+P044,Hypertension
+P045,Chronic Kidney Disease
+P046,Asthma
+P046,Anxiety
+P047,Anxiety
+P048,Coronary Artery Disease
+P048,Hyperlipidemia
+P048,Chronic Kidney Disease
+P049,Anxiety
+P049,Hypertension
+P050,Osteoarthritis
