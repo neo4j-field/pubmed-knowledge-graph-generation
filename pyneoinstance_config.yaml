@@ -1,6 +1,6 @@
 db_info:
   uri: bolt://localhost:7687
-  database: nashville-demo
+  database: patient-journey-test-4
   user: neo4j
   password: password
 initializing_queries:
@@ -40,17 +40,21 @@ initializing_queries:
       CREATE CONSTRAINT provider_id IF NOT EXISTS FOR (n:Provider) REQUIRE n.id IS UNIQUE;
     claim_id: |
       CREATE CONSTRAINT claim_id IF NOT EXISTS FOR (n:Claim) REQUIRE n.id IS UNIQUE;
-    event_id: |
-      CREATE CONSTRAINT event_id IF NOT EXISTS FOR (n:Event) REQUIRE n.id IS UNIQUE;
     diagnosis_id: |
       CREATE CONSTRAINT diagnosis_id IF NOT EXISTS FOR (n:Diagnosis) REQUIRE n.id IS UNIQUE;
     care_gap_id: |
       CREATE CONSTRAINT gap_id IF NOT EXISTS FOR (n:CareGap) REQUIRE n.id IS UNIQUE;
     risk_id: |
       CREATE CONSTRAINT risk_id IF NOT EXISTS FOR (n:RiskScore) REQUIRE n.id IS UNIQUE;
+    event_id: |
+      CREATE CONSTRAINT event_id IF NOT EXISTS FOR (n:Event) REQUIRE (n.date, n.patient_id) IS UNIQUE;
 
   indexes:
   # Running the Constraint queries will create indexes for constrained node properties.
+  event_date: |
+    CREATE INDEX event_date IF NOT EXISTS FOR (n:Event) ON n.date;
+  event_type: |
+    CREATE INDEX event_type IF NOT EXISTS FOR (n:Event) ON n.type;
 
     chunk_vector_index: |
       CREATE VECTOR INDEX chunk_vector_index IF NOT EXISTS
@@ -362,7 +366,7 @@ patient_journey:
   providers: |
     UNWIND $rows as row
     MERGE (pr:Provider {provider_id: row.provider_id})
-    SET pr.name = row.provider_name,
+    SET pr.name = row.name,
         pr.specialty = row.specialty;
 
   # claims_with_all_codes.csv
@@ -370,14 +374,16 @@ patient_journey:
     UNWIND $rows as row
     MERGE (c:Claim {claim_id: row.claim_id})
     SET c.date = date(row.date),
-        c.type = row.claim_type,
+        c.procedure = row.procedure,
         c.icd9 = row.icd9,
         c.cpt4 = row.cpt4,
-        c.ndc = row.ndc,
-        c.rxnorm = row.rxnorm
+        c.ndc = row.ndc_code,
+        c.rxnorm = row.rxnorm_code
     WITH c, row
-    MATCH (p:Patient {patient_id: row.patient_id})
-    MERGE (p)-[:HAS_CLAIM]->(c)
+    MERGE (e:Event {date: date(row.date), patient_id: row.patient_id})
+    WITH c, e, row
+    MERGE (p:Patient {patient_id: row.patient_id})
+    MERGE (e)-[:HAS_CLAIM]->(c)
     WITH c, row
     MATCH (pr:Provider {provider_id: row.provider_id})
     MERGE (c)-[:PROVIDED_BY]->(pr);
@@ -385,9 +391,8 @@ patient_journey:
   # patient_journey_with_providers.csv
   events: |
     UNWIND $rows as row
-    MERGE (e:Event {event_id: row.event_id})
-    SET e.date = date(row.event_date),
-        e.event_type = row.event_type
+    MERGE (e:Event {date: date(row.event_date), patient_id: row.patient_id})
+    SET e.type = row.event_type
     WITH e, row
     MATCH (p:Patient {patient_id: row.patient_id})
     MERGE (p)-[:HAS_EVENT]->(e);
@@ -395,8 +400,7 @@ patient_journey:
   # conditions.csv
   conditions: |
     UNWIND $rows as row
-    MERGE (d:Diagnosis {code: row.icd9_code})
-    SET d.description = row.description
+    MERGE (d:Diagnosis {condition: row.condition})
     WITH d, row
     MATCH (p:Patient {patient_id: row.patient_id})
     MERGE (p)-[:HAS_CONDITION]->(d);
@@ -404,18 +408,21 @@ patient_journey:
   # care_gaps.csv
   care_gaps: |
     UNWIND $rows as row
-    MERGE (g:CareGap {gap_id: row.gap_id})
-    SET g.description = row.description,
-        g.status = row.status
+    MERGE (g:CareGap {gap: row.care_gap})
+    SET g.status = row.status
     WITH g, row
+    MERGE (e:Event {date: date(row.identified_date), patient_id: row.patient_id})
+    WITH e, g, row
     MATCH (p:Patient {patient_id: row.patient_id})
-    MERGE (p)-[:HAS_GAP]->(g);
+    MERGE (e)-[:HAS_GAP]->(g)
+    MERGE (p)-[:HAS_EVENT]->(e);
+
 
   # risk_scores.csv
   risk_scores: |
     UNWIND $rows as row
-    MERGE (r:RiskScore {risk_id: row.risk_id})
-    SET r.score = toFloat(row.score),
+    MERGE (r:RiskScore)
+    SET r.score = toFloat(row.risk_score),
         r.risk_group = row.risk_group
     WITH r, row
     MATCH (p:Patient {patient_id: row.patient_id})
@@ -423,6 +430,26 @@ patient_journey:
 
 
 processing_queries:
+
+  sequence_patient_events: |
+    MATCH (p:Patient)-[:HAS_EVENT]->(e:Event)
+    WITH p, e
+    ORDER BY e.date ASC
+    WITH p, collect(e) as eventsList
+
+    // Create NEXT relationships between consecutive events
+    UNWIND range(0, size(eventsList)-2) as i
+    WITH p, eventsList, eventsList[i] as currentEvent, eventsList[i+1] as nextEvent
+    MERGE (currentEvent)<-[:PREVIOUS]-(nextEvent)
+
+    WITH p, eventsList
+    // Connect patient to most recent event (first in DESC ordered list)
+    WITH p, eventsList[-1] as mostRecentEvent, eventsList
+    MATCH (p)-[r:HAS_EVENT]->(:Event)
+    DELETE r
+    WITH p, mostRecentEvent, eventsList
+    MERGE (p)-[:MOST_RECENT_EVENT]->(mostRecentEvent)
+
   get_chunk_nodes_to_process_by_article_name: |
     MATCH (d:Document {name: $article_name})<-[:PART_OF_DOCUMENT]-(c:Chunk)
     RETURN c.id as id, c.text as text
