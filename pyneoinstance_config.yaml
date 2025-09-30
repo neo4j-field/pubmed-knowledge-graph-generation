@@ -326,14 +326,14 @@ loading_queries:
               SET r.fit = 0.5
       }
 
-  patient_journey_graph: |
+  patient_journey_protocol: |
     UNWIND $rows as row
     WITH row,
       split(row.medications, ', ') AS meds,
       toInteger(row.age) AS age,
       toFloat(row.lab_value) AS lab_val
 
-    MERGE (m:Member {id: row.member_id})
+    MERGE (m:Patient {patient_id: row.member_id})
     MERGE (demo:Demographic {age: age, sex: row.sex, zip: row.zip_code})
     MERGE (m)-[:IN_DEMOGRAPHIC]->(demo)
 
@@ -354,79 +354,79 @@ loading_queries:
       MERGE (m)-[:TAKES_MEDICATION]->(d)
     )
 
-patient_journey:
-  # patients.csv
-  patients: |
-    UNWIND $rows as row
-    MERGE (p:Patient {patient_id: row.patient_id})
-    SET p.age = toInteger(row.age),
-        p.gender = row.gender;
+  patient_journey_claims:
+    # patients.csv
+    patients: |
+      UNWIND $rows as row
+      MERGE (p:Patient {patient_id: row.patient_id})
+      SET p.age = toInteger(row.age),
+          p.gender = row.gender;
 
-  # providers.csv
-  providers: |
-    UNWIND $rows as row
-    MERGE (pr:Provider {provider_id: row.provider_id})
-    SET pr.name = row.name,
-        pr.specialty = row.specialty;
+    # providers.csv
+    providers: |
+      UNWIND $rows as row
+      MERGE (pr:Provider {provider_id: row.provider_id})
+      SET pr.name = row.name,
+          pr.specialty = row.specialty;
 
-  # claims_with_all_codes.csv
-  claims: |
-    UNWIND $rows as row
-    MERGE (c:Claim {claim_id: row.claim_id})
-    SET c.date = date(row.date),
-        c.procedure = row.procedure,
-        c.icd9 = row.icd9,
-        c.cpt4 = row.cpt4,
-        c.ndc = row.ndc_code,
-        c.rxnorm = row.rxnorm_code
-    WITH c, row
-    MERGE (e:Event {date: date(row.date), patient_id: row.patient_id})
-    WITH c, e, row
-    MERGE (p:Patient {patient_id: row.patient_id})
-    MERGE (e)-[:HAS_CLAIM]->(c)
-    WITH c, row
-    MATCH (pr:Provider {provider_id: row.provider_id})
-    MERGE (c)-[:PROVIDED_BY]->(pr);
+    # claims_with_all_codes.csv
+    claims: |
+      UNWIND $rows as row
+      MERGE (c:Claim {claim_id: row.claim_id})
+      SET c.date = date(row.date),
+          c.procedure = row.procedure,
+          c.icd9 = toString(row.icd9),
+          c.cpt4 = row.cpt4,
+          c.ndc = row.ndc_code,
+          c.rxnorm = row.rxnorm_code
+      WITH c, row
+      MERGE (e:Event {date: date(row.date), patient_id: row.patient_id})
+      WITH c, e, row
+      MERGE (p:Patient {patient_id: row.patient_id})
+      MERGE (e)-[:HAS_CLAIM]->(c)
+      WITH c, row
+      MATCH (pr:Provider {provider_id: row.provider_id})
+      MERGE (c)-[:PROVIDED_BY]->(pr);
 
-  # patient_journey_with_providers.csv
-  events: |
-    UNWIND $rows as row
-    MERGE (e:Event {date: date(row.event_date), patient_id: row.patient_id})
-    SET e.type = row.event_type
-    WITH e, row
-    MATCH (p:Patient {patient_id: row.patient_id})
-    MERGE (p)-[:HAS_EVENT]->(e);
+    # patient_journey_with_providers.csv
+    events: |
+      UNWIND $rows as row
+      MERGE (e:Event {date: date(row.event_date), patient_id: row.patient_id})
+      SET e.type = row.event_type
+      WITH e, row
+      MATCH (p:Patient {patient_id: row.patient_id})
+      MERGE (p)-[:HAS_EVENT]->(e);
 
-  # conditions.csv
-  conditions: |
-    UNWIND $rows as row
-    MERGE (d:Diagnosis {condition: row.condition})
-    WITH d, row
-    MATCH (p:Patient {patient_id: row.patient_id})
-    MERGE (p)-[:HAS_CONDITION]->(d);
+    # conditions.csv
+    conditions: |
+      UNWIND $rows as row
+      MERGE (d:Diagnosis {condition: row.condition})
+      WITH d, row
+      MATCH (p:Patient {patient_id: row.patient_id})
+      MERGE (p)-[:HAS_DIAGNOSIS]->(d);
 
-  # care_gaps.csv
-  care_gaps: |
-    UNWIND $rows as row
-    MERGE (g:CareGap {gap: row.care_gap})
-    SET g.status = row.status
-    WITH g, row
-    MERGE (e:Event {date: date(row.identified_date), patient_id: row.patient_id})
-    WITH e, g, row
-    MATCH (p:Patient {patient_id: row.patient_id})
-    MERGE (e)-[:HAS_GAP]->(g)
-    MERGE (p)-[:HAS_EVENT]->(e);
+    # care_gaps.csv
+    care_gaps: |
+      UNWIND $rows as row
+      MERGE (g:CareGap {gap: row.care_gap})
+      SET g.status = row.status
+      WITH g, row
+      MERGE (e:Event {date: date(row.identified_date), patient_id: row.patient_id})
+      WITH e, g, row
+      MATCH (p:Patient {patient_id: row.patient_id})
+      MERGE (e)-[:HAS_GAP]->(g)
+      MERGE (p)-[:HAS_EVENT]->(e);
 
 
-  # risk_scores.csv
-  risk_scores: |
-    UNWIND $rows as row
-    MERGE (r:RiskScore)
-    SET r.score = toFloat(row.risk_score),
-        r.risk_group = row.risk_group
-    WITH r, row
-    MATCH (p:Patient {patient_id: row.patient_id})
-    MERGE (p)-[:HAS_RISK_SCORE]->(r);
+    # risk_scores.csv
+    risk_scores: |
+      UNWIND $rows as row
+      MERGE (r:RiskScore)
+      SET r.score = toFloat(row.risk_score),
+          r.risk_group = row.risk_group
+      WITH r, row
+      MATCH (p:Patient {patient_id: row.patient_id})
+      MERGE (p)-[:HAS_RISK_SCORE]->(r);
 
 
 processing_queries:
