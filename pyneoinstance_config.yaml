@@ -20,34 +20,18 @@ initializing_queries:
       CREATE CONSTRAINT treatment_arm_id IF NOT EXISTS FOR (n:TreatmentArm) REQUIRE n.id IS NODE KEY;
     medical_condition_name: |
       CREATE CONSTRAINT medical_condition_name IF NOT EXISTS FOR (n:MedicalCondition) REQUIRE n.name IS NODE KEY;
-    # medical_condition_icd10_code: |
-    #   CREATE CONSTRAINT medical_condition_icd10_code IF NOT EXISTS FOR (n:MedicalCondition) REQUIRE n.icd10Code IS NODE KEY;
     study_population_id: |
       CREATE CONSTRAINT study_population_id IF NOT EXISTS FOR (n:StudyPopulation) REQUIRE n.id IS NODE KEY;
     clinical_outcome_id: |
       CREATE CONSTRAINT clinical_outcome_id IF NOT EXISTS FOR (n:ClinicalOutcome) REQUIRE n.id IS NODE KEY;
     
     # patient journey graph constraints
-    # member_id: |
-    #   CREATE CONSTRAINT member_id IF NOT EXISTS FOR (n:Member) REQUIRE n.id IS UNIQUE;
-    # procedure_code: |
-    #   CREATE CONSTRAINT procedure_code IF NOT EXISTS FOR (n:Procedure) REQUIRE n.code IS UNIQUE;
-    # lab_result_name: |
-    #   CREATE CONSTRAINT lab_result_name IF NOT EXISTS FOR (n:LabResult) REQUIRE (n.name, n.value) IS NODE KEY;
-    # demographic_age_sex_zip: |
-    #   CREATE CONSTRAINT demographic_age_sex_zip IF NOT EXISTS FOR (n:Demographic) REQUIRE (n.age, n.sex, n.zip) IS NODE KEY;
     patient_id: |
       CREATE CONSTRAINT patient_id IF NOT EXISTS FOR (n:Patient) REQUIRE n.id IS UNIQUE;
     provider_id: |
       CREATE CONSTRAINT provider_id IF NOT EXISTS FOR (n:Provider) REQUIRE n.id IS UNIQUE;
     claim_id: |
       CREATE CONSTRAINT claim_id IF NOT EXISTS FOR (n:Claim) REQUIRE n.id IS UNIQUE;
-    # diagnosis_id: |
-    #   CREATE CONSTRAINT diagnosis_id IF NOT EXISTS FOR (n:Diagnosis) REQUIRE n.id IS UNIQUE;
-    # care_gap_id: |
-    #   CREATE CONSTRAINT gap_id IF NOT EXISTS FOR (n:CareGap) REQUIRE n.id IS UNIQUE;
-    # risk_id: |
-    #   CREATE CONSTRAINT risk_id IF NOT EXISTS FOR (n:RiskScore) REQUIRE n.id IS UNIQUE;
     event_id: |
       CREATE CONSTRAINT event_id IF NOT EXISTS FOR (n:Event) REQUIRE (n.date, n.patient_id) IS UNIQUE;
 

@@ -6,6 +6,7 @@
 * Add claims data to patient journey graph
 * Add event nodes to create a patient journey in pre-existing structured patient data
 * Add patient journey data model image to README and notebook
+* Add example agent conversation to assets/
 
 ### Changed
 
