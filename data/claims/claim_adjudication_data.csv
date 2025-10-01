@@ -1,0 +1,21 @@
+claim_id,status,adjudication_date,review_outcome,denial_reason
+C1000,Approved,2025-03-28,Clean,
+C1001,Denied,2025-02-16,Escalated,Out-of-network
+C1002,Approved,2025-03-23,Clean,
+C1003,Denied,2025-05-05,Clean,
+C1004,Pending,2025-04-10,Needs Manual Review,
+C1005,Resubmitted,2025-05-03,Escalated,
+C1006,Approved,2025-06-10,Needs Manual Review,Incorrect coding
+C1007,Denied,2025-05-19,Needs Manual Review,
+C1008,Approved,2025-05-16,Needs Manual Review,Prior auth missing
+C1009,Resubmitted,2025-05-05,Clean,
+C1010,Resubmitted,2025-05-02,Escalated,
+C1011,Resubmitted,2025-02-18,Needs Manual Review,Prior auth missing
+C1012,Approved,2025-06-22,Clean,Eligibility issue
+C1013,Denied,2025-06-10,Clean,Incorrect coding
+C1014,Resubmitted,2025-06-05,Escalated,
+C1015,Denied,2025-03-20,Needs Manual Review,
+C1016,Pending,2025-02-03,Escalated,
+C1017,Pending,2025-06-03,Needs Manual Review,
+C1018,Approved,2025-02-07,Escalated,Prior auth missing
+C1019,Resubmitted,2025-02-16,Escalated,

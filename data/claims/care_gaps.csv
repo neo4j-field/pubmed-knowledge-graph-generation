@@ -1,0 +1,44 @@
+patient_id,care_gap,status,identified_date
+P001,HbA1c Follow-up,closed,2023-11-22
+P001,Depression Screening,open,2023-12-02
+P001,Mammogram,closed,2023-09-14
+P005,HbA1c Follow-up,open,2024-02-18
+P005,Mammogram,open,2024-03-22
+P024,Colorectal Screening,closed,2023-12-18
+P024,Depression Screening,closed,2023-08-14
+P031,Depression Screening,closed,2024-06-16
+P031,Foot Exam,closed,2024-05-23
+P031,Colorectal Screening,closed,2023-07-09
+P048,Mammogram,open,2024-02-15
+P048,HbA1c Follow-up,closed,2023-11-18
+P048,Foot Exam,open,2023-08-18
+P028,Lipid Panel,closed,2024-04-05
+P037,Colorectal Screening,open,2024-04-25
+P010,Colorectal Screening,closed,2023-08-18
+P010,Mammogram,open,2024-03-16
+P010,Depression Screening,open,2023-11-11
+P036,Mammogram,open,2023-08-12
+P019,Colorectal Screening,closed,2024-06-07
+P019,Lipid Panel,open,2024-05-07
+P019,Foot Exam,closed,2024-02-07
+P013,Foot Exam,closed,2023-08-12
+P013,Mammogram,open,2023-11-22
+P013,Lipid Panel,open,2024-05-09
+P008,Annual Eye Exam,open,2023-07-06
+P008,Foot Exam,open,2024-03-07
+P045,Annual Eye Exam,closed,2024-03-20
+P045,HbA1c Follow-up,open,2023-08-09
+P045,Lipid Panel,closed,2023-07-18
+P012,Mammogram,closed,2024-03-31
+P012,Colorectal Screening,open,2024-04-23
+P016,Colorectal Screening,open,2023-09-27
+P042,HbA1c Follow-up,open,2023-08-06
+P042,Annual Eye Exam,closed,2024-03-02
+P032,Mammogram,closed,2023-07-07
+P032,Foot Exam,closed,2024-03-29
+P020,Depression Screening,closed,2023-09-15
+P020,HbA1c Follow-up,open,2023-12-13
+P006,Mammogram,closed,2024-02-01
+P030,Foot Exam,open,2023-07-29
+P030,Annual Eye Exam,open,2024-03-08
+P030,HbA1c Follow-up,closed,2023-11-06

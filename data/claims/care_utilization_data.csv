@@ -1,0 +1,31 @@
+patient_id,utilization_type,date,location,cost
+P129,ER Visit,2024-12-10,Urgent Center C,1072.9
+P113,Specialist Visit,2024-11-25,Telehealth,1431.02
+P129,Primary Care Visit,2024-10-20,Clinic B,2376.56
+P115,Specialist Visit,2024-10-22,Telehealth,1187.44
+P137,Specialist Visit,2025-01-13,Urgent Center C,120.6
+P105,Urgent Care,2025-03-02,Hospital A,138.33
+P119,Urgent Care,2025-03-13,Clinic B,1597.48
+P102,Specialist Visit,2024-09-05,Clinic B,2456.86
+P100,Primary Care Visit,2024-10-05,Telehealth,2354.66
+P130,Urgent Care,2025-02-21,Hospital A,417.11
+P129,ER Visit,2025-05-31,Telehealth,1217.46
+P103,ER Visit,2025-01-15,Urgent Center C,761.95
+P142,ER Visit,2025-06-24,Telehealth,383.03
+P130,ER Visit,2024-07-18,Telehealth,51.77
+P109,Primary Care Visit,2024-09-07,Urgent Center C,1863.97
+P118,Inpatient Stay,2024-11-03,Urgent Center C,387.02
+P147,Primary Care Visit,2025-01-02,Hospital A,1655.6
+P113,Primary Care Visit,2025-03-16,Telehealth,1550.64
+P119,Specialist Visit,2024-09-09,Clinic B,865.2
+P128,Inpatient Stay,2024-08-09,Hospital A,1586.58
+P108,Primary Care Visit,2025-01-04,Hospital A,259.62
+P126,ER Visit,2024-11-07,Telehealth,894.91
+P133,Inpatient Stay,2025-02-14,Urgent Center C,1211.77
+P129,ER Visit,2024-12-10,Clinic B,590.64
+P113,ER Visit,2025-02-28,Hospital A,291.97
+P135,Primary Care Visit,2025-05-22,Hospital A,2301.32
+P115,Primary Care Visit,2025-03-01,Hospital A,1716.21
+P131,Specialist Visit,2025-05-09,Hospital A,1104.75
+P145,Urgent Care,2024-11-30,Hospital A,2236.48
+P104,ER Visit,2025-06-30,Urgent Center C,1960.79
