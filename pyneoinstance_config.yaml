@@ -18,10 +18,10 @@ initializing_queries:
       CREATE CONSTRAINT medication_name IF NOT EXISTS FOR (n:Medication) REQUIRE n.name IS NODE KEY;
     treatment_arm_id: |
       CREATE CONSTRAINT treatment_arm_id IF NOT EXISTS FOR (n:TreatmentArm) REQUIRE n.id IS NODE KEY;
-    # medical_condition_name: |
-    #   CREATE CONSTRAINT medical_condition_name IF NOT EXISTS FOR (n:MedicalCondition) REQUIRE n.name IS NODE KEY;
-    medical_condition_icd10_code: |
-      CREATE CONSTRAINT medical_condition_icd10_code IF NOT EXISTS FOR (n:MedicalCondition) REQUIRE n.icd10Code IS NODE KEY;
+    medical_condition_name: |
+      CREATE CONSTRAINT medical_condition_name IF NOT EXISTS FOR (n:MedicalCondition) REQUIRE n.name IS NODE KEY;
+    # medical_condition_icd10_code: |
+    #   CREATE CONSTRAINT medical_condition_icd10_code IF NOT EXISTS FOR (n:MedicalCondition) REQUIRE n.icd10Code IS NODE KEY;
     study_population_id: |
       CREATE CONSTRAINT study_population_id IF NOT EXISTS FOR (n:StudyPopulation) REQUIRE n.id IS NODE KEY;
     clinical_outcome_id: |
@@ -154,7 +154,7 @@ loading_queries:
     medical_condition: |
       UNWIND $rows AS row
       MERGE (n:MedicalCondition {name: row.name})
-      SET n.category = COALESCE(n.category, row.category), 
+      SET n.category = COALESCE(n.category, row.category),
           n.icd10Code = COALESCE(n.icd10Code, row.icd10_code)
     
     study_population: |
@@ -343,8 +343,8 @@ loading_queries:
     MERGE (e:Event {date: date(row.visit_date), patientId: row.member_id})
     MERGE (m)-[:HAS_EVENT]->(e)
 
-    MERGE (c:MedicalCondition {icd10Code: row.diagnosis_code})
-    SET c.name = row.diagnosis
+    MERGE (c:MedicalCondition {name: row.diagnosis})
+    SET c.icd10Code = row.diagnosis_code
     MERGE (e)-[:HAS_DIAGNOSIS]->(c)
 
     MERGE (p:Procedure {cpt4Code: row.procedure_code, name: row.procedure_name})
@@ -416,8 +416,9 @@ loading_queries:
 
       // Create MedicalCondition node
       WITH c, e, row
-      MERGE (m:MedicalCondition {icd10Code: toString(row.icd10)})
-      SET m.icd9Code = toString(row.icd9)
+      MERGE (m:MedicalCondition {name: row.medical_condition})
+      SET m.icd10Code = toString(row.icd10_code),
+          m.icd9Code = toString(row.icd9_code)
 
       // Link event to medical condition
       WITH e, m
