@@ -338,15 +338,16 @@ loading_queries:
     MERGE (m:Patient {patient_id: row.member_id})
     MERGE (demo:Demographic {age: age, sex: row.sex, zip: row.zip_code})
     MERGE (m)-[:IN_DEMOGRAPHIC]->(demo)
-
-    MERGE (e:Event {date: date(row.visit_date), patient_id: row.member_id})
+    
+    // member id == patient id
+    MERGE (e:Event {date: date(row.visit_date), patientId: row.member_id})
     MERGE (m)-[:HAS_EVENT]->(e)
 
     MERGE (c:MedicalCondition {icd10Code: row.diagnosis_code})
     SET c.name = row.diagnosis
     MERGE (e)-[:HAS_DIAGNOSIS]->(c)
 
-    MERGE (p:Procedure {code: row.procedure_code, name: row.procedure_name})
+    MERGE (p:Procedure {cpt4Code: row.procedure_code, name: row.procedure_name})
     MERGE (e)-[:UNDERWENT_PROCEDURE]->(p)
 
     CREATE (l:LabResult)
@@ -366,14 +367,14 @@ loading_queries:
     # patients.csv
     patients: |
       UNWIND $rows as row
-      MERGE (p:Patient {patient_id: row.patient_id});
+      MERGE (p:Patient {patientId: row.patient_id});
       // SET p.age = toInteger(row.age),
       //     p.gender = row.gender;
 
     # providers.csv
     providers: |
       UNWIND $rows as row
-      MERGE (pr:Provider {provider_id: row.provider_id})
+      MERGE (pr:Provider {providerId: row.provider_id})
       SET pr.name = row.name,
           pr.specialty = row.specialty;
 
@@ -381,36 +382,36 @@ loading_queries:
     claims: |
       UNWIND $rows as row
       // Create claim node
-      MERGE (c:Claim {claim_id: row.claim_id})
+      MERGE (c:Claim {claimId: row.claim_id})
       SET c.date = date(row.date),
           c.procedure = row.procedure,
-          c.icd9 = toString(row.icd9),
-          c.icd10 = toString(row.icd10),
+          c.icd9Code = toString(row.icd9),
+          c.icd10Code = toString(row.icd10),
           c.cpt4 = row.cpt4,
           c.ndc = row.ndc_code,
           c.rxnorm = row.rxnorm_code
 
       // Create event node
       WITH c, row
-      MERGE (e:Event {date: date(row.date), patient_id: row.patient_id})
+      MERGE (e:Event {date: date(row.date), patientId: row.patient_id})
 
       // Create Patient, if not already created
       // Link claim to event
       // Link event to patient
       WITH c, e, row
-      MERGE (p:Patient {patient_id: row.patient_id})
+      MERGE (p:Patient {patientId: row.patient_id})
       MERGE (e)-[:HAS_CLAIM]->(c)
       MERGE (p)-[:HAS_EVENT]->(e)
 
       // Link claim to provider
       WITH c, e, row
-      MATCH (pr:Provider {provider_id: row.provider_id})
+      MATCH (pr:Provider {providerId: row.provider_id})
       MERGE (c)-[:PROVIDED_BY]->(pr)
 
       // Create Procedure node
       // Link event to procedure
       WITH c, e, row
-      MERGE (p:Procedure {code: row.cpt4, name: row.procedure})
+      MERGE (p:Procedure {cpt4Code: row.cpt4, name: row.procedure})
       MERGE (e)-[:UNDERWENT_PROCEDURE]->(p)
 
       // Create MedicalCondition node
@@ -425,10 +426,10 @@ loading_queries:
     # patient_journey_with_providers.csv
     events: |
       UNWIND $rows as row
-      MERGE (e:Event {date: date(row.event_date), patient_id: row.patient_id})
+      MERGE (e:Event {date: date(row.event_date), patientId: row.patient_id})
       SET e.type = row.event_type
       WITH e, row
-      MATCH (p:Patient {patient_id: row.patient_id})
+      MATCH (p:Patient {patientId: row.patient_id})
       MERGE (p)-[:HAS_EVENT]->(e);
 
     # Skipping this CSV in favor of conditions in the protocol data
@@ -447,9 +448,9 @@ loading_queries:
       SET g.status = row.status,
           g.gap = row.care_gap
       WITH g, row
-      MERGE (e:Event {date: date(row.identified_date), patient_id: row.patient_id})
+      MERGE (e:Event {date: date(row.identified_date), patientId: row.patient_id})
       WITH e, g, row
-      MATCH (p:Patient {patient_id: row.patient_id})
+      MATCH (p:Patient {patientId: row.patient_id})
       MERGE (e)-[:HAS_GAP]->(g)
       MERGE (p)-[:HAS_EVENT]->(e);
 
@@ -459,9 +460,9 @@ loading_queries:
       UNWIND $rows as row
       CREATE (r:RiskScore)
       SET r.score = toFloat(row.risk_score),
-          r.risk_group = row.risk_group
+          r.riskGroup = row.risk_group
       WITH r, row
-      MATCH (p:Patient {patient_id: row.patient_id})
+      MATCH (p:Patient {patientId: row.patient_id})
       MERGE (p)-[:HAS_RISK_SCORE]->(r);
 
 

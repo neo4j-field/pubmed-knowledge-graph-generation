@@ -171,11 +171,22 @@ The system implements three interconnected data models:
 <img src="./assets/images/entity-data-model.png" alt="lexical-data-model" width="800px">
 
 ### Patient Journey Data Model
-- **Member**: Individual patients with unique identifiers
+The patient journey graph is centered around **Event** nodes that track temporal patient interactions and medical activities. Events are sequentially linked to create a timeline of each patient's healthcare journey.
+
+- **Patient**: Individual patients with unique identifiers
+- **Event**: Temporal nodes representing patient interactions (claims, procedures, diagnoses) with sequential PREVIOUS relationships
 - **Demographic**: Age, sex, and ZIP code information with composite constraints
+- **Provider**: Healthcare providers with specialty information
+- **Claim**: Insurance claims with ICD-9, ICD-10, CPT-4, NDC, and RxNorm codes
 - **Procedure**: Medical procedures with CPT codes and dates
 - **LabResult**: Laboratory test results with LOINC codes and values
-- **Clinical outcomes and medication relationships with temporal data**
+- **MedicalCondition**: Diagnoses linked to events with ICD-9/ICD-10 codes
+- **Medication**: Medications taken by patients, linked to events
+- **ClinicalOutcome**: Clinical outcomes achieved through patient events
+- **CareGap**: Identified gaps in care with status tracking
+- **RiskScore**: Patient risk stratification scores and groups
+
+<img src="./assets/images/patient-data-model.png" alt="patient-data-model" width="800px">
 
 
 

@@ -1,0 +1,72 @@
+---
+config:
+    flowchart:
+        defaultRenderer: elk
+---
+
+graph TD
+%% Nodes
+Patient["Patient<br/>patientId: STRING | KEY"]
+Demographic["Demographic<br/>age: INTEGER<br/>sex: STRING<br/>zip: STRING"]
+Event["Event<br/>date: DATE | KEY<br/>patientId: STRING | KEY<br/>type: STRING"]
+MedicalCondition["MedicalCondition<br/>icd10Code: STRING | KEY<br/>icd9Code: STRING<br/>name: STRING"]
+Procedure["Procedure<br/>cpt4Code: STRING | KEY<br/>name: STRING"]
+LabResult["LabResult<br/>name: STRING<br/>value: FLOAT"]
+ClinicalOutcome["ClinicalOutcome<br/>id: STRING | KEY<br/>name: STRING"]
+Medication["Medication<br/>name: STRING | KEY"]
+Provider["Provider<br/>providerId: STRING | KEY<br/>name: STRING<br/>specialty: STRING"]
+Claim["Claim<br/>claimId: STRING | KEY<br/>date: DATE<br/>procedure: STRING<br/>icd9Code: STRING<br/>icd10Code: STRING<br/>cpt4Code: STRING<br/>ndc: STRING<br/>rxnorm: STRING"]
+CareGap["CareGap<br/>status: STRING<br/>gap: STRING"]
+RiskScore["RiskScore<br/>score: FLOAT<br/>riskGroup: STRING"]
+
+%% Relationships
+Patient -->|IN_DEMOGRAPHIC| Demographic
+Patient -->|MOST_RECENT_EVENT| Event
+Event -->|PREVIOUS| Event
+Event -->|HAS_DIAGNOSIS| MedicalCondition
+Event -->|UNDERWENT_PROCEDURE| Procedure
+Event -->|HAS_LAB_RESULT| LabResult
+Event -->|ACHIEVES_CLINICAL_OUTCOME| ClinicalOutcome
+Event -->|TAKES_MEDICATION| Medication
+Event -->|HAS_CLAIM| Claim
+Claim -->|PROVIDED_BY| Provider
+Event -->|HAS_GAP| CareGap
+Patient -->|HAS_RISK_SCORE| RiskScore
+
+
+%% Styling 
+classDef node_0_color fill:#e3f2fd,stroke:#1976d2,stroke-width:3px,color:#000,font-size:12px
+class Patient node_0_color
+
+classDef node_1_color fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px,color:#000,font-size:12px
+class Demographic node_1_color
+
+classDef node_2_color fill:#e8f5e8,stroke:#388e3c,stroke-width:3px,color:#000,font-size:12px
+class Event node_2_color
+
+classDef node_3_color fill:#fff3e0,stroke:#f57c00,stroke-width:3px,color:#000,font-size:12px
+class MedicalCondition node_3_color
+
+classDef node_4_color fill:#fce4ec,stroke:#c2185b,stroke-width:3px,color:#000,font-size:12px
+class Procedure node_4_color
+
+classDef node_5_color fill:#e0f2f1,stroke:#00695c,stroke-width:3px,color:#000,font-size:12px
+class LabResult node_5_color
+
+classDef node_6_color fill:#f1f8e9,stroke:#689f38,stroke-width:3px,color:#000,font-size:12px
+class ClinicalOutcome node_6_color
+
+classDef node_7_color fill:#fff8e1,stroke:#ffa000,stroke-width:3px,color:#000,font-size:12px
+class Medication node_7_color
+
+classDef node_8_color fill:#e8eaf6,stroke:#3f51b5,stroke-width:3px,color:#000,font-size:12px
+class Provider node_8_color
+
+classDef node_9_color fill:#efebe9,stroke:#5d4037,stroke-width:3px,color:#000,font-size:12px
+class Claim node_9_color
+
+classDef node_10_color fill:#fafafa,stroke:#424242,stroke-width:3px,color:#000,font-size:12px
+class CareGap node_10_color
+
+classDef node_11_color fill:#e1f5fe,stroke:#0277bd,stroke-width:3px,color:#000,font-size:12px
+class RiskScore node_11_color
