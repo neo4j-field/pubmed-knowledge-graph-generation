@@ -18,8 +18,10 @@ initializing_queries:
       CREATE CONSTRAINT medication_name IF NOT EXISTS FOR (n:Medication) REQUIRE n.name IS NODE KEY;
     treatment_arm_id: |
       CREATE CONSTRAINT treatment_arm_id IF NOT EXISTS FOR (n:TreatmentArm) REQUIRE n.id IS NODE KEY;
-    medical_condition_name: |
-      CREATE CONSTRAINT medical_condition_name IF NOT EXISTS FOR (n:MedicalCondition) REQUIRE n.name IS NODE KEY;
+    # medical_condition_name: |
+    #   CREATE CONSTRAINT medical_condition_name IF NOT EXISTS FOR (n:MedicalCondition) REQUIRE n.name IS NODE KEY;
+    medical_condition_icd10_code: |
+      CREATE CONSTRAINT medical_condition_icd10_code IF NOT EXISTS FOR (n:MedicalCondition) REQUIRE n.icd10Code IS NODE KEY;
     study_population_id: |
       CREATE CONSTRAINT study_population_id IF NOT EXISTS FOR (n:StudyPopulation) REQUIRE n.id IS NODE KEY;
     clinical_outcome_id: |
@@ -40,12 +42,12 @@ initializing_queries:
       CREATE CONSTRAINT provider_id IF NOT EXISTS FOR (n:Provider) REQUIRE n.id IS UNIQUE;
     claim_id: |
       CREATE CONSTRAINT claim_id IF NOT EXISTS FOR (n:Claim) REQUIRE n.id IS UNIQUE;
-    diagnosis_id: |
-      CREATE CONSTRAINT diagnosis_id IF NOT EXISTS FOR (n:Diagnosis) REQUIRE n.id IS UNIQUE;
-    care_gap_id: |
-      CREATE CONSTRAINT gap_id IF NOT EXISTS FOR (n:CareGap) REQUIRE n.id IS UNIQUE;
-    risk_id: |
-      CREATE CONSTRAINT risk_id IF NOT EXISTS FOR (n:RiskScore) REQUIRE n.id IS UNIQUE;
+    # diagnosis_id: |
+    #   CREATE CONSTRAINT diagnosis_id IF NOT EXISTS FOR (n:Diagnosis) REQUIRE n.id IS UNIQUE;
+    # care_gap_id: |
+    #   CREATE CONSTRAINT gap_id IF NOT EXISTS FOR (n:CareGap) REQUIRE n.id IS UNIQUE;
+    # risk_id: |
+    #   CREATE CONSTRAINT risk_id IF NOT EXISTS FOR (n:RiskScore) REQUIRE n.id IS UNIQUE;
     event_id: |
       CREATE CONSTRAINT event_id IF NOT EXISTS FOR (n:Event) REQUIRE (n.date, n.patient_id) IS UNIQUE;
 
@@ -337,30 +339,36 @@ loading_queries:
     MERGE (demo:Demographic {age: age, sex: row.sex, zip: row.zip_code})
     MERGE (m)-[:IN_DEMOGRAPHIC]->(demo)
 
-    MERGE (c:MedicalCondition {icd10Code: row.diagnosis_code, name: row.diagnosis})
-    MERGE (m)-[:HAS_DIAGNOSIS]->(c)
+    MERGE (e:Event {date: date(row.visit_date), patient_id: row.member_id})
+    MERGE (m)-[:HAS_EVENT]->(e)
+
+    MERGE (c:MedicalCondition {icd10Code: row.diagnosis_code})
+    SET c.name = row.diagnosis
+    MERGE (e)-[:HAS_DIAGNOSIS]->(c)
 
     MERGE (p:Procedure {code: row.procedure_code, name: row.procedure_name})
-    MERGE (m)-[:UNDERWENT_PROCEDURE {date: date(row.visit_date)}]->(p)
+    MERGE (e)-[:UNDERWENT_PROCEDURE]->(p)
 
-    MERGE (l:LabResult {name: row.lab_test, value: lab_val})
-    MERGE (m)-[:HAS_LAB_RESULT {date: date(row.visit_date)}]->(l)
+    CREATE (l:LabResult)
+    SET l.name = row.lab_test,
+        l.value = lab_val
+    MERGE (e)-[:HAS_LAB_RESULT]->(l)
 
     MERGE (o:ClinicalOutcome {name: row.outcome, id: row.outcome})
-    MERGE (m)-[:ACHIEVES_CLINICAL_OUTCOME {date: date(row.visit_date)}]->(o)
+    MERGE (e)-[:ACHIEVES_CLINICAL_OUTCOME]->(o)
 
     FOREACH (med IN meds |
       MERGE (d:Medication {name: toLower(med)})
-      MERGE (m)-[:TAKES_MEDICATION]->(d)
+      MERGE (e)-[:TAKES_MEDICATION]->(d)
     )
 
   patient_journey_claims:
     # patients.csv
     patients: |
       UNWIND $rows as row
-      MERGE (p:Patient {patient_id: row.patient_id})
-      SET p.age = toInteger(row.age),
-          p.gender = row.gender;
+      MERGE (p:Patient {patient_id: row.patient_id});
+      // SET p.age = toInteger(row.age),
+      //     p.gender = row.gender;
 
     # providers.csv
     providers: |
@@ -372,21 +380,47 @@ loading_queries:
     # claims_with_all_codes.csv
     claims: |
       UNWIND $rows as row
+      // Create claim node
       MERGE (c:Claim {claim_id: row.claim_id})
       SET c.date = date(row.date),
           c.procedure = row.procedure,
           c.icd9 = toString(row.icd9),
+          c.icd10 = toString(row.icd10),
           c.cpt4 = row.cpt4,
           c.ndc = row.ndc_code,
           c.rxnorm = row.rxnorm_code
+
+      // Create event node
       WITH c, row
       MERGE (e:Event {date: date(row.date), patient_id: row.patient_id})
+
+      // Create Patient, if not already created
+      // Link claim to event
+      // Link event to patient
       WITH c, e, row
       MERGE (p:Patient {patient_id: row.patient_id})
       MERGE (e)-[:HAS_CLAIM]->(c)
-      WITH c, row
+      MERGE (p)-[:HAS_EVENT]->(e)
+
+      // Link claim to provider
+      WITH c, e, row
       MATCH (pr:Provider {provider_id: row.provider_id})
-      MERGE (c)-[:PROVIDED_BY]->(pr);
+      MERGE (c)-[:PROVIDED_BY]->(pr)
+
+      // Create Procedure node
+      // Link event to procedure
+      WITH c, e, row
+      MERGE (p:Procedure {code: row.cpt4, name: row.procedure})
+      MERGE (e)-[:UNDERWENT_PROCEDURE]->(p)
+
+      // Create MedicalCondition node
+      WITH c, e, row
+      MERGE (m:MedicalCondition {icd10Code: toString(row.icd10)})
+      SET m.icd9Code = toString(row.icd9)
+
+      // Link event to medical condition
+      WITH e, m
+      MERGE (e)-[:HAS_DIAGNOSIS]->(m);
 
     # patient_journey_with_providers.csv
     events: |
@@ -397,19 +431,21 @@ loading_queries:
       MATCH (p:Patient {patient_id: row.patient_id})
       MERGE (p)-[:HAS_EVENT]->(e);
 
-    # conditions.csv
-    conditions: |
-      UNWIND $rows as row
-      MERGE (d:Diagnosis {condition: row.condition})
-      WITH d, row
-      MATCH (p:Patient {patient_id: row.patient_id})
-      MERGE (p)-[:HAS_DIAGNOSIS]->(d);
+    # Skipping this CSV in favor of conditions in the protocol data
+    # # conditions.csv
+    # conditions: |
+    #   UNWIND $rows as row
+    #   MERGE (d:MedicalCondition {condition: row.condition})
+    #   WITH d, row
+    #   MATCH (p:Patient {patient_id: row.patient_id})
+    #   MERGE (p)-[:HAS_DIAGNOSIS]->(d);
 
     # care_gaps.csv
     care_gaps: |
       UNWIND $rows as row
-      MERGE (g:CareGap {gap: row.care_gap})
-      SET g.status = row.status
+      CREATE (g:CareGap)
+      SET g.status = row.status,
+          g.gap = row.care_gap
       WITH g, row
       MERGE (e:Event {date: date(row.identified_date), patient_id: row.patient_id})
       WITH e, g, row
@@ -421,7 +457,7 @@ loading_queries:
     # risk_scores.csv
     risk_scores: |
       UNWIND $rows as row
-      MERGE (r:RiskScore)
+      CREATE (r:RiskScore)
       SET r.score = toFloat(row.risk_score),
           r.risk_group = row.risk_group
       WITH r, row
