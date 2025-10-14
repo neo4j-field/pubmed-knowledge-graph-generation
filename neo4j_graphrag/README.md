@@ -1,6 +1,6 @@
 # Neo4j GraphRAG Python Package Example
 
-This directory contains knowledge graph generation code using the Neo4j GraphRAG Python Package. It is a single notebooks that creates a pipeline that will parse PDFs, extract entities, ingest data into Neo4j and perform some simple post processing.
+This directory contains knowledge graph generation code using the Neo4j GraphRAG Python Package. It is a single notebook that creates a pipeline to parse PDFs, extract entities, ingest data into Neo4j and perform some simple post processing.
 
 ## Differences From Main Notebooks
 * No constraints or indexes for lexical and entity graphs
