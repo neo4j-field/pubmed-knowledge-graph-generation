@@ -22,7 +22,7 @@ dependencies = [
     "langchain (>=0.3.27,<0.4.0)",
     "langchain-openai (>=0.3.28,<0.4.0)",
     "ipykernel (>=6.30.1,<7.0.0)",
-    "neo4j-graphrag (>=1.10.0,<2.0.0)"
+    "neo4j-graphrag[experimental] (>=1.10.0,<2.0.0)"
 ]
 
 [tool.poetry]
