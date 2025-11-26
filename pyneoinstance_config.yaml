@@ -1,6 +1,6 @@
 db_info:
   uri: bolt://localhost:7687
-  database: patient-journey-test-4
+  database: db-name
   user: neo4j
   password: password
 initializing_queries:
@@ -401,8 +401,8 @@ loading_queries:
       // Create MedicalCondition node
       WITH c, e, row
       MERGE (m:MedicalCondition {name: row.medical_condition})
-      SET m.icd10Code = toString(row.icd10_code),
-          m.icd9Code = toString(row.icd9_code)
+      SET m.icd10Code = toString(row.icd10),
+          m.icd9Code = toString(row.icd9)
 
       // Link event to medical condition
       WITH e, m
