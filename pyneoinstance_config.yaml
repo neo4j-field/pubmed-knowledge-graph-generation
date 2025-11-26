@@ -1,6 +1,6 @@
 db_info:
   uri: bolt://localhost:7687
-  database: test-fix-icd-cols
+  database: db-name
   user: neo4j
   password: password
 initializing_queries:
