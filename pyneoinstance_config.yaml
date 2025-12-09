@@ -42,14 +42,14 @@ initializing_queries:
   event_type: |
     CREATE INDEX event_type IF NOT EXISTS FOR (n:Event) ON n.type;
 
-    chunk_vector_index: |
-      CREATE VECTOR INDEX chunk_vector_index IF NOT EXISTS
-      FOR (c:Chunk)
-      ON c.embedding
-      OPTIONS { indexConfig: {
-      `vector.dimensions`: 768,
-      `vector.similarity_function`: 'cosine'
-      }}
+  chunk_vector_index: |
+    CREATE VECTOR INDEX chunk_vector_index IF NOT EXISTS
+    FOR (c:Chunk)
+    ON c.embedding
+    OPTIONS { indexConfig: {
+    `vector.dimensions`: 768,
+    `vector.similarity_function`: 'cosine'
+    }}
 
 loading_queries:
   nodes:
