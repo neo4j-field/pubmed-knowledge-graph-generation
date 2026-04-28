@@ -33,7 +33,7 @@ else:
 
 neo4j_cypher_mcp = StdioServerParameters(
     command="uvx",
-    args=["mcp-neo4j-cypher@0.3.0", "--transport", "stdio"],
+    args=["mcp-neo4j-cypher@0.6.0", "--transport", "stdio"],
     env={
             "NEO4J_URI": os.getenv("NEO4J_URI"), 
             "NEO4J_USERNAME": os.getenv("NEO4J_USERNAME"), 
