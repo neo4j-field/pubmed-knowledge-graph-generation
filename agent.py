@@ -20,10 +20,12 @@ from langchain_mcp_adapters.tools import load_mcp_tools
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.prebuilt import create_react_agent
 
+from neo4j import GraphDatabase, RoutingControl
+
 from openai import OpenAI
 
 from pydantic import BaseModel, Field, field_validator
-from pyneoinstance import Neo4jInstance, load_yaml_file
+from pyneoinstance import load_yaml_file
 
 
 if load_dotenv():
@@ -63,12 +65,13 @@ def _embed_text(text: str) -> list[float]:
 def research_medication(medication_name: str, research_prompt: str) -> str:
     """
     Search the database for information about a specific medication.
-    """
+    """ 
+
 
     if neo4j_config is None:
         raise ValueError("Neo4j config not found in `pyneoinstance_config.yaml` under `db_info` key")
     
-    g = Neo4jInstance(uri=neo4j_config["uri"], user=neo4j_config["user"], password=neo4j_config["password"])
+    driver = GraphDatabase.driver(os.getenv("NEO4J_URI", neo4j_config["uri"]), auth=(os.getenv("NEO4J_USERNAME", neo4j_config["user"]), os.getenv("NEO4J_PASSWORD", neo4j_config["password"])))
 
     query = """
 call db.index.vector.queryNodes("chunk_vector_index", 10, $embedding)
@@ -86,12 +89,21 @@ return n.id as chunk_id,
        n.text as chunk_text
     """
 
-    embedding = _embed_text(f"Medication: {medication_name}\n{research_prompt}")
+    try:
+        embedding = _embed_text(f"Medication: {medication_name}\n{research_prompt}")
+    except Exception as e:
+        print(f"Error embedding text: {str(e)}")
+        return f"Error embedding text: {str(e)}"
 
-    results_df = g.execute_read_query(query, 
-                                      neo4j_config["database"],
-                                      {"embedding": embedding, "medication_name": medication_name})
-    return results_df.to_dict(orient="records")
+    try:
+        results = driver.execute_query(query_=query, 
+                                        parameters_={"embedding": embedding, "medication_name": medication_name},
+                                        routing_=RoutingControl.READ,
+                                        database_=os.getenv("NEO4J_DATABASE", neo4j_config["database"]),
+                                        result_transformer_=lambda x: x.data())
+        return results
+    except Exception as e:
+        return f"Error executing read query: {str(e)}"
 
 class ResearchMedicationInput(BaseModel):
     medication_name: str = Field(..., description="The name of the medication to research. ")
